@@ -1,0 +1,28 @@
+services:
+  lychee:
+    image: lycheeorg/lychee:v7
+    restart: unless-stopped
+    # Lychee's start takes a key only as base64 of 32 bytes: the 32 characters of KEY are those
+    # bytes.
+    entrypoint:
+      - sh
+      - -c
+      - export APP_KEY="base64:$$(printf %s "$$KEY" | base64)"; exec /usr/local/bin/entrypoint.sh "$$@"
+      - lychee
+    command: [php, artisan, octane:start, --server=frankenphp, --host=0.0.0.0, --port=8000]
+    environment:
+      KEY: ${KEY}
+      APP_URL: ${URL}
+      # TLS ends at the machine's proxy, which says so in X-Forwarded-Proto.
+      TRUSTED_PROXIES: "*"
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /data/lychee.sqlite
+      # No worker: a job runs as it is made.
+      QUEUE_CONNECTION: sync
+    volumes:
+      - data:/data
+      - uploads:/app/public/uploads
+
+volumes:
+  data:
+  uploads:

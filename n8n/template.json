@@ -1,0 +1,56 @@
+{
+	"name": "n8n",
+	"emoji": "🔀",
+	"route": {
+		"service": "n8n",
+		"port": 5678
+	},
+	"variables": [
+		{
+			"name": "APP_URL",
+			"from": "url"
+		},
+		{
+			"name": "APP_HOST",
+			"from": "host"
+		},
+		{
+			"name": "N8N_ENCRYPTION_KEY",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Workflow automation with a visual editor",
+			"notes": "Open the address and create the owner account on the first page. Do it right away: until then the page is open to whoever has the address. Schedules run in UTC: for another zone add GENERIC_TIMEZONE, for example Europe/Berlin, to the project’s .env and deploy again."
+		},
+		"de": {
+			"description": "Workflow-Automatisierung mit visuellem Editor",
+			"notes": "Öffne die Adresse und erstell auf der ersten Seite das Owner-Konto. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Zeitpläne laufen in UTC: Für eine andere Zeitzone trägst du GENERIC_TIMEZONE, zum Beispiel Europe/Berlin, in die .env des Projekts ein und deployst neu."
+		},
+		"es": {
+			"description": "Automatización de flujos de trabajo con un editor visual",
+			"notes": "Abre la dirección y crea la cuenta de propietario en la primera página. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Las tareas programadas se ejecutan en UTC: para otra zona horaria, agrega GENERIC_TIMEZONE, por ejemplo Europe/Berlin, al .env del proyecto y vuelve a desplegar."
+		},
+		"fr": {
+			"description": "Automatisation de workflows avec un éditeur visuel",
+			"notes": "Ouvrez l’adresse et créez le compte propriétaire sur la première page. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Les planifications s’exécutent en UTC : pour un autre fuseau horaire, ajoutez GENERIC_TIMEZONE, par exemple Europe/Berlin, au .env du projet et redéployez."
+		},
+		"pl": {
+			"description": "Automatyzacja workflowów z wizualnym edytorem",
+			"notes": "Otwórz adres projektu i na pierwszej stronie załóż konto właściciela. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Harmonogramy działają w UTC: dla innej strefy dodaj GENERIC_TIMEZONE, na przykład Europe/Berlin, do pliku .env projektu i wdróż ponownie."
+		},
+		"pt": {
+			"description": "Automação de fluxos de trabalho com editor visual",
+			"notes": "Abra o endereço e crie a conta do dono na primeira página. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. Os agendamentos rodam em UTC: para outro fuso, adicione GENERIC_TIMEZONE, por exemplo Europe/Berlin, ao .env do projeto e faça o deploy de novo."
+		},
+		"ru": {
+			"description": "Автоматизация рабочих процессов с визуальным редактором",
+			"notes": "Откройте адрес и создайте аккаунт владельца на первой странице. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Расписания работают по UTC: для другого часового пояса добавьте в .env проекта GENERIC_TIMEZONE, например Europe/Berlin, и задеплойте проект заново."
+		},
+		"uk": {
+			"description": "Автоматизація робочих процесів із візуальним редактором",
+			"notes": "Відкрийте адресу і створіть акаунт власника на першій сторінці. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Розклади працюють за UTC: для іншого часового поясу додайте GENERIC_TIMEZONE, наприклад Europe/Berlin, у файл .env проєкту й задеплойте ще раз."
+		}
+	}
+}

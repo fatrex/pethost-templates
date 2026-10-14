@@ -1,0 +1,43 @@
+{
+	"name": "Jenkins",
+	"emoji": "🤵",
+	"route": {
+		"service": "jenkins",
+		"port": 8080
+	},
+	"variables": [],
+	"texts": {
+		"en": {
+			"description": "An automation server for builds, tests and deploys",
+			"notes": "Open the address and paste the setup password from the jenkins service’s log, on the Logs tab. The wizard then installs plugins and makes your admin account. Jobs, plugins and settings are kept in /var/jenkins_home."
+		},
+		"de": {
+			"description": "Ein Automatisierungsserver für Builds, Tests und Deploys",
+			"notes": "Öffne die Adresse und füg das Setup-Passwort aus dem Log des Service jenkins ein, im Tab „Logs“. Der Assistent installiert dann Plugins und legt dein Admin-Konto an. Jobs, Plugins und Einstellungen bleiben in /var/jenkins_home erhalten."
+		},
+		"es": {
+			"description": "Un servidor de automatización para builds, pruebas y despliegues",
+			"notes": "Abre la dirección y pega la contraseña de instalación del log del servicio jenkins, en la pestaña Logs. Luego el asistente instala plugins y crea tu cuenta de administrador. Los jobs, los plugins y la configuración se conservan en /var/jenkins_home."
+		},
+		"fr": {
+			"description": "Un serveur d’automatisation pour les builds, les tests et les déploiements",
+			"notes": "Ouvrez l’adresse et collez le mot de passe d’installation tiré du log du service jenkins, dans l’onglet Logs. L’assistant installe ensuite les plugins et crée votre compte administrateur. Les jobs, les plugins et les réglages sont conservés dans /var/jenkins_home."
+		},
+		"pl": {
+			"description": "Serwer automatyzacji do buildów, testów i wdrożeń",
+			"notes": "Otwórz adres projektu i wklej hasło instalacyjne z logu usługi jenkins, w zakładce Logi. Kreator zainstaluje wtedy wtyczki i założy twoje konto administratora. Zadania, wtyczki i ustawienia zostają w /var/jenkins_home."
+		},
+		"pt": {
+			"description": "Um servidor de automação para builds, testes e deploys",
+			"notes": "Abra o endereço e cole a senha de instalação do log do serviço jenkins, na aba Logs. O assistente então instala os plugins e cria sua conta de administrador. Jobs, plugins e configurações ficam guardados em /var/jenkins_home."
+		},
+		"ru": {
+			"description": "Сервер автоматизации для сборок, тестов и деплоев",
+			"notes": "Откройте адрес и вставьте пароль установки из лога сервиса jenkins на вкладке «Логи». Затем мастер установит плагины и создаст ваш аккаунт администратора. Задачи, плагины и настройки хранятся в /var/jenkins_home."
+		},
+		"uk": {
+			"description": "Сервер автоматизації для збірок, тестів і деплоїв",
+			"notes": "Відкрийте адресу й вставте пароль установлення з логу сервісу jenkins на вкладці «Логи». Потім майстер установить плагіни й створить ваш акаунт адміністратора. Завдання, плагіни й налаштування зберігаються в /var/jenkins_home."
+		}
+	}
+}

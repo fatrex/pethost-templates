@@ -1,0 +1,60 @@
+{
+	"name": "Lemmy",
+	"emoji": "🐀",
+	"route": {
+		"service": "proxy",
+		"port": 8536
+	},
+	"variables": [
+		{
+			"name": "HOST",
+			"from": "host"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 16
+		},
+		{
+			"name": "PICTRS_API_KEY",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A link aggregator and forum for the fediverse",
+			"notes": "Sign in as admin with the password you gave; the first start takes a minute or two. New accounts wait for your approval: Registration Mode is under Admin Settings. The password is changed in Lemmy’s own settings: the one in .env is read only once. The address is the instance’s name in the fediverse, so keep it."
+		},
+		"de": {
+			"description": "Ein Link-Aggregator und Forum für das Fediverse",
+			"notes": "Melde dich als admin mit dem Passwort an, das du festgelegt hast; der erste Start dauert ein bis zwei Minuten. Neue Konten warten auf deine Bestätigung: „Registration Mode“ findest du unter „Admin Settings“. Das Passwort änderst du in den Einstellungen von Lemmy selbst: Das aus der .env wird nur einmal gelesen. Die Adresse ist der Name der Instanz im Fediverse, behalt sie also bei."
+		},
+		"es": {
+			"description": "Un agregador de enlaces y foro para el fediverso",
+			"notes": "Inicia sesión como admin con la contraseña que indicaste; el primer inicio tarda uno o dos minutos. Las cuentas nuevas esperan tu aprobación: Registration Mode está en Admin Settings. La contraseña se cambia en los ajustes del propio Lemmy: la de .env se lee una sola vez. La dirección es el nombre de la instancia en el fediverso, así que consérvala."
+		},
+		"fr": {
+			"description": "Un agrégateur de liens et un forum pour le fédivers",
+			"notes": "Connectez-vous avec le nom d’utilisateur admin et le mot de passe que vous avez choisi ; le premier démarrage prend une à deux minutes. Les nouveaux comptes attendent votre approbation : Registration Mode se trouve dans Admin Settings. Le mot de passe se modifie dans les paramètres de Lemmy lui-même : celui du .env n’est lu qu’une seule fois. L’adresse est le nom de l’instance dans le fédivers, gardez-la donc."
+		},
+		"pl": {
+			"description": "Agregator linków i forum dla fediwersum",
+			"notes": "Zaloguj się jako admin z hasłem podanym przy tworzeniu projektu; pierwsze uruchomienie trwa minutę lub dwie. Nowe konta czekają na twoje zatwierdzenie: Registration Mode jest w Admin Settings. Hasło zmienisz w ustawieniach samej aplikacji Lemmy: to z .env jest odczytywane tylko raz. Adres to nazwa instancji we fediwersum, więc go zachowaj."
+		},
+		"pt": {
+			"description": "Um agregador de links e fórum para o fediverso",
+			"notes": "Entre como admin com a senha que você definiu; na primeira vez, o app leva de um a dois minutos para iniciar. As contas novas esperam a sua aprovação: Registration Mode fica em Admin Settings. A senha é alterada nas configurações do próprio Lemmy: a do .env só é lida uma vez. O endereço é o nome da instância no fediverso, então mantenha-o."
+		},
+		"ru": {
+			"description": "Агрегатор ссылок и форум для федиверса",
+			"notes": "Войдите как admin с паролем, который вы задали; первый запуск занимает минуту-две. Новые аккаунты ждут вашего одобрения: Registration Mode находится в Admin Settings. Пароль меняется в настройках самого Lemmy: тот, что в .env, читается только один раз. Адрес — это имя инстанса в федиверсе, поэтому не меняйте его."
+		},
+		"uk": {
+			"description": "Агрегатор посилань і форум для федіверсу",
+			"notes": "Увійдіть як admin із паролем, який ви вказали; перший запуск триває хвилину-дві. Нові акаунти чекають на ваше підтвердження: Registration Mode — у розділі Admin Settings. Пароль змінюють у налаштуваннях самого Lemmy: той, що в .env, читається лише раз. Адреса — це назва інстансу у федіверсі, тож не змінюйте її."
+		}
+	}
+}

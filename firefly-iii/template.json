@@ -1,0 +1,60 @@
+{
+	"name": "Firefly III",
+	"emoji": "🐷",
+	"route": {
+		"service": "app",
+		"port": 8080
+	},
+	"variables": [
+		{
+			"name": "APP_URL",
+			"from": "url"
+		},
+		{
+			"name": "APP_KEY",
+			"secret": 16
+		},
+		{
+			"name": "STATIC_CRON_TOKEN",
+			"secret": 16
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A personal finance manager with double-entry bookkeeping",
+			"notes": "Open the address and register: the first account is the only one, and registration closes after it. Do it right away: until then the page is open to whoever has the address. Firefly III runs in UTC: for another time zone add TZ, for example Europe/Berlin, to the project’s .env and deploy again."
+		},
+		"de": {
+			"description": "Eine Verwaltung für private Finanzen mit doppelter Buchführung",
+			"notes": "Öffne die Adresse und registrier dich: Das erste Konto ist das einzige, danach ist die Registrierung geschlossen. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Firefly III läuft in UTC: Für eine andere Zeitzone trägst du TZ, zum Beispiel Europe/Berlin, in die .env des Projekts ein und deployst neu."
+		},
+		"es": {
+			"description": "Un administrador de finanzas personales con contabilidad por partida doble",
+			"notes": "Abre la dirección y regístrate: la primera cuenta es la única, y después se cierra el registro. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Firefly III se ejecuta en UTC: para otra zona horaria, agrega TZ, por ejemplo Europe/Berlin, al .env del proyecto y vuelve a desplegar."
+		},
+		"fr": {
+			"description": "Un gestionnaire de finances personnelles en comptabilité à partie double",
+			"notes": "Ouvrez l’adresse et inscrivez-vous : le premier compte est le seul, et les inscriptions se ferment ensuite. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Firefly III fonctionne en UTC : pour un autre fuseau horaire, ajoutez TZ, par exemple Europe/Berlin, au .env du projet et redéployez."
+		},
+		"pl": {
+			"description": "Menedżer finansów osobistych z księgowością podwójnego zapisu",
+			"notes": "Otwórz adres projektu i załóż konto: pierwsze konto będzie jedynym, a po nim rejestracja się zamyka. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Firefly III działa w UTC: dla innej strefy dodaj TZ, na przykład Europe/Berlin, do pliku .env projektu i wdróż ponownie."
+		},
+		"pt": {
+			"description": "Um gerenciador de finanças pessoais com contabilidade de partidas dobradas",
+			"notes": "Abra o endereço e cadastre-se: a primeira conta é a única, e o cadastro fecha depois dela. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. O Firefly III roda em UTC: para outro fuso, adicione TZ, por exemplo Europe/Berlin, ao .env do projeto e faça o deploy de novo."
+		},
+		"ru": {
+			"description": "Менеджер личных финансов с двойной записью",
+			"notes": "Откройте адрес и зарегистрируйтесь: первый аккаунт будет единственным, и после него регистрация закрывается. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Firefly III работает по UTC: для другого часового пояса добавьте в .env проекта TZ, например Europe/Berlin, и задеплойте проект заново."
+		},
+		"uk": {
+			"description": "Менеджер особистих фінансів із подвійним записом",
+			"notes": "Відкрийте адресу й зареєструйтеся: перший акаунт буде єдиним, і після нього реєстрація закривається. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Firefly III працює за UTC: для іншого часового поясу додайте TZ, наприклад Europe/Berlin, у файл .env проєкту й задеплойте ще раз."
+		}
+	}
+}

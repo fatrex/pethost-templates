@@ -1,0 +1,48 @@
+{
+	"name": "code-server",
+	"emoji": "💻",
+	"route": {
+		"service": "code-server",
+		"port": 8080
+	},
+	"variables": [
+		{
+			"name": "PASSWORD",
+			"ask": "password"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "VS Code in the browser",
+			"notes": "Sign in with the password you gave. Keep your work under /home/coder: that folder is kept, and what is installed outside it is gone when the container is made anew."
+		},
+		"de": {
+			"description": "VS Code im Browser",
+			"notes": "Melde dich mit dem Passwort an, das du festgelegt hast. Leg deine Arbeit unter /home/coder ab: Dieser Ordner bleibt erhalten, und was außerhalb davon installiert ist, geht verloren, wenn der Container neu erstellt wird."
+		},
+		"es": {
+			"description": "VS Code en el navegador",
+			"notes": "Inicia sesión con la contraseña que indicaste. Guarda tu trabajo en /home/coder: esa carpeta se conserva, y lo que se instale fuera de ella se pierde al recrear el contenedor."
+		},
+		"fr": {
+			"description": "VS Code dans le navigateur",
+			"notes": "Connectez-vous avec le mot de passe que vous avez choisi. Gardez votre travail sous /home/coder : ce dossier est conservé, et ce qui est installé ailleurs disparaît quand le conteneur est recréé."
+		},
+		"pl": {
+			"description": "VS Code w przeglądarce",
+			"notes": "Zaloguj się hasłem podanym przy tworzeniu projektu. Trzymaj swoją pracę w /home/coder: ten katalog zostaje, a to, co zainstalujesz poza nim, przepada przy ponownym utworzeniu kontenera."
+		},
+		"pt": {
+			"description": "O VS Code no navegador",
+			"notes": "Entre com a senha que você definiu. Mantenha seu trabalho em /home/coder: essa pasta é preservada, e o que for instalado fora dela se perde quando o container é recriado."
+		},
+		"ru": {
+			"description": "VS Code в браузере",
+			"notes": "Войдите с паролем, который вы задали. Храните свою работу в папке /home/coder: она сохраняется, а все, что установлено вне ее, пропадет при пересоздании контейнера."
+		},
+		"uk": {
+			"description": "VS Code у браузері",
+			"notes": "Увійдіть із паролем, який ви вказали. Тримайте свою роботу в /home/coder: ця папка зберігається, а встановлене поза нею зникне, коли контейнер буде перестворено."
+		}
+	}
+}

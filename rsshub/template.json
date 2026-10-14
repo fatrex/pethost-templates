@@ -1,0 +1,48 @@
+{
+	"name": "RSSHub",
+	"emoji": "📡",
+	"route": {
+		"service": "rsshub",
+		"port": 1200
+	},
+	"variables": [
+		{
+			"name": "BROWSERLESS_TOKEN",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "RSS feeds for sites that have none",
+			"notes": "A feed is a route’s path after the address, for example https://{host}/github/repos/DIYgod. Put the address into your feed reader in place of rsshub.app."
+		},
+		"de": {
+			"description": "RSS-Feeds für Websites, die keine haben",
+			"notes": "Ein Feed ist der Pfad einer Route hinter der Adresse, zum Beispiel https://{host}/github/repos/DIYgod. Trag in deinem Feedreader die Adresse anstelle von rsshub.app ein."
+		},
+		"es": {
+			"description": "Feeds RSS para sitios que no los tienen",
+			"notes": "Un feed es el path de una ruta después de la dirección, por ejemplo https://{host}/github/repos/DIYgod. Pon la dirección en tu lector de feeds en lugar de rsshub.app."
+		},
+		"fr": {
+			"description": "Des flux RSS pour les sites qui n’en ont pas",
+			"notes": "Un flux est le chemin d’une route à la suite de l’adresse, par exemple https://{host}/github/repos/DIYgod. Dans votre lecteur de flux, mettez l’adresse à la place de rsshub.app."
+		},
+		"pl": {
+			"description": "Kanały RSS dla stron, które ich nie mają",
+			"notes": "Kanał to ścieżka trasy po adresie, na przykład https://{host}/github/repos/DIYgod. W swoim czytniku kanałów wpisz adres projektu w miejsce rsshub.app."
+		},
+		"pt": {
+			"description": "Feeds RSS para sites que não têm feed",
+			"notes": "Um feed é o caminho de uma rota depois do endereço, por exemplo https://{host}/github/repos/DIYgod. Coloque o endereço no seu leitor de feeds no lugar de rsshub.app."
+		},
+		"ru": {
+			"description": "RSS-ленты для сайтов, у которых их нет",
+			"notes": "Лента — это путь маршрута после адреса, например https://{host}/github/repos/DIYgod. В своей читалке лент указывайте адрес проекта вместо rsshub.app."
+		},
+		"uk": {
+			"description": "RSS-стрічки для сайтів, у яких їх немає",
+			"notes": "Стрічка — це шлях маршруту після адреси, наприклад https://{host}/github/repos/DIYgod. У своїй читалці стрічок вказуйте адресу проєкту замість rsshub.app."
+		}
+	}
+}

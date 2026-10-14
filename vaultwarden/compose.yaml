@@ -1,0 +1,20 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:1.37.4
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${URL}
+      # Set SIGNUPS_ALLOWED=false in .env once your account exists.
+      SIGNUPS_ALLOWED: ${SIGNUPS_ALLOWED:-true}
+    volumes:
+      - data:/data
+    # The image's own check runs once a minute; this one answers in ten seconds.
+    healthcheck:
+      test: ["CMD", "/healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  data:

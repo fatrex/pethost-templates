@@ -1,0 +1,14 @@
+services:
+  owncast:
+    image: owncast/owncast:0.3.0
+    restart: unless-stopped
+    command:
+      - "--adminpassword=${ADMIN_PASSWORD}"
+      - "--streamkey=${STREAM_KEY}"
+    ports:
+      - "1935:1935"
+    volumes:
+      - data:/app/data
+
+volumes:
+  data:

@@ -1,0 +1,16 @@
+services:
+  navidrome:
+    image: deluan/navidrome:0.64.2
+    restart: unless-stopped
+    environment:
+      # Encrypts the stored passwords with this project's own key, not the one in Navidrome's
+      # source. It can never change after the first start: the passwords would stop working.
+      ND_PASSWORDENCRYPTIONKEY: ${PASSWORD_ENCRYPTION_KEY}
+    volumes:
+      - data:/data
+      # Writable, so that music can be copied in over SFTP.
+      - music:/music
+
+volumes:
+  data:
+  music:

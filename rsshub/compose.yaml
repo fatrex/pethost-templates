@@ -1,0 +1,46 @@
+services:
+  rsshub:
+    image: diygod/rsshub:2026-10-13
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      CACHE_TYPE: redis
+      REDIS_URL: redis://redis:6379/
+      PLAYWRIGHT_CDP_ENDPOINT: ws://browserless:3000?token=${BROWSERLESS_TOKEN}
+    depends_on:
+      redis:
+        condition: service_healthy
+      browserless:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1200/healthz"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  browserless:
+    image: ghcr.io/browserless/chromium:v2.57.0
+    restart: unless-stopped
+    environment:
+      TOKEN: ${BROWSERLESS_TOKEN}
+    healthcheck:
+      test: ['CMD-SHELL', 'curl -f "http://localhost:3000/pressure?token=$$TOKEN"']
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  redis:
+    image: redis:8-alpine
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  redis-data:

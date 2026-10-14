@@ -1,0 +1,56 @@
+{
+	"name": "Karakeep",
+	"emoji": "🗂️",
+	"route": {
+		"service": "web",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "NEXTAUTH_URL",
+			"from": "url"
+		},
+		{
+			"name": "NEXTAUTH_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "MEILI_MASTER_KEY",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A bookmark app for links, notes and images, with full-text search",
+			"notes": "Open the address and sign up: the first account is the admin. Do it right away: until then the page is open to whoever has the address. Then add DISABLE_SIGNUPS=true to the project’s .env and deploy again. AI tagging works once OPENAI_API_KEY is in .env too."
+		},
+		"de": {
+			"description": "Eine Lesezeichen-App für Links, Notizen und Bilder, mit Volltextsuche",
+			"notes": "Öffne die Adresse und registrier dich: Das erste Konto ist das Admin-Konto. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Trag dann DISABLE_SIGNUPS=true in die .env des Projekts ein und deploy neu. Das KI-Tagging funktioniert, sobald auch OPENAI_API_KEY in der .env steht."
+		},
+		"es": {
+			"description": "Una app de marcadores para enlaces, notas e imágenes, con búsqueda de texto completo",
+			"notes": "Abre la dirección y regístrate: la primera cuenta es la del administrador. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Luego agrega DISABLE_SIGNUPS=true al .env del proyecto y vuelve a desplegar. El etiquetado con IA funciona cuando OPENAI_API_KEY también está en .env."
+		},
+		"fr": {
+			"description": "Une application de favoris pour les liens, les notes et les images, avec recherche plein texte",
+			"notes": "Ouvrez l’adresse et inscrivez-vous : le premier compte est l’administrateur. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Ajoutez ensuite DISABLE_SIGNUPS=true au .env du projet et redéployez. Le tagging par IA fonctionne dès que OPENAI_API_KEY est aussi dans le .env."
+		},
+		"pl": {
+			"description": "Aplikacja do zakładek na linki, notatki i obrazy, z wyszukiwaniem pełnotekstowym",
+			"notes": "Otwórz adres projektu i załóż konto: pierwsze konto jest administratorem. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Potem dodaj DISABLE_SIGNUPS=true do pliku .env projektu i wdróż ponownie. Tagowanie z AI działa, gdy w .env jest też OPENAI_API_KEY."
+		},
+		"pt": {
+			"description": "Um app de favoritos para links, notas e imagens, com busca em texto completo",
+			"notes": "Abra o endereço e cadastre-se: a primeira conta é a do administrador. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. Depois adicione DISABLE_SIGNUPS=true ao .env do projeto e faça o deploy de novo. A criação de tags por IA funciona quando OPENAI_API_KEY também está no .env."
+		},
+		"ru": {
+			"description": "Приложение для закладок со ссылками, заметками и изображениями, с полнотекстовым поиском",
+			"notes": "Откройте адрес и зарегистрируйтесь: первый аккаунт становится администратором. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Затем добавьте DISABLE_SIGNUPS=true в .env проекта и задеплойте проект заново. Расстановка тегов с помощью ИИ заработает, когда в .env будет и OPENAI_API_KEY."
+		},
+		"uk": {
+			"description": "Застосунок для закладок на посилання, нотатки й зображення, із повнотекстовим пошуком",
+			"notes": "Відкрийте адресу й зареєструйтеся: перший акаунт стає адміністратором. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Потім додайте DISABLE_SIGNUPS=true у файл .env проєкту й задеплойте ще раз. Теги від ШІ запрацюють, коли в .env буде також OPENAI_API_KEY."
+		}
+	}
+}

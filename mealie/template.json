@@ -1,0 +1,48 @@
+{
+	"name": "Mealie",
+	"emoji": "🍲",
+	"route": {
+		"service": "mealie",
+		"port": 9000
+	},
+	"variables": [
+		{
+			"name": "BASE_URL",
+			"from": "url"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A recipe manager and meal planner",
+			"notes": "Sign in with changeme@example.com and MyPassword; the wizard that opens asks for your own email and password. Do it right away: until then that login is open to whoever has the address."
+		},
+		"de": {
+			"description": "Eine Rezeptverwaltung mit Essensplaner",
+			"notes": "Melde dich mit changeme@example.com und MyPassword an; der Assistent, der sich dann öffnet, fragt nach deiner eigenen E-Mail-Adresse und deinem eigenen Passwort. Mach das gleich: Bis dahin steht dieser Zugang allen offen, die die Adresse haben."
+		},
+		"es": {
+			"description": "Un administrador de recetas y planificador de comidas",
+			"notes": "Inicia sesión con changeme@example.com y MyPassword; el asistente que se abre te pide tu propio correo y tu propia contraseña. Hazlo enseguida: hasta entonces ese acceso está abierto para cualquiera que tenga la dirección."
+		},
+		"fr": {
+			"description": "Un gestionnaire de recettes et planificateur de repas",
+			"notes": "Connectez-vous avec changeme@example.com et MyPassword ; l’assistant qui s’ouvre vous demande votre propre e-mail et votre propre mot de passe. Faites-le tout de suite : d’ici là, quiconque connaît l’adresse peut se connecter avec ces identifiants."
+		},
+		"pl": {
+			"description": "Menedżer przepisów i planer posiłków",
+			"notes": "Zaloguj się danymi changeme@example.com i MyPassword; kreator, który się otworzy, zapyta o twój własny e-mail i hasło. Zrób to od razu: do tego czasu tymi danymi zaloguje się każdy, kto zna adres."
+		},
+		"pt": {
+			"description": "Um gerenciador de receitas e planejador de refeições",
+			"notes": "Entre com changeme@example.com e MyPassword; o assistente que se abre pede o seu próprio e-mail e a sua própria senha. Faça isso logo: até lá, esse login fica aberto para quem tiver o endereço."
+		},
+		"ru": {
+			"description": "Менеджер рецептов и планировщик питания",
+			"notes": "Войдите с changeme@example.com и MyPassword; откроется мастер настройки и попросит задать свои email и пароль. Сделайте это сразу: до тех пор с этим логином может войти любой, кто знает адрес."
+		},
+		"uk": {
+			"description": "Менеджер рецептів і планувальник харчування",
+			"notes": "Увійдіть із логіном changeme@example.com і паролем MyPassword; майстер, що відкриється, попросить вказати власну пошту й пароль. Зробіть це одразу: доти з цим логіном може увійти кожен, хто знає адресу."
+		}
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"name": "Komga",
+	"emoji": "📚",
+	"route": {
+		"service": "komga",
+		"port": 25600
+	},
+	"variables": [],
+	"texts": {
+		"en": {
+			"description": "A server and web reader for your comics, manga and ebooks",
+			"notes": "Open the address and create the admin account on the first page. Do it right away: until then the page is open to whoever has the address. Books go into /data in the komga service: upload files in its Files tab or copy folders over SFTP, then add a library in Komga with /data as its root folder. Reader apps that speak OPDS connect to https://{host}/opds/v1.2/catalog."
+		},
+		"de": {
+			"description": "Ein Server und Web-Reader für deine Comics, Mangas und E-Books",
+			"notes": "Öffne die Adresse und erstell auf der ersten Seite das Admin-Konto. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Bücher kommen nach /data im Service komga: Lade Dateien in dessen Tab „Dateien“ hoch oder kopier Ordner per SFTP, dann leg in Komga eine Bibliothek mit /data als Stammordner an. Reader-Apps mit OPDS verbinden sich mit https://{host}/opds/v1.2/catalog."
+		},
+		"es": {
+			"description": "Un servidor y lector web para tus cómics, manga y libros electrónicos",
+			"notes": "Abre la dirección y crea la cuenta de administrador en la primera página. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Los libros van en /data, en el servicio komga: sube archivos en su pestaña Archivos o copia carpetas por SFTP, y luego crea en Komga una biblioteca con /data como carpeta raíz. Las apps de lectura con OPDS se conectan a https://{host}/opds/v1.2/catalog."
+		},
+		"fr": {
+			"description": "Un serveur et une liseuse web pour vos BD, mangas et livres numériques",
+			"notes": "Ouvrez l’adresse et créez le compte administrateur sur la première page. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Les livres vont dans /data, dans le service komga : envoyez des fichiers depuis son onglet Fichiers ou copiez des dossiers en SFTP, puis créez dans Komga une bibliothèque avec /data comme dossier racine. Les applications de lecture compatibles OPDS se connectent à https://{host}/opds/v1.2/catalog."
+		},
+		"pl": {
+			"description": "Serwer i czytnik w przeglądarce dla twoich komiksów, mang i e-booków",
+			"notes": "Otwórz adres projektu i na pierwszej stronie załóż konto administratora. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Książki trafiają do /data w usłudze komga: wgraj pliki w jej zakładce Pliki albo skopiuj katalogi przez SFTP, a potem dodaj w Komga bibliotekę z /data jako katalogiem głównym. Czytniki obsługujące OPDS łączą się z https://{host}/opds/v1.2/catalog."
+		},
+		"pt": {
+			"description": "Um servidor e leitor web para seus quadrinhos, mangás e e-books",
+			"notes": "Abra o endereço e crie a conta de administrador na primeira página. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. Os livros vão em /data, no serviço komga: envie arquivos pela aba Arquivos dele ou copie pastas por SFTP e depois crie no Komga uma biblioteca com /data como pasta raiz. Os apps de leitura com OPDS se conectam a https://{host}/opds/v1.2/catalog."
+		},
+		"ru": {
+			"description": "Сервер и веб-читалка для ваших комиксов, манги и электронных книг",
+			"notes": "Откройте адрес и создайте аккаунт администратора на первой странице. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Книги лежат в /data в сервисе komga: загрузите файлы на его вкладке «Файлы» или скопируйте папки по SFTP, затем добавьте в Komga библиотеку с корневой папкой /data. Читалки с поддержкой OPDS подключаются к https://{host}/opds/v1.2/catalog."
+		},
+		"uk": {
+			"description": "Сервер і веб-читалка для ваших коміксів, манґи та електронних книжок",
+			"notes": "Відкрийте адресу і створіть акаунт адміністратора на першій сторінці. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Книжки лежать у /data у сервісі komga: завантажте файли на його вкладці «Файли» або скопіюйте папки через SFTP, потім додайте в Komga бібліотеку з кореневою папкою /data. Читалки з підтримкою OPDS підключаються до https://{host}/opds/v1.2/catalog."
+		}
+	}
+}

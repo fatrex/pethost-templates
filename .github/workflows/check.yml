@@ -1,0 +1,42 @@
+# Every pull request and every push is checked (catalog.mjs). A push to main builds pethost.dev
+# again, which reads the templates from main: its pages and the panel's list then have them.
+name: Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: The templates are well
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+      - run: node catalog.mjs
+
+  publish:
+    name: pethost.dev is built again
+    if: github.event_name == 'push'
+    needs: check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      # The deploy hook of the Cloudflare Pages project that builds pethost.dev.
+      - run: |
+          if [ -z "$HOOK" ]; then
+            echo "::warning::PAGES_DEPLOY_HOOK is not set: pethost.dev has the templates at its next build"
+            exit 0
+          fi
+          curl -fsS -X POST "$HOOK" > /dev/null
+        env:
+          HOOK: ${{ secrets.PAGES_DEPLOY_HOOK }}

@@ -1,0 +1,16 @@
+services:
+  rss-bridge:
+    image: rssbridge/rss-bridge:2026-09-30
+    restart: unless-stopped
+    # The image copies what is in /config over its own files at each start.
+    configs:
+      - source: config
+        target: /config/config.ini.php
+
+configs:
+  # Every bridge, where the default enables a few.
+  config:
+    content: |
+      ; <?php exit; ?> DO NOT REMOVE THIS LINE
+      [system]
+      enabled_bridges[] = *

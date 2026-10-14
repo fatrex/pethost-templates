@@ -1,0 +1,43 @@
+services:
+  wordpress:
+    image: wordpress:7-apache
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+    # PHP's own upload limit is 2 MB, too little for a photo or a theme, and the image has no
+    # variable for it: the limit is written, then the image's own entrypoint starts as it would.
+    entrypoint:
+      - sh
+      - -c
+      - |
+        printf 'upload_max_filesize = 64M\npost_max_size = 64M\n' > /usr/local/etc/php/conf.d/uploads.ini
+        exec docker-entrypoint.sh apache2-foreground
+    volumes:
+      - wordpress:/var/www/html
+
+  db:
+    image: mariadb:11.8
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 60s
+
+volumes:
+  wordpress:
+  db:

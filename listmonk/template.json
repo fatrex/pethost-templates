@@ -1,0 +1,52 @@
+{
+	"name": "listmonk",
+	"emoji": "📧",
+	"route": {
+		"service": "app",
+		"port": 9000
+	},
+	"variables": [
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A newsletter and mailing list manager",
+			"notes": "Sign in as admin with the password you gave. Then set Settings > General > Root URL to https://{host}, and add your SMTP server under Settings > SMTP."
+		},
+		"de": {
+			"description": "Ein Manager für Newsletter und Mailinglisten",
+			"notes": "Melde dich als admin mit dem Passwort an, das du festgelegt hast. Setz dann „Settings > General > Root URL“ auf https://{host} und trag deinen SMTP-Server unter „Settings > SMTP“ ein."
+		},
+		"es": {
+			"description": "Un administrador de newsletters y listas de correo",
+			"notes": "Inicia sesión como admin con la contraseña que indicaste. Luego pon https://{host} en Settings > General > Root URL y agrega tu servidor SMTP en Settings > SMTP."
+		},
+		"fr": {
+			"description": "Un gestionnaire de newsletters et de listes de diffusion",
+			"notes": "Connectez-vous avec le nom d’utilisateur admin et le mot de passe que vous avez choisi. Mettez ensuite https://{host} dans Settings > General > Root URL, et ajoutez votre serveur SMTP dans Settings > SMTP."
+		},
+		"pl": {
+			"description": "Menedżer newsletterów i list mailingowych",
+			"notes": "Zaloguj się jako admin z hasłem podanym przy tworzeniu projektu. Potem ustaw Settings > General > Root URL na https://{host} i dodaj swój serwer SMTP w Settings > SMTP."
+		},
+		"pt": {
+			"description": "Um gerenciador de newsletters e listas de e-mail",
+			"notes": "Entre como admin com a senha que você definiu. Depois defina Settings > General > Root URL como https://{host} e adicione seu servidor SMTP em Settings > SMTP."
+		},
+		"ru": {
+			"description": "Менеджер рассылок и списков подписчиков",
+			"notes": "Войдите как admin с паролем, который вы задали. Затем в Settings > General > Root URL укажите https://{host} и добавьте свой SMTP-сервер в Settings > SMTP."
+		},
+		"uk": {
+			"description": "Менеджер розсилок і списків розсилки",
+			"notes": "Увійдіть як admin із паролем, який ви вказали. Потім у Settings > General > Root URL вкажіть https://{host}, а в Settings > SMTP додайте свій SMTP-сервер."
+		}
+	}
+}

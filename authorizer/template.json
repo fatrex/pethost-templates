@@ -1,0 +1,68 @@
+{
+	"name": "Authorizer",
+	"emoji": "🔑",
+	"route": {
+		"service": "authorizer",
+		"port": 8080
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "CLIENT_ID",
+			"secret": 16
+		},
+		{
+			"name": "CLIENT_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "JWT_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "ENCRYPTION_KEY",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Sign-in for your own apps, with OAuth 2 and OpenID Connect",
+			"notes": "Open https://{host}/dashboard and sign in with the password you gave. Your apps use https://{host} as the issuer, and CLIENT_ID from the project’s .env as their client ID."
+		},
+		"de": {
+			"description": "Anmeldung für deine eigenen Apps, mit OAuth 2 und OpenID Connect",
+			"notes": "Öffne https://{host}/dashboard und melde dich mit dem Passwort an, das du festgelegt hast. Deine Apps nutzen https://{host} als Issuer und CLIENT_ID aus der .env des Projekts als Client-ID."
+		},
+		"es": {
+			"description": "Inicio de sesión para tus propias apps, con OAuth 2 y OpenID Connect",
+			"notes": "Abre https://{host}/dashboard e inicia sesión con la contraseña que indicaste. Tus apps usan https://{host} como emisor (issuer) y CLIENT_ID del .env del proyecto como su ID de cliente."
+		},
+		"fr": {
+			"description": "La connexion pour vos propres applications, avec OAuth 2 et OpenID Connect",
+			"notes": "Ouvrez https://{host}/dashboard et connectez-vous avec le mot de passe que vous avez choisi. Vos applications utilisent https://{host} comme émetteur (issuer) et CLIENT_ID du .env du projet comme identifiant client."
+		},
+		"pl": {
+			"description": "Logowanie do twoich własnych aplikacji, z OAuth 2 i OpenID Connect",
+			"notes": "Otwórz https://{host}/dashboard i zaloguj się hasłem podanym przy tworzeniu projektu. Twoje aplikacje używają https://{host} jako issuera, a CLIENT_ID z pliku .env projektu jako identyfikatora klienta."
+		},
+		"pt": {
+			"description": "Login para os seus próprios apps, com OAuth 2 e OpenID Connect",
+			"notes": "Abra https://{host}/dashboard e entre com a senha que você definiu. Seus apps usam https://{host} como emissor (issuer) e o CLIENT_ID do .env do projeto como ID de cliente."
+		},
+		"ru": {
+			"description": "Вход в ваши собственные приложения, с OAuth 2 и OpenID Connect",
+			"notes": "Откройте https://{host}/dashboard и войдите с паролем, который вы задали. Ваши приложения используют https://{host} как issuer, а CLIENT_ID из .env проекта как свой client ID."
+		},
+		"uk": {
+			"description": "Вхід у ваші власні застосунки, з OAuth 2 та OpenID Connect",
+			"notes": "Відкрийте https://{host}/dashboard і увійдіть із паролем, який ви вказали. Ваші застосунки використовують https://{host} як issuer, а CLIENT_ID з файлу .env проєкту як свій client ID."
+		}
+	}
+}

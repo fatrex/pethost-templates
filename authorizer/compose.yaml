@@ -1,0 +1,23 @@
+services:
+  authorizer:
+    image: quay.io/authorizer/authorizer:2.4.2
+    restart: unless-stopped
+    # A volume comes up owned by root, and the image's own user could not write to it
+    # (Authorizer's README, "Docker").
+    user: root
+    # Authorizer reads its settings from its arguments alone.
+    command:
+      - --database-type=sqlite
+      - --database-url=/authorizer/data/data.db
+      - --url=${URL}
+      - --client-id=${CLIENT_ID}
+      - --client-secret=${CLIENT_SECRET}
+      - --admin-secret=${ADMIN_PASSWORD}
+      - --jwt-type=HS256
+      - --jwt-secret=${JWT_SECRET}
+      - --encryption-key=${ENCRYPTION_KEY}
+    volumes:
+      - data:/authorizer/data
+
+volumes:
+  data:

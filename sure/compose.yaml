@@ -1,0 +1,64 @@
+# The web server and the worker are one image with one environment.
+x-app: &app
+  image: ghcr.io/we-promise/sure:0.7.5-hotfix.2
+  restart: unless-stopped
+  environment:
+    SELF_HOSTED: "true"
+    # TLS ends at the machine's proxy: the app takes every request as HTTPS and redirects none.
+    RAILS_FORCE_SSL: "false"
+    RAILS_ASSUME_SSL: "true"
+    APP_DOMAIN: ${APP_DOMAIN}
+    SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+    DB_HOST: db
+    DB_PORT: "5432"
+    POSTGRES_USER: sure_user
+    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    POSTGRES_DB: sure_production
+    REDIS_URL: redis://redis:6379/1
+  volumes:
+    - app-storage:/rails/storage
+  depends_on:
+    db:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+
+services:
+  web:
+    <<: *app
+
+  worker:
+    <<: *app
+    command: bundle exec sidekiq
+
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: sure_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: sure_production
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  redis:
+    image: redis:8-alpine
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  app-storage:
+  postgres-data:
+  redis-data:

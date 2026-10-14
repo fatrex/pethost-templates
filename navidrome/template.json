@@ -1,0 +1,48 @@
+{
+	"name": "Navidrome",
+	"emoji": "🎵",
+	"route": {
+		"service": "navidrome",
+		"port": 4533
+	},
+	"variables": [
+		{
+			"name": "PASSWORD_ENCRYPTION_KEY",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A music server that streams your own collection",
+			"notes": "Open the address and create the admin account on the first page. Do it right away: until then the page is open to whoever has the address. Music goes into /music in the navidrome service: upload files in its Files tab or copy folders over SFTP, and Navidrome finds them by itself. Subsonic apps on a phone connect to https://{host}."
+		},
+		"de": {
+			"description": "Ein Musikserver, der deine eigene Sammlung streamt",
+			"notes": "Öffne die Adresse und erstell auf der ersten Seite das Admin-Konto. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Musik kommt nach /music im Service navidrome: Lade Dateien in dessen Tab „Dateien“ hoch oder kopier Ordner per SFTP, Navidrome findet sie von selbst. Subsonic-Apps auf dem Handy verbinden sich mit https://{host}."
+		},
+		"es": {
+			"description": "Un servidor de música que transmite tu propia colección",
+			"notes": "Abre la dirección y crea la cuenta de administrador en la primera página. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. La música va en /music, en el servicio navidrome: sube archivos en su pestaña Archivos o copia carpetas por SFTP, y Navidrome los encuentra solo. Las apps de Subsonic en el teléfono se conectan a https://{host}."
+		},
+		"fr": {
+			"description": "Un serveur de musique qui diffuse votre propre collection",
+			"notes": "Ouvrez l’adresse et créez le compte administrateur sur la première page. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. La musique va dans /music, dans le service navidrome : envoyez des fichiers depuis son onglet Fichiers ou copiez des dossiers en SFTP, et Navidrome les trouve tout seul. Les applications Subsonic sur un téléphone se connectent à https://{host}."
+		},
+		"pl": {
+			"description": "Serwer muzyczny, który streamuje twoją własną kolekcję",
+			"notes": "Otwórz adres projektu i na pierwszej stronie załóż konto administratora. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Muzyka trafia do /music w usłudze navidrome: wgraj pliki w jej zakładce Pliki albo skopiuj katalogi przez SFTP, a Navidrome znajdzie je sam. Aplikacje Subsonic na telefonie łączą się z https://{host}."
+		},
+		"pt": {
+			"description": "Um servidor de música que faz streaming da sua própria coleção",
+			"notes": "Abra o endereço e crie a conta de administrador na primeira página. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. A música vai em /music, no serviço navidrome: envie arquivos pela aba Arquivos dele ou copie pastas por SFTP, e o Navidrome encontra tudo sozinho. Os apps Subsonic no celular se conectam a https://{host}."
+		},
+		"ru": {
+			"description": "Музыкальный сервер, который стримит вашу собственную коллекцию",
+			"notes": "Откройте адрес и создайте аккаунт администратора на первой странице. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Музыка лежит в /music в сервисе navidrome: загрузите файлы на его вкладке «Файлы» или скопируйте папки по SFTP, и Navidrome найдет их сам. Subsonic-приложения на телефоне подключаются к https://{host}."
+		},
+		"uk": {
+			"description": "Музичний сервер, що стрімить вашу власну колекцію",
+			"notes": "Відкрийте адресу і створіть акаунт адміністратора на першій сторінці. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Музика лежить у /music у сервісі navidrome: завантажте файли на його вкладці «Файли» або скопіюйте папки через SFTP, і Navidrome знайде їх сам. Застосунки Subsonic на телефоні підключаються до https://{host}."
+		}
+	}
+}

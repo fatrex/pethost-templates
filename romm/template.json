@@ -1,0 +1,60 @@
+{
+	"name": "RomM",
+	"emoji": "🎮",
+	"route": {
+		"service": "romm",
+		"port": 8080
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "ROMM_AUTH_SECRET_KEY",
+			"secret": 32
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 16
+		},
+		{
+			"name": "DB_ROOT_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A library and in-browser player for your retro games",
+			"notes": "Open the address and go through the setup wizard: pick your platforms, then create the admin account. Do it right away: until then the page is open to whoever has the address. Games go into /romm/library/roms/<platform> in the romm service, for example roms/snes: copy them over SFTP or upload them in RomM, then run a scan. Keys of metadata services, such as IGDB_CLIENT_ID and IGDB_CLIENT_SECRET, go into the project’s .env; deploy again after."
+		},
+		"de": {
+			"description": "Eine Bibliothek und ein Player im Browser für deine Retro-Spiele",
+			"notes": "Öffne die Adresse und geh den Einrichtungsassistenten durch: Wähl deine Plattformen und erstell dann das Admin-Konto. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Spiele kommen nach /romm/library/roms/<platform> im Service romm, zum Beispiel roms/snes: Kopier sie per SFTP oder lad sie in RomM hoch und starte dann einen Scan. Die Keys von Metadatenanbietern, zum Beispiel IGDB_CLIENT_ID und IGDB_CLIENT_SECRET, trägst du in die .env des Projekts ein; deploy danach neu."
+		},
+		"es": {
+			"description": "Una biblioteca y un reproductor en el navegador para tus juegos retro",
+			"notes": "Abre la dirección y sigue el asistente de configuración: elige tus plataformas y luego crea la cuenta de administrador. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Los juegos van en /romm/library/roms/<platform>, en el servicio romm, por ejemplo roms/snes: cópialos por SFTP o súbelos en RomM, y luego ejecuta un escaneo. Las claves de proveedores de metadatos, por ejemplo IGDB_CLIENT_ID e IGDB_CLIENT_SECRET, van en el .env del proyecto; vuelve a desplegar después."
+		},
+		"fr": {
+			"description": "Une bibliothèque et un lecteur dans le navigateur pour vos jeux rétro",
+			"notes": "Ouvrez l’adresse et suivez l’assistant de configuration : choisissez vos plateformes, puis créez le compte administrateur. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Les jeux vont dans /romm/library/roms/<platform>, dans le service romm, par exemple roms/snes : copiez-les en SFTP ou envoyez-les dans RomM, puis lancez un scan. Les clés des fournisseurs de métadonnées, par exemple IGDB_CLIENT_ID et IGDB_CLIENT_SECRET, vont dans le .env du projet ; redéployez ensuite."
+		},
+		"pl": {
+			"description": "Biblioteka i odtwarzacz w przeglądarce dla twoich gier retro",
+			"notes": "Otwórz adres projektu i przejdź przez kreator konfiguracji: wybierz swoje platformy, a potem utwórz konto administratora. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Gry trafiają do /romm/library/roms/<platform> w usłudze romm, na przykład roms/snes: skopiuj je przez SFTP albo wgraj w RomM, a potem uruchom skanowanie. Klucze dostawców metadanych, na przykład IGDB_CLIENT_ID i IGDB_CLIENT_SECRET, wpisz do pliku .env projektu; potem wdróż ponownie."
+		},
+		"pt": {
+			"description": "Uma biblioteca e um player no navegador para os seus jogos retrô",
+			"notes": "Abra o endereço e passe pelo assistente de configuração: escolha suas plataformas e depois crie a conta de administrador. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. Os jogos vão em /romm/library/roms/<platform>, no serviço romm, por exemplo roms/snes: copie-os por SFTP ou envie-os pelo RomM e depois faça uma varredura. As chaves de provedores de metadados, por exemplo IGDB_CLIENT_ID e IGDB_CLIENT_SECRET, vão no .env do projeto; faça o deploy de novo depois."
+		},
+		"ru": {
+			"description": "Библиотека и плеер в браузере для ваших ретро-игр",
+			"notes": "Откройте адрес и пройдите мастер настройки: выберите платформы, затем создайте аккаунт администратора. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Игры кладите в /romm/library/roms/<platform> в сервисе romm, например roms/snes: скопируйте их по SFTP или загрузите в RomM, затем запустите сканирование. Ключи провайдеров метаданных, например IGDB_CLIENT_ID и IGDB_CLIENT_SECRET, добавьте в .env проекта; после этого задеплойте проект заново."
+		},
+		"uk": {
+			"description": "Бібліотека й плеєр у браузері для ваших ретро-ігор",
+			"notes": "Відкрийте адресу й пройдіть майстер налаштування: оберіть платформи, потім створіть акаунт адміністратора. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Ігри кладіть у /romm/library/roms/<platform> у сервісі romm, наприклад roms/snes: скопіюйте їх через SFTP або завантажте в RomM, а потім запустіть сканування. Ключі провайдерів метаданих, наприклад IGDB_CLIENT_ID та IGDB_CLIENT_SECRET, додайте у файл .env проєкту; після цього задеплойте ще раз."
+		}
+	}
+}

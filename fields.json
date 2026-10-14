@@ -1,0 +1,108 @@
+{
+	"openaiKey": {
+		"type": "key",
+		"placeholder": "sk-…",
+		"label": {
+			"en": "OpenAI API key",
+			"de": "OpenAI-API-Key",
+			"es": "Clave de API de OpenAI",
+			"fr": "Clé d’API OpenAI",
+			"pl": "Klucz API OpenAI",
+			"pt": "Chave de API da OpenAI",
+			"ru": "API-ключ OpenAI",
+			"uk": "API-ключ OpenAI"
+		}
+	},
+	"anthropicKey": {
+		"type": "key",
+		"placeholder": "sk-ant-…",
+		"label": {
+			"en": "Anthropic API key",
+			"de": "Anthropic-API-Key",
+			"es": "Clave de API de Anthropic",
+			"fr": "Clé d’API Anthropic",
+			"pl": "Klucz API Anthropic",
+			"pt": "Chave de API da Anthropic",
+			"ru": "API-ключ Anthropic",
+			"uk": "API-ключ Anthropic"
+		}
+	},
+	"adminPassword": {
+		"type": "password",
+		"label": {
+			"en": "Admin password",
+			"de": "Admin-Passwort",
+			"es": "Contraseña de administrador",
+			"fr": "Mot de passe administrateur",
+			"pl": "Hasło administratora",
+			"pt": "Senha do administrador",
+			"ru": "Пароль администратора",
+			"uk": "Пароль адміністратора"
+		}
+	},
+	"openrouterKey": {
+		"type": "key",
+		"placeholder": "sk-or-v1-…",
+		"label": {
+			"en": "OpenRouter API key",
+			"de": "OpenRouter-API-Key",
+			"es": "Clave de API de OpenRouter",
+			"fr": "Clé d’API OpenRouter",
+			"pl": "Klucz API OpenRouter",
+			"pt": "Chave de API do OpenRouter",
+			"ru": "API-ключ OpenRouter",
+			"uk": "API-ключ OpenRouter"
+		}
+	},
+	"telegramToken": {
+		"type": "key",
+		"label": {
+			"en": "Telegram bot token",
+			"de": "Telegram-Bot-Token",
+			"es": "Token del bot de Telegram",
+			"fr": "Token du bot Telegram",
+			"pl": "Token bota Telegram",
+			"pt": "Token do bot do Telegram",
+			"ru": "Токен Telegram-бота",
+			"uk": "Токен Telegram-бота"
+		}
+	},
+	"password": {
+		"type": "password",
+		"label": {
+			"en": "Password",
+			"de": "Passwort",
+			"es": "Contraseña",
+			"fr": "Mot de passe",
+			"pl": "Hasło",
+			"pt": "Senha",
+			"ru": "Пароль",
+			"uk": "Пароль"
+		}
+	},
+	"username": {
+		"label": {
+			"en": "Username",
+			"de": "Benutzername",
+			"es": "Nombre de usuario",
+			"fr": "Nom d’utilisateur",
+			"pl": "Nazwa użytkownika",
+			"pt": "Usuário",
+			"ru": "Имя пользователя",
+			"uk": "Ім’я користувача"
+		}
+	},
+	"email": {
+		"placeholder": "you@example.com",
+		"label": {
+			"en": "Email",
+			"de": "E-Mail",
+			"es": "Correo electrónico",
+			"fr": "E-mail",
+			"pl": "E-mail",
+			"pt": "E-mail",
+			"ru": "Электронная почта",
+			"uk": "Електронна пошта"
+		}
+	}
+}

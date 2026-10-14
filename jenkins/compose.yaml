@@ -1,0 +1,10 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk21
+    restart: unless-stopped
+    volumes:
+      # The image declares /var/jenkins_home a volume: jobs, plugins and settings are in it.
+      - home:/var/jenkins_home
+
+volumes:
+  home:

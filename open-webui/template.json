@@ -1,0 +1,52 @@
+{
+	"name": "Open WebUI",
+	"emoji": "💬",
+	"route": {
+		"service": "open-webui",
+		"port": 8080
+	},
+	"variables": [
+		{
+			"name": "WEBUI_URL",
+			"from": "url"
+		},
+		{
+			"name": "WEBUI_SECRET_KEY",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A chat interface for OpenAI-compatible AI models",
+			"notes": "Open the address and sign up: the first account is the administrator, and sign-ups close after it. Do it right away: until then the page is open to whoever has the address. Model providers are added under Admin Panel > Settings > Connections."
+		},
+		"de": {
+			"description": "Eine Chat-Oberfläche für OpenAI-kompatible KI-Modelle",
+			"notes": "Öffne die Adresse und registrier dich: Das erste Konto ist das Admin-Konto, danach ist die Registrierung geschlossen. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Modellanbieter fügst du unter „Admin Panel > Settings > Connections“ hinzu."
+		},
+		"es": {
+			"description": "Una interfaz de chat para modelos de IA compatibles con OpenAI",
+			"notes": "Abre la dirección y regístrate: la primera cuenta es la del administrador, y después se cierra el registro. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Los proveedores de modelos se agregan en Admin Panel > Settings > Connections."
+		},
+		"fr": {
+			"description": "Une interface de chat pour les modèles d’IA compatibles OpenAI",
+			"notes": "Ouvrez l’adresse et inscrivez-vous : le premier compte est l’administrateur, et les inscriptions se ferment ensuite. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Les fournisseurs de modèles s’ajoutent dans Admin Panel > Settings > Connections."
+		},
+		"pl": {
+			"description": "Interfejs czatu dla modeli AI zgodnych z OpenAI",
+			"notes": "Otwórz adres projektu i załóż konto: pierwsze konto jest administratorem, a po nim rejestracja się zamyka. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Dostawców modeli dodasz w Admin Panel > Settings > Connections."
+		},
+		"pt": {
+			"description": "Uma interface de chat para modelos de IA compatíveis com a OpenAI",
+			"notes": "Abra o endereço e cadastre-se: a primeira conta é a do administrador, e o cadastro fecha depois dela. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. Os provedores de modelos são adicionados em Admin Panel > Settings > Connections."
+		},
+		"ru": {
+			"description": "Чат-интерфейс для ИИ-моделей, совместимых с OpenAI",
+			"notes": "Откройте адрес и зарегистрируйтесь: первый аккаунт становится администратором, и после него регистрация закрывается. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Провайдеры моделей добавляются в Admin Panel > Settings > Connections."
+		},
+		"uk": {
+			"description": "Чат-інтерфейс для ШІ-моделей, сумісних з OpenAI",
+			"notes": "Відкрийте адресу й зареєструйтеся: перший акаунт стає адміністратором, і після нього реєстрація закривається. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Провайдерів моделей додають в Admin Panel > Settings > Connections."
+		}
+	}
+}

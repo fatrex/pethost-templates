@@ -1,0 +1,52 @@
+{
+	"name": "Lychee",
+	"emoji": "📸",
+	"route": {
+		"service": "lychee",
+		"port": 8000
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "KEY",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A photo gallery to upload, sort and share your photos",
+			"notes": "Open the address and create the admin account on the first page. Do it right away: until then the page is open to whoever has the address."
+		},
+		"de": {
+			"description": "Eine Fotogalerie, um deine Fotos hochzuladen, zu ordnen und zu teilen",
+			"notes": "Öffne die Adresse und erstell auf der ersten Seite das Admin-Konto. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben."
+		},
+		"es": {
+			"description": "Una galería para subir, ordenar y compartir tus fotos",
+			"notes": "Abre la dirección y crea la cuenta de administrador en la primera página. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección."
+		},
+		"fr": {
+			"description": "Une galerie pour téléverser, classer et partager vos photos",
+			"notes": "Ouvrez l’adresse et créez le compte administrateur sur la première page. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse."
+		},
+		"pl": {
+			"description": "Galeria do wgrywania, porządkowania i udostępniania zdjęć",
+			"notes": "Otwórz adres projektu i na pierwszej stronie załóż konto administratora. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres."
+		},
+		"pt": {
+			"description": "Uma galeria para enviar, organizar e compartilhar suas fotos",
+			"notes": "Abra o endereço e crie a conta de administrador na primeira página. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço."
+		},
+		"ru": {
+			"description": "Фотогалерея, чтобы загружать, упорядочивать и показывать ваши фото",
+			"notes": "Откройте адрес и создайте аккаунт администратора на первой странице. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес."
+		},
+		"uk": {
+			"description": "Фотогалерея, щоб завантажувати, упорядковувати й показувати ваші фото",
+			"notes": "Відкрийте адресу і створіть акаунт адміністратора на першій сторінці. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу."
+		}
+	}
+}

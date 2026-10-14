@@ -1,0 +1,56 @@
+{
+	"name": "linkding",
+	"emoji": "🔖",
+	"route": {
+		"service": "linkding",
+		"port": 9090
+	},
+	"variables": [
+		{
+			"name": "LD_CSRF_TRUSTED_ORIGINS",
+			"from": "url"
+		},
+		{
+			"name": "LD_SUPERUSER_NAME",
+			"ask": "username"
+		},
+		{
+			"name": "LD_SUPERUSER_PASSWORD",
+			"ask": "password"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A bookmark manager with tags and search",
+			"notes": "Sign in with the username and password you gave. The password is changed in linkding’s own settings: the one in .env is read only once."
+		},
+		"de": {
+			"description": "Ein Lesezeichenmanager mit Tags und Suche",
+			"notes": "Melde dich mit dem Benutzernamen und dem Passwort an, die du festgelegt hast. Das Passwort änderst du in den Einstellungen von linkding selbst: Das aus der .env wird nur einmal gelesen."
+		},
+		"es": {
+			"description": "Un administrador de marcadores con etiquetas y búsqueda",
+			"notes": "Inicia sesión con el nombre de usuario y la contraseña que indicaste. La contraseña se cambia en los ajustes del propio linkding: la de .env se lee una sola vez."
+		},
+		"fr": {
+			"description": "Un gestionnaire de favoris avec tags et recherche",
+			"notes": "Connectez-vous avec le nom d’utilisateur et le mot de passe que vous avez choisis. Le mot de passe se modifie dans les paramètres de linkding lui-même : celui du .env n’est lu qu’une seule fois."
+		},
+		"pl": {
+			"description": "Menedżer zakładek z tagami i wyszukiwaniem",
+			"notes": "Zaloguj się nazwą użytkownika i hasłem podanymi przy tworzeniu projektu. Hasło zmienisz w ustawieniach samej aplikacji linkding: to z .env jest odczytywane tylko raz."
+		},
+		"pt": {
+			"description": "Um gerenciador de favoritos com tags e busca",
+			"notes": "Entre com o usuário e a senha que você definiu. A senha é alterada nas configurações do próprio linkding: a do .env só é lida uma vez."
+		},
+		"ru": {
+			"description": "Менеджер закладок с тегами и поиском",
+			"notes": "Войдите с именем пользователя и паролем, которые вы задали. Пароль меняется в настройках самого linkding: тот, что в .env, читается только один раз."
+		},
+		"uk": {
+			"description": "Менеджер закладок із тегами й пошуком",
+			"notes": "Увійдіть з іменем користувача й паролем, які ви вказали. Пароль змінюють у налаштуваннях самого linkding: той, що в .env, читається лише раз."
+		}
+	}
+}

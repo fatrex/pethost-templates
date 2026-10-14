@@ -1,0 +1,52 @@
+{
+	"name": "Owncast",
+	"emoji": "📺",
+	"route": {
+		"service": "owncast",
+		"port": 8080
+	},
+	"variables": [
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "STREAM_KEY",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Live video and chat on a page of your own",
+			"notes": "The admin is at /admin: sign in as admin with the password you gave. Stream from OBS to rtmp://{host}:1935/live with the key in STREAM_KEY of the project’s .env. Both are changed in .env: every start sets them again."
+		},
+		"de": {
+			"description": "Live-Video und Chat auf deiner eigenen Seite",
+			"notes": "Der Admin-Bereich liegt unter /admin: Melde dich als admin mit dem Passwort an, das du festgelegt hast. Streame aus OBS an rtmp://{host}:1935/live, mit dem Key aus STREAM_KEY in der .env des Projekts. Beides änderst du in der .env: Jeder Start setzt es neu."
+		},
+		"es": {
+			"description": "Video en tiempo real y chat en tu propia página",
+			"notes": "La administración está en /admin: inicia sesión como admin con la contraseña que indicaste. Transmite desde OBS a rtmp://{host}:1935/live con la clave de STREAM_KEY, en el .env del proyecto. Las dos se cambian en .env: cada inicio las vuelve a establecer."
+		},
+		"fr": {
+			"description": "Vidéo en direct et chat sur votre propre page",
+			"notes": "L’interface d’administration est sur /admin : connectez-vous avec le nom d’utilisateur admin et le mot de passe que vous avez choisi. Diffusez depuis OBS vers rtmp://{host}:1935/live avec la clé qui figure dans STREAM_KEY, dans le .env du projet. Les deux se modifient dans le .env : chaque démarrage les applique de nouveau."
+		},
+		"pl": {
+			"description": "Wideo na żywo i czat na twojej własnej stronie",
+			"notes": "Panel administracyjny jest pod adresem /admin: zaloguj się jako admin z hasłem podanym przy tworzeniu projektu. Nadawaj z OBS na rtmp://{host}:1935/live z kluczem ze zmiennej STREAM_KEY w pliku .env projektu. Jedno i drugie zmienisz w .env: każde uruchomienie ustawia je od nowa."
+		},
+		"pt": {
+			"description": "Vídeo ao vivo e chat em uma página só sua",
+			"notes": "O admin fica em /admin: entre como admin com a senha que você definiu. Transmita do OBS para rtmp://{host}:1935/live com a chave que está em STREAM_KEY, no .env do projeto. As duas são alteradas no .env: toda vez que o app inicia, elas são definidas de novo."
+		},
+		"ru": {
+			"description": "Прямые трансляции и чат на собственной странице",
+			"notes": "Админка открывается по адресу /admin: войдите как admin с паролем, который вы задали. Транслируйте из OBS на rtmp://{host}:1935/live с ключом из STREAM_KEY в .env проекта. И пароль, и ключ меняются в .env: при каждом запуске они задаются заново."
+		},
+		"uk": {
+			"description": "Відео наживо й чат на власній сторінці",
+			"notes": "Адмінпанель — за адресою /admin: увійдіть як admin із паролем, який ви вказали. Транслюйте з OBS на rtmp://{host}:1935/live з ключем зі змінної STREAM_KEY у файлі .env проєкту. І пароль, і ключ змінюють у .env: кожен запуск задає їх заново."
+		}
+	}
+}

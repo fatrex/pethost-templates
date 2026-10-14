@@ -1,0 +1,56 @@
+{
+	"name": "Sure",
+	"emoji": "💵",
+	"route": {
+		"service": "web",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "APP_DOMAIN",
+			"from": "host"
+		},
+		{
+			"name": "SECRET_KEY_BASE",
+			"secret": 64
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A personal finance app, a fork of Maybe Finance",
+			"notes": "Open the address and sign up: the first account is the admin. Do it right away: until then the page is open to whoever has the address. Then close sign-ups under Settings > Self-Hosting > Onboarding."
+		},
+		"de": {
+			"description": "Eine App für private Finanzen, ein Fork von Maybe Finance",
+			"notes": "Öffne die Adresse und registrier dich: Das erste Konto ist das Admin-Konto. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Schließ dann die Registrierung unter „Settings > Self-Hosting > Onboarding“."
+		},
+		"es": {
+			"description": "Una app de finanzas personales, fork de Maybe Finance",
+			"notes": "Abre la dirección y regístrate: la primera cuenta es la del administrador. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Luego cierra el registro en Settings > Self-Hosting > Onboarding."
+		},
+		"fr": {
+			"description": "Une application de finances personnelles, fork de Maybe Finance",
+			"notes": "Ouvrez l’adresse et inscrivez-vous : le premier compte est l’administrateur. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Fermez ensuite les inscriptions dans Settings > Self-Hosting > Onboarding."
+		},
+		"pl": {
+			"description": "Aplikacja do finansów osobistych, fork Maybe Finance",
+			"notes": "Otwórz adres projektu i załóż konto: pierwsze konto jest administratorem. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Potem zamknij rejestrację w Settings > Self-Hosting > Onboarding."
+		},
+		"pt": {
+			"description": "Um app de finanças pessoais, fork do Maybe Finance",
+			"notes": "Abra o endereço e cadastre-se: a primeira conta é a do administrador. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. Depois feche o cadastro em Settings > Self-Hosting > Onboarding."
+		},
+		"ru": {
+			"description": "Приложение для личных финансов, форк Maybe Finance",
+			"notes": "Откройте адрес и зарегистрируйтесь: первый аккаунт становится администратором. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Затем закройте регистрацию в Settings > Self-Hosting > Onboarding."
+		},
+		"uk": {
+			"description": "Застосунок для особистих фінансів, форк Maybe Finance",
+			"notes": "Відкрийте адресу й зареєструйтеся: перший акаунт стає адміністратором. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Потім закрийте реєстрацію в Settings > Self-Hosting > Onboarding."
+		}
+	}
+}

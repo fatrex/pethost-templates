@@ -1,0 +1,21 @@
+services:
+  vikunja:
+    image: vikunja/vikunja:2
+    restart: unless-stopped
+    # The image has nothing but Vikunja, so a volume comes up owned by root and Vikunja's
+    # own user could not write to it.
+    user: "0:0"
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: ${URL}/
+      VIKUNJA_SERVICE_JWTSECRET: ${JWT_SECRET}
+      VIKUNJA_DATABASE_TYPE: sqlite
+      VIKUNJA_DATABASE_PATH: /db/vikunja.db
+      # Open until the first account is made; the notes say how to close it.
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: ${ENABLE_REGISTRATION:-true}
+    volumes:
+      - files:/app/vikunja/files
+      - db:/db
+
+volumes:
+  files:
+  db:

@@ -1,0 +1,42 @@
+services:
+  couchdb:
+    image: couchdb:3
+    restart: unless-stopped
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: ${ADMIN_PASSWORD}
+      COUCHDB_SECRET: ${COUCHDB_SECRET}
+    configs:
+      - source: livesync
+        target: /opt/couchdb/etc/local.d/livesync.ini
+    volumes:
+      # The image declares /opt/couchdb/data a volume: the vaults are in it.
+      - data:/opt/couchdb/data
+
+configs:
+  # What Self-hosted LiveSync's own setup script sets (utils/couchdb/provision.ts): one node,
+  # nothing answered without a sign-in, room for big notes, and Obsidian's apps let in by CORS.
+  livesync:
+    content: |
+      [couchdb]
+      single_node = true
+      max_document_size = 50000000
+
+      [chttpd]
+      require_valid_user = true
+      max_http_request_size = 4294967296
+      enable_cors = true
+
+      [chttpd_auth]
+      require_valid_user = true
+
+      [httpd]
+      WWW-Authenticate = Basic realm="couchdb"
+      enable_cors = true
+
+      [cors]
+      origins = app://obsidian.md,capacitor://localhost,http://localhost
+      credentials = true
+
+volumes:
+  data:

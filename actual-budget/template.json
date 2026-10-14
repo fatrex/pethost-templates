@@ -1,0 +1,43 @@
+{
+	"name": "Actual Budget",
+	"emoji": "💰",
+	"route": {
+		"service": "actual",
+		"port": 5006
+	},
+	"variables": [],
+	"texts": {
+		"en": {
+			"description": "Envelope budgeting for personal finances, with sync",
+			"notes": "Open the address and set the server’s password on the first page. Do it right away: until then the page is open to whoever has the address. Then create a budget file or import one."
+		},
+		"de": {
+			"description": "Budgetplanung nach der Umschlagmethode für private Finanzen, mit Sync",
+			"notes": "Öffne die Adresse und leg auf der ersten Seite das Passwort des Servers fest. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Erstell dann eine Budgetdatei oder importier eine."
+		},
+		"es": {
+			"description": "Presupuesto por sobres para finanzas personales, con sincronización",
+			"notes": "Abre la dirección y define la contraseña del servidor en la primera página. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Luego crea un archivo de presupuesto o importa uno."
+		},
+		"fr": {
+			"description": "Un budget par enveloppes pour vos finances personnelles, avec synchronisation",
+			"notes": "Ouvrez l’adresse et définissez le mot de passe du serveur sur la première page. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Créez ensuite un fichier de budget, ou importez-en un."
+		},
+		"pl": {
+			"description": "Budżet kopertowy dla finansów osobistych, z synchronizacją",
+			"notes": "Otwórz adres projektu i na pierwszej stronie ustaw hasło serwera. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Potem utwórz plik budżetu albo zaimportuj gotowy."
+		},
+		"pt": {
+			"description": "Orçamento por envelopes para finanças pessoais, com sincronização",
+			"notes": "Abra o endereço e defina a senha do servidor na primeira página. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. Depois crie um arquivo de orçamento ou importe um."
+		},
+		"ru": {
+			"description": "Бюджет по методу конвертов для личных финансов, с синхронизацией",
+			"notes": "Откройте адрес и задайте пароль сервера на первой странице. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Затем создайте файл бюджета или импортируйте готовый."
+		},
+		"uk": {
+			"description": "Бюджет за методом конвертів для особистих фінансів, із синхронізацією",
+			"notes": "Відкрийте адресу й задайте пароль сервера на першій сторінці. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Потім створіть файл бюджету або імпортуйте наявний."
+		}
+	}
+}

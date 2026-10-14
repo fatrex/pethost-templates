@@ -1,0 +1,168 @@
+services:
+  # Lemmy's own front door: a fediverse server asks for a page as ActivityPub
+  # JSON, and those requests, the API's and every non-GET go to the backend;
+  # the rest goes to the UI.
+  proxy:
+    image: nginx:1-alpine
+    restart: unless-stopped
+    configs:
+      - source: nginx
+        target: /etc/nginx/nginx.conf
+    depends_on:
+      - lemmy
+      - lemmy-ui
+
+  lemmy:
+    image: dessalines/lemmy:0.19.20
+    restart: unless-stopped
+    environment:
+      RUST_LOG: warn
+    configs:
+      - source: lemmy
+        target: /config/config.hjson
+    depends_on:
+      db:
+        condition: service_healthy
+      pictrs:
+        condition: service_started
+    # The first start runs the migrations and makes the admin before it listens.
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "-o", "/dev/null", "http://127.0.0.1:8536/api/v3/site"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 180s
+
+  lemmy-ui:
+    image: dessalines/lemmy-ui:0.19.20
+    restart: unless-stopped
+    environment:
+      LEMMY_UI_LEMMY_INTERNAL_HOST: lemmy:8536
+      LEMMY_UI_LEMMY_EXTERNAL_HOST: ${HOST}
+      LEMMY_UI_HTTPS: "true"
+    depends_on:
+      lemmy:
+        condition: service_healthy
+    # The image's own check runs once a minute; this one answers in ten seconds.
+    healthcheck:
+      test: ["CMD-SHELL", "curl -ILfSs http://localhost:1234/ > /dev/null || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  pictrs:
+    image: asonix/pictrs:0.5
+    restart: unless-stopped
+    environment:
+      PICTRS__SERVER__API_KEY: ${PICTRS_API_KEY}
+      # Kept light: no video transcoding, and small animations, as Lemmy's docs set them.
+      PICTRS__MEDIA__VIDEO__ENABLE: "false"
+      PICTRS__MEDIA__ANIMATION__MAX_WIDTH: 256
+      PICTRS__MEDIA__ANIMATION__MAX_HEIGHT: 256
+      PICTRS__MEDIA__ANIMATION__MAX_AREA: 65536
+      PICTRS__MEDIA__ANIMATION__MAX_FRAME_COUNT: 400
+    volumes:
+      - pictrs:/mnt
+
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: lemmy
+      POSTGRES_USER: lemmy
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    # Lemmy's docs raise Docker's 64 MB: big queries fail with "could not resize shared memory segment".
+    shm_size: 1g
+    volumes:
+      - db:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U lemmy -d lemmy"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+configs:
+  # Lemmy reads its settings from this file alone. `setup` makes the admin at the
+  # first start, so no setup page is left open; the password is a multiline
+  # string, which Hjson takes as written, quotes and backslashes included.
+  lemmy:
+    content: |
+      {
+        hostname: "${HOST}"
+        database: {
+          host: db
+          password: "${DB_PASSWORD}"
+        }
+        pictrs: {
+          url: "http://pictrs:8080/"
+          api_key: "${PICTRS_API_KEY}"
+          # Thumbnails of linked pages stay where they are, not copied into pict-rs.
+          image_mode: "None"
+        }
+        setup: {
+          admin_username: admin
+          admin_password:
+            '''
+            ${ADMIN_PASSWORD}
+            '''
+          site_name: Lemmy
+        }
+      }
+
+  # Lemmy's nginx_internal.conf (lemmy-ansible); $$ is a $ to Compose.
+  nginx:
+    content: |
+      worker_processes auto;
+
+      events {
+          worker_connections 1024;
+      }
+
+      http {
+          # Docker's DNS, asked at each request, so that a recreated container is found.
+          resolver 127.0.0.11 valid=5s;
+
+          # The visitor's address, from the machine's proxy.
+          set_real_ip_from 10.0.0.0/8;
+          set_real_ip_from 172.16.0.0/12;
+          set_real_ip_from 192.168.0.0/16;
+
+          map "$$request_method:$$http_accept" $$proxpass {
+              default "http://lemmy-ui:1234";
+              "~^(?:GET|HEAD):.*?application\/(?:activity|ld)\+json" "http://lemmy:8536";
+              "~^(?!(GET|HEAD)).*:" "http://lemmy:8536";
+          }
+
+          server {
+              set $$lemmy_ui "lemmy-ui:1234";
+              set $$lemmy "lemmy:8536";
+              listen 8536;
+              server_name localhost;
+              server_tokens off;
+
+              # Uploads go to pict-rs through the backend.
+              client_max_body_size 20M;
+
+              proxy_set_header Host $$http_host;
+              proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+
+              location / {
+                  proxy_pass $$proxpass;
+                  rewrite ^(.+)/+$$ $$1 permanent;
+              }
+
+              location = /.well-known/security.txt {
+                  proxy_pass "http://$$lemmy_ui";
+              }
+
+              location ~ ^/(api|pictrs|feeds|nodeinfo|.well-known|version|sitemap.xml) {
+                  proxy_pass "http://$$lemmy";
+              }
+          }
+      }
+
+volumes:
+  pictrs:
+  db:

@@ -1,0 +1,66 @@
+{
+	"name": "Hermes Agent",
+	"emoji": "🪽",
+	"route": {
+		"service": "hermes",
+		"port": 9119
+	},
+	"variables": [
+		{
+			"name": "HERMES_DASHBOARD_PUBLIC_URL",
+			"from": "url"
+		},
+		{
+			"name": "HERMES_DASHBOARD_BASIC_AUTH_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "HERMES_DASHBOARD_BASIC_AUTH_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "OPENROUTER_API_KEY",
+			"ask": "openrouterKey",
+			"optional": true
+		},
+		{
+			"name": "TELEGRAM_BOT_TOKEN",
+			"ask": "telegramToken",
+			"optional": true
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "An AI agent you talk to in Telegram, Discord or the browser",
+			"notes": "Sign in as admin with the password you gave; the first start takes up to a minute. A model’s key is added under API Keys. For Telegram, message your bot and approve its code on the Pairing page."
+		},
+		"de": {
+			"description": "Ein KI-Agent, mit dem du in Telegram, Discord oder im Browser sprichst",
+			"notes": "Melde dich als admin mit dem Passwort an, das du festgelegt hast; der erste Start dauert bis zu einer Minute. Den Key eines Modells trägst du unter „API Keys“ ein. Für Telegram schreibst du deinem Bot und bestätigst seinen Code auf der Seite „Pairing“."
+		},
+		"es": {
+			"description": "Un agente de IA con el que hablas en Telegram, Discord o el navegador",
+			"notes": "Inicia sesión como admin con la contraseña que indicaste; el primer inicio tarda hasta un minuto. La clave de un modelo se agrega en API Keys. Para Telegram, escríbele a tu bot y aprueba su código en la página Pairing."
+		},
+		"fr": {
+			"description": "Un agent IA à qui parler sur Telegram, Discord ou dans le navigateur",
+			"notes": "Connectez-vous avec le nom d’utilisateur admin et le mot de passe que vous avez choisi ; le premier démarrage peut prendre jusqu’à une minute. La clé d’un modèle s’ajoute dans API Keys. Pour Telegram, envoyez un message à votre bot et approuvez son code sur la page Pairing."
+		},
+		"pl": {
+			"description": "Agent AI, z którym rozmawiasz przez Telegram, Discord albo przeglądarkę",
+			"notes": "Zaloguj się jako admin z hasłem podanym przy tworzeniu projektu; pierwsze uruchomienie trwa do minuty. Klucz modelu dodasz w API Keys. Telegram: napisz do swojego bota i zatwierdź jego kod na stronie Pairing."
+		},
+		"pt": {
+			"description": "Um agente de IA com quem você conversa no Telegram, no Discord ou no navegador",
+			"notes": "Entre como admin com a senha que você definiu; na primeira vez, o app leva até um minuto para iniciar. A chave de um modelo é adicionada em API Keys. Para usar o Telegram, mande uma mensagem ao seu bot e aprove o código dele na página Pairing."
+		},
+		"ru": {
+			"description": "ИИ-агент, с которым можно общаться в Telegram, Discord или браузере",
+			"notes": "Войдите как admin с паролем, который вы задали; первый запуск занимает до минуты. Ключ модели добавляется в разделе API Keys. Для Telegram напишите своему боту и подтвердите его код на странице Pairing."
+		},
+		"uk": {
+			"description": "ШІ-агент, з яким можна спілкуватися в Telegram, Discord або браузері",
+			"notes": "Увійдіть як admin із паролем, який ви вказали; перший запуск триває до хвилини. Ключ моделі додають у розділі API Keys. Для Telegram напишіть своєму ботові й підтвердьте його код на сторінці Pairing."
+		}
+	}
+}

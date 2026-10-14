@@ -1,0 +1,14 @@
+services:
+  kroki:
+    image: yuzutech/kroki:0.33.0
+    restart: unless-stopped
+    environment:
+      KROKI_MERMAID_HOST: mermaid
+    depends_on:
+      - mermaid
+
+  # Mermaid is drawn in a browser, in a container of Kroki's own. BPMN and Excalidraw would
+  # need two more, of about 300 MB each at rest, so they are left out.
+  mermaid:
+    image: yuzutech/kroki-mermaid:0.33.0
+    restart: unless-stopped

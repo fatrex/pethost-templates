@@ -1,0 +1,52 @@
+{
+	"name": "WordPress",
+	"emoji": "✍️",
+	"route": {
+		"service": "wordpress",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "DB_PASSWORD",
+			"secret": 16
+		},
+		{
+			"name": "DB_ROOT_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A website and blog builder with themes and plugins",
+			"notes": "Open the site and finish the install page: the language, the title and the admin account. Do it right away: whoever opens that page first becomes the admin."
+		},
+		"de": {
+			"description": "Ein Baukasten für Websites und Blogs, mit Themes und Plugins",
+			"notes": "Öffne die Website und füll die Installationsseite aus: Sprache, Titel und Admin-Konto. Mach das gleich: Wer die Seite zuerst öffnet, wird Admin."
+		},
+		"es": {
+			"description": "Un creador de sitios web y blogs con temas y plugins",
+			"notes": "Abre el sitio y completa la página de instalación: el idioma, el título y la cuenta de administrador. Hazlo enseguida: quien abra primero esa página será el administrador."
+		},
+		"fr": {
+			"description": "Un créateur de sites et de blogs, avec thèmes et plugins",
+			"notes": "Ouvrez le site et complétez la page d’installation : la langue, le titre et le compte administrateur. Faites-le tout de suite : la première personne à ouvrir cette page devient l’administrateur."
+		},
+		"pl": {
+			"description": "Kreator stron i blogów z motywami i wtyczkami",
+			"notes": "Otwórz witrynę i wypełnij stronę instalacji: język, tytuł i konto administratora. Zrób to od razu: kto pierwszy otworzy tę stronę, zostaje administratorem."
+		},
+		"pt": {
+			"description": "Um criador de sites e blogs com temas e plugins",
+			"notes": "Abra o site e preencha a página de instalação: o idioma, o título e a conta de administrador. Faça isso logo: quem abrir essa página primeiro vira o administrador."
+		},
+		"ru": {
+			"description": "Конструктор сайтов и блогов с темами и плагинами",
+			"notes": "Откройте сайт и заполните страницу установки: язык, название и аккаунт администратора. Сделайте это сразу: администратором станет тот, кто откроет эту страницу первым."
+		},
+		"uk": {
+			"description": "Конструктор сайтів і блогів із темами та плагінами",
+			"notes": "Відкрийте сайт і заповніть сторінку встановлення: мова, назва й акаунт адміністратора. Зробіть це одразу: адміністратором стане той, хто відкриє цю сторінку першим."
+		}
+	}
+}

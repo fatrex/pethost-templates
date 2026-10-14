@@ -1,0 +1,48 @@
+{
+	"name": "Semaphore UI",
+	"emoji": "🚦",
+	"route": {
+		"service": "semaphore",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A web UI for Ansible, Terraform and other automation",
+			"notes": "Sign in as admin with the password you gave. Then make a project and add its repository, inventory and keys."
+		},
+		"de": {
+			"description": "Eine Web-Oberfläche für Ansible, Terraform und andere Automatisierung",
+			"notes": "Melde dich als admin mit dem Passwort an, das du festgelegt hast. Leg dann ein Projekt an und füg sein Repository, sein Inventory und seine Schlüssel hinzu."
+		},
+		"es": {
+			"description": "Una interfaz web para Ansible, Terraform y otra automatización",
+			"notes": "Inicia sesión como admin con la contraseña que indicaste. Luego crea un proyecto y agrega su repositorio, su inventario y sus claves."
+		},
+		"fr": {
+			"description": "Une interface web pour Ansible, Terraform et d’autres automatisations",
+			"notes": "Connectez-vous avec le nom d’utilisateur admin et le mot de passe que vous avez choisi. Créez ensuite un projet et ajoutez son dépôt, son inventaire et ses clés."
+		},
+		"pl": {
+			"description": "Interfejs webowy do Ansible, Terraform i innej automatyzacji",
+			"notes": "Zaloguj się jako admin z hasłem podanym przy tworzeniu projektu. Potem utwórz projekt i dodaj jego repozytorium, inventory i klucze."
+		},
+		"pt": {
+			"description": "Uma interface web para Ansible, Terraform e outras automações",
+			"notes": "Entre como admin com a senha que você definiu. Depois crie um projeto e adicione o repositório, o inventário e as chaves dele."
+		},
+		"ru": {
+			"description": "Веб-интерфейс для Ansible, Terraform и другой автоматизации",
+			"notes": "Войдите как admin с паролем, который вы задали. Затем создайте проект и добавьте в него репозиторий, инвентарь и ключи."
+		},
+		"uk": {
+			"description": "Вебінтерфейс для Ansible, Terraform та іншої автоматизації",
+			"notes": "Увійдіть як admin із паролем, який ви вказали. Потім створіть проєкт і додайте до нього репозиторій, інвентар і ключі."
+		}
+	}
+}

@@ -1,0 +1,62 @@
+services:
+  hedgedoc:
+    image: quay.io/hedgedoc/hedgedoc:1.12.0
+    restart: unless-stopped
+    environment:
+      CMD_DB_URL: postgres://hedgedoc:${POSTGRES_PASSWORD}@db:5432/hedgedoc
+      CMD_DOMAIN: ${HOST}
+      # TLS ends at the machine's proxy: links are https, with no port, and the proxy is trusted.
+      CMD_PROTOCOL_USESSL: "true"
+      CMD_URL_ADDPORT: "false"
+      CMD_SESSION_SECRET: ${SESSION_SECRET}
+      # A guest reads what a note's permission allows, and writes nothing.
+      CMD_ALLOW_ANONYMOUS: "false"
+      CMD_ALLOW_EMAIL_REGISTER: ${CMD_ALLOW_EMAIL_REGISTER:-false}
+      # Said outright, so that the image's entrypoint gives the uploads volume to its user.
+      CMD_IMAGE_UPLOAD_TYPE: filesystem
+      ACCOUNT_EMAIL: ${EMAIL}
+      ACCOUNT_PASSWORD: ${PASSWORD}
+    # The account comes from .env, so no sign-up page is left open, and every start sets its
+    # password again: HedgeDoc has no page to change it. The tables come first, as the app
+    # itself would make them.
+    command:
+      - sh
+      - -c
+      - |
+        set -e
+        node -e "require('./lib/models').runMigrations().then(() => process.exit(0))"
+        node bin/manage_users --reset="$$ACCOUNT_EMAIL" --pass="$$ACCOUNT_PASSWORD" ||
+          node bin/manage_users --add="$$ACCOUNT_EMAIL" --pass="$$ACCOUNT_PASSWORD"
+        exec node app.js
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - uploads:/hedgedoc/public/uploads
+    # The image's own check, with time for the first start's migrations.
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.mjs"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
+
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hedgedoc
+      POSTGRES_USER: hedgedoc
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U hedgedoc -d hedgedoc"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+volumes:
+  uploads:
+  db:

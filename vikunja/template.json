@@ -1,0 +1,52 @@
+{
+	"name": "Vikunja",
+	"emoji": "✅",
+	"route": {
+		"service": "vikunja",
+		"port": 3456
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "JWT_SECRET",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "To-do lists and projects, with kanban and Gantt views",
+			"notes": "Open the address and register your account. Then add ENABLE_REGISTRATION=false to the project’s .env and deploy again, so that nobody else can sign up."
+		},
+		"de": {
+			"description": "To-do-Listen und Projekte, mit Kanban- und Gantt-Ansicht",
+			"notes": "Öffne die Adresse und registrier dein Konto. Trag dann ENABLE_REGISTRATION=false in die .env des Projekts ein und deploy neu, damit sich sonst niemand registrieren kann."
+		},
+		"es": {
+			"description": "Listas de tareas y proyectos, con vistas kanban y Gantt",
+			"notes": "Abre la dirección y registra tu cuenta. Luego agrega ENABLE_REGISTRATION=false al .env del proyecto y vuelve a desplegar, para que nadie más pueda registrarse."
+		},
+		"fr": {
+			"description": "Listes de tâches et projets, avec vues kanban et Gantt",
+			"notes": "Ouvrez l’adresse et créez votre compte. Ajoutez ensuite ENABLE_REGISTRATION=false au .env du projet et redéployez, pour que personne d’autre ne puisse s’inscrire."
+		},
+		"pl": {
+			"description": "Listy zadań i projekty, z widokiem kanban i Gantta",
+			"notes": "Otwórz adres projektu i zarejestruj swoje konto. Potem dodaj ENABLE_REGISTRATION=false do pliku .env projektu i wdróż ponownie, żeby nikt inny nie mógł założyć konta."
+		},
+		"pt": {
+			"description": "Listas de tarefas e projetos, com visões kanban e Gantt",
+			"notes": "Abra o endereço e cadastre sua conta. Depois adicione ENABLE_REGISTRATION=false ao .env do projeto e faça o deploy de novo, para que mais ninguém possa se cadastrar."
+		},
+		"ru": {
+			"description": "Списки задач и проекты, с канбаном и диаграммой Ганта",
+			"notes": "Откройте адрес и зарегистрируйте свой аккаунт. Затем добавьте ENABLE_REGISTRATION=false в .env проекта и задеплойте проект заново, чтобы больше никто не мог зарегистрироваться."
+		},
+		"uk": {
+			"description": "Списки завдань і проєкти, з канбаном і діаграмою Ганта",
+			"notes": "Відкрийте адресу й зареєструйте свій акаунт. Потім додайте ENABLE_REGISTRATION=false у файл .env проєкту й задеплойте ще раз, щоб більше ніхто не міг зареєструватися."
+		}
+	}
+}

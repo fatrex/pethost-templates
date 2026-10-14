@@ -1,0 +1,56 @@
+{
+	"name": "Umami",
+	"emoji": "📊",
+	"route": {
+		"service": "umami",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "APP_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "TWO_FACTOR_ENCRYPTION_KEY",
+			"secret": 32
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Web analytics for your sites, without cookies",
+			"notes": "Sign in as admin with the password umami and change it at once in your profile. Then add your website and put its tracking script on your pages."
+		},
+		"de": {
+			"description": "Webanalyse für deine Websites, ohne Cookies",
+			"notes": "Melde dich als admin mit dem Passwort umami an und ändere es sofort in deinem Profil. Füg dann deine Website hinzu und bau ihr Tracking-Skript in deine Seiten ein."
+		},
+		"es": {
+			"description": "Analítica web para tus sitios, sin cookies",
+			"notes": "Inicia sesión como admin con la contraseña umami y cámbiala de inmediato en tu perfil. Luego agrega tu sitio web y pon su script de seguimiento en tus páginas."
+		},
+		"fr": {
+			"description": "Mesure d’audience pour vos sites, sans cookies",
+			"notes": "Connectez-vous avec le nom d’utilisateur admin et le mot de passe umami, puis changez aussitôt ce mot de passe dans votre profil. Ajoutez ensuite votre site et placez son script de suivi sur vos pages."
+		},
+		"pl": {
+			"description": "Analityka webowa twoich stron, bez plików cookie",
+			"notes": "Zaloguj się jako admin z hasłem umami i od razu zmień je w swoim profilu. Potem dodaj swoją witrynę i umieść jej skrypt śledzący na swoich stronach."
+		},
+		"pt": {
+			"description": "Web analytics para os seus sites, sem cookies",
+			"notes": "Entre como admin com a senha umami e altere-a na hora, no seu perfil. Depois adicione seu site e coloque o script de rastreamento dele nas suas páginas."
+		},
+		"ru": {
+			"description": "Веб-аналитика для ваших сайтов, без cookie",
+			"notes": "Войдите как admin с паролем umami и сразу смените его в профиле. Затем добавьте свой сайт и поставьте его скрипт отслеживания на свои страницы."
+		},
+		"uk": {
+			"description": "Вебаналітика для ваших сайтів, без cookie",
+			"notes": "Увійдіть як admin із паролем umami й одразу змініть його у своєму профілі. Потім додайте свій сайт і розмістіть його скрипт відстеження на своїх сторінках."
+		}
+	}
+}

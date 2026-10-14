@@ -1,0 +1,56 @@
+{
+	"name": "Password Pusher",
+	"emoji": "🤫",
+	"route": {
+		"service": "pwpush",
+		"port": 5100
+	},
+	"variables": [
+		{
+			"name": "HOST",
+			"from": "host"
+		},
+		{
+			"name": "MASTER_KEY",
+			"secret": 32
+		},
+		{
+			"name": "SECRET_KEY_BASE",
+			"secret": 64
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Share passwords and secrets by links that expire",
+			"notes": "Open the address and create the admin account with the boot code from the pwpush service’s log, on the Logs tab. Only signed-in accounts make links; whoever gets one opens it without an account. To let anyone make links or sign up, add ALLOW_ANONYMOUS=true or DISABLE_SIGNUPS=false to the project’s .env and deploy again."
+		},
+		"de": {
+			"description": "Passwörter und Geheimnisse per Link teilen, der abläuft",
+			"notes": "Öffne die Adresse und erstell das Admin-Konto mit dem Boot-Code aus dem Log des Service pwpush, im Tab „Logs“. Links erstellen können nur angemeldete Konten; wer einen bekommt, öffnet ihn ohne Konto. Damit alle Links erstellen oder sich registrieren können, trag ALLOW_ANONYMOUS=true oder DISABLE_SIGNUPS=false in die .env des Projekts ein und deploy neu."
+		},
+		"es": {
+			"description": "Comparte contraseñas y secretos con enlaces que caducan",
+			"notes": "Abre la dirección y crea la cuenta de administrador con el código de arranque (boot code) del log del servicio pwpush, en la pestaña Logs. Solo las cuentas con sesión iniciada crean enlaces; quien recibe uno lo abre sin cuenta. Para que cualquiera pueda crear enlaces o registrarse, agrega ALLOW_ANONYMOUS=true o DISABLE_SIGNUPS=false al .env del proyecto y vuelve a desplegar."
+		},
+		"fr": {
+			"description": "Partagez mots de passe et secrets par des liens qui expirent",
+			"notes": "Ouvrez l’adresse et créez le compte administrateur avec le code de démarrage (boot code) tiré du log du service pwpush, dans l’onglet Logs. Seuls les comptes connectés créent des liens ; qui en reçoit un l’ouvre sans compte. Pour que tout le monde puisse en créer ou s’inscrire, ajoutez ALLOW_ANONYMOUS=true ou DISABLE_SIGNUPS=false au .env du projet et redéployez."
+		},
+		"pl": {
+			"description": "Udostępniaj hasła i sekrety przez linki, które wygasają",
+			"notes": "Otwórz adres projektu i załóż konto administratora kodem startowym (boot code) z logu usługi pwpush, w zakładce Logi. Linki tworzą tylko zalogowane konta; kto dostanie link, otworzy go bez konta. Żeby każdy mógł tworzyć linki albo zakładać konta, dodaj ALLOW_ANONYMOUS=true lub DISABLE_SIGNUPS=false do pliku .env projektu i wdróż ponownie."
+		},
+		"pt": {
+			"description": "Compartilhe senhas e segredos por links que expiram",
+			"notes": "Abra o endereço e crie a conta de administrador com o código de inicialização (boot code) do log do serviço pwpush, na aba Logs. Só contas conectadas criam links; quem recebe um abre sem conta. Para que qualquer pessoa crie links ou se cadastre, adicione ALLOW_ANONYMOUS=true ou DISABLE_SIGNUPS=false ao .env do projeto e faça o deploy de novo."
+		},
+		"ru": {
+			"description": "Пароли и секреты по ссылкам, которые истекают",
+			"notes": "Откройте адрес и создайте аккаунт администратора с boot code из лога сервиса pwpush на вкладке «Логи». Создавать ссылки могут только вошедшие аккаунты; кто получил ссылку, откроет ее без аккаунта. Чтобы создавать ссылки или регистрироваться мог любой, добавьте ALLOW_ANONYMOUS=true или DISABLE_SIGNUPS=false в .env проекта и задеплойте проект заново."
+		},
+		"uk": {
+			"description": "Паролі й секрети за посиланнями, що спливають",
+			"notes": "Відкрийте адресу і створіть акаунт адміністратора з boot code з логу сервісу pwpush на вкладці «Логи». Створювати посилання можуть лише акаунти, що увійшли; хто отримав посилання, відкриє його без акаунта. Щоб створювати посилання чи реєструватися міг будь-хто, додайте ALLOW_ANONYMOUS=true або DISABLE_SIGNUPS=false у файл .env проєкту й задеплойте ще раз."
+		}
+	}
+}

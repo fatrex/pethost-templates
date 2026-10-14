@@ -1,0 +1,56 @@
+{
+	"name": "Gitea",
+	"emoji": "🍵",
+	"route": {
+		"service": "gitea",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "APP_URL",
+			"from": "url"
+		},
+		{
+			"name": "APP_HOST",
+			"from": "host"
+		},
+		{
+			"name": "GITEA_SECRET_KEY",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Git hosting with pull requests and issues",
+			"notes": "Open the address and register: the first account becomes the administrator, and later ones wait for its approval. Do it right away: until then the page is open to whoever has the address. To close registration add GITEA_DISABLE_REGISTRATION=true to the project’s .env and deploy again. Git over SSH is at {host}, port 2222."
+		},
+		"de": {
+			"description": "Git-Hosting mit Pull-Requests und Issues",
+			"notes": "Öffne die Adresse und registrier dich: Das erste Konto wird zum Admin-Konto, spätere warten auf dessen Bestätigung. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Um die Registrierung zu schließen, trag GITEA_DISABLE_REGISTRATION=true in die .env des Projekts ein und deploy neu. Git über SSH erreichst du unter {host}, Port 2222."
+		},
+		"es": {
+			"description": "Hosting de Git con pull requests e issues",
+			"notes": "Abre la dirección y regístrate: la primera cuenta será la del administrador, y las siguientes esperan su aprobación. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Para cerrar el registro, agrega GITEA_DISABLE_REGISTRATION=true al .env del proyecto y vuelve a desplegar. Git por SSH está en {host}, puerto 2222."
+		},
+		"fr": {
+			"description": "Hébergement Git avec pull requests et issues",
+			"notes": "Ouvrez l’adresse et inscrivez-vous : le premier compte devient l’administrateur, et les suivants attendent son approbation. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Pour fermer les inscriptions, ajoutez GITEA_DISABLE_REGISTRATION=true au .env du projet et redéployez. Git en SSH est à l’adresse {host}, port 2222."
+		},
+		"pl": {
+			"description": "Hosting Git z pull requestami i zgłoszeniami",
+			"notes": "Otwórz adres projektu i zarejestruj się: pierwsze konto zostaje administratorem, a kolejne czekają na jego zatwierdzenie. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Żeby zamknąć rejestrację, dodaj GITEA_DISABLE_REGISTRATION=true do pliku .env projektu i wdróż ponownie. Git przez SSH jest pod adresem {host}, port 2222."
+		},
+		"pt": {
+			"description": "Hospedagem de Git com pull requests e issues",
+			"notes": "Abra o endereço e cadastre-se: a primeira conta vira a do administrador, e as seguintes esperam a aprovação dele. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. Para fechar o cadastro, adicione GITEA_DISABLE_REGISTRATION=true ao .env do projeto e faça o deploy de novo. O Git por SSH fica em {host}, porta 2222."
+		},
+		"ru": {
+			"description": "Git-хостинг с пул-реквестами и задачами",
+			"notes": "Откройте адрес и зарегистрируйтесь: первый аккаунт станет администратором, а следующие ждут его одобрения. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Чтобы закрыть регистрацию, добавьте GITEA_DISABLE_REGISTRATION=true в .env проекта и задеплойте проект заново. Git по SSH доступен на {host}, порт 2222."
+		},
+		"uk": {
+			"description": "Git-хостинг із пул-реквестами й задачами",
+			"notes": "Відкрийте адресу й зареєструйтеся: перший акаунт стає адміністратором, а наступні чекають на його підтвердження. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Щоб закрити реєстрацію, додайте GITEA_DISABLE_REGISTRATION=true у файл .env проєкту й задеплойте ще раз. Git через SSH працює за адресою {host}, порт 2222."
+		}
+	}
+}

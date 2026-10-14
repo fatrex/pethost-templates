@@ -1,0 +1,56 @@
+{
+	"name": "Ryot",
+	"emoji": "🎬",
+	"route": {
+		"service": "ryot",
+		"port": 8000
+	},
+	"variables": [
+		{
+			"name": "FRONTEND_URL",
+			"from": "url"
+		},
+		{
+			"name": "SERVER_ADMIN_ACCESS_TOKEN",
+			"secret": 20
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A tracker for films, shows, books, games and workouts",
+			"notes": "Open the address and choose “Create a new account”. Then add USERS_ALLOW_REGISTRATION=false to the project’s .env and deploy again, so that nobody else can sign up."
+		},
+		"de": {
+			"description": "Ein Tracker für Filme, Serien, Bücher, Spiele und Workouts",
+			"notes": "Öffne die Adresse und wähl „Create a new account“. Trag dann USERS_ALLOW_REGISTRATION=false in die .env des Projekts ein und deploy neu, damit sich sonst niemand registrieren kann."
+		},
+		"es": {
+			"description": "Seguimiento de películas, series, libros, juegos y entrenamientos",
+			"notes": "Abre la dirección y elige “Create a new account”. Luego agrega USERS_ALLOW_REGISTRATION=false al .env del proyecto y vuelve a desplegar, para que nadie más pueda registrarse."
+		},
+		"fr": {
+			"description": "Un outil de suivi pour films, séries, livres, jeux et entraînements",
+			"notes": "Ouvrez l’adresse et choisissez « Create a new account ». Ajoutez ensuite USERS_ALLOW_REGISTRATION=false au .env du projet et redéployez, pour que personne d’autre ne puisse s’inscrire."
+		},
+		"pl": {
+			"description": "Dziennik filmów, seriali, książek, gier i treningów",
+			"notes": "Otwórz adres projektu i wybierz „Create a new account”. Potem dodaj USERS_ALLOW_REGISTRATION=false do pliku .env projektu i wdróż ponownie, żeby nikt inny nie mógł założyć konta."
+		},
+		"pt": {
+			"description": "Um app para acompanhar filmes, séries, livros, jogos e treinos",
+			"notes": "Abra o endereço e escolha “Create a new account”. Depois adicione USERS_ALLOW_REGISTRATION=false ao .env do projeto e faça o deploy de novo, para que mais ninguém possa se cadastrar."
+		},
+		"ru": {
+			"description": "Трекер фильмов, сериалов, книг, игр и тренировок",
+			"notes": "Откройте адрес и выберите «Create a new account». Затем добавьте USERS_ALLOW_REGISTRATION=false в .env проекта и задеплойте проект заново, чтобы больше никто не мог зарегистрироваться."
+		},
+		"uk": {
+			"description": "Трекер фільмів, серіалів, книжок, ігор і тренувань",
+			"notes": "Відкрийте адресу й оберіть «Create a new account». Потім додайте USERS_ALLOW_REGISTRATION=false у файл .env проєкту й задеплойте ще раз, щоб більше ніхто не міг зареєструватися."
+		}
+	}
+}

@@ -1,0 +1,57 @@
+services:
+  nodebb:
+    image: ghcr.io/nodebb/nodebb:4.x
+    restart: unless-stopped
+    # The first start installs the forum with this admin, so the web installer the image would
+    # open to whoever comes first never runs: without config.json the container exits instead.
+    # NodeBB asks a terminal again for a password it refuses, so the setup has a time limit.
+    entrypoint:
+      - tini
+      - --
+      - sh
+      - -ec
+      - |
+        if [ ! -f /opt/config/installed ]; then
+          setup='{"trust_proxy": 1}' timeout 300 /usr/src/app/nodebb setup --config=/opt/config/config.json --skip-build
+          test -f /opt/config/config.json
+          touch /opt/config/installed
+        fi
+        test -f /opt/config/config.json
+        exec entrypoint.sh
+    environment:
+      NODEBB_URL: ${URL}
+      NODEBB_DB: redis
+      NODEBB_DB_HOST: redis
+      NODEBB_ADMIN_USERNAME: admin
+      NODEBB_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      # Setup needs an address; it is stored as confirmed, and no mail is sent to it.
+      NODEBB_ADMIN_EMAIL: admin@example.com
+    depends_on:
+      redis:
+        condition: service_healthy
+    # Every folder the image declares as a volume; node_modules keeps the plugins installed later.
+    volumes:
+      - config:/opt/config
+      - uploads:/usr/src/app/public/uploads
+      - build:/usr/src/app/build
+      - node_modules:/usr/src/app/node_modules
+
+  # The forum's only database: every write goes to the append-only file.
+  redis:
+    image: redis:8-alpine
+    restart: unless-stopped
+    command: [redis-server, --appendonly, "yes", --loglevel, warning]
+    volumes:
+      - redis:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep -q PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+volumes:
+  config:
+  uploads:
+  build:
+  node_modules:
+  redis:

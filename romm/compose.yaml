@@ -1,0 +1,56 @@
+services:
+  romm:
+    image: rommapp/romm:5
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    # Metadata services' keys (IGDB_CLIENT_ID, SCREENSCRAPER_USER, ...) go into .env.
+    env_file: .env
+    environment:
+      ROMM_BASE_URL: ${URL}
+      ROMM_AUTH_SECRET_KEY: ${ROMM_AUTH_SECRET_KEY}
+      # TLS ends at the machine's proxy, which says so in X-Forwarded-Proto.
+      ROMM_SESSION_SECURE_COOKIE: "true"
+      DB_HOST: db
+      DB_NAME: romm
+      DB_USER: romm
+      DB_PASSWD: ${DB_PASSWORD}
+      # Matches games by their files' hashes, with no key, as RomM's own compose file does.
+      HASHEOUS_API_ENABLED: "true"
+      # Four API workers by default; two are plenty for a household and leave memory to the
+      # machine's other projects.
+      WEB_SERVER_CONCURRENCY: "2"
+    # The image declares /romm a volume: the library, assets, resources and config are in it.
+    volumes:
+      - romm:/romm
+      - redis-data:/redis-data
+    # The page answers once the first start's migrations are done.
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/api/heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 180s
+
+  db:
+    image: mariadb:11.8
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: romm
+      MARIADB_USER: romm
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 60s
+
+volumes:
+  romm:
+  redis-data:
+  db:

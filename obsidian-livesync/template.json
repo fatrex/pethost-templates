@@ -1,0 +1,52 @@
+{
+	"name": "Obsidian LiveSync",
+	"emoji": "🔄",
+	"route": {
+		"service": "couchdb",
+		"port": 5984
+	},
+	"variables": [
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "COUCHDB_SECRET",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A CouchDB server that syncs your Obsidian vaults with Self-hosted LiveSync",
+			"notes": "In Obsidian, install the Self-hosted LiveSync plugin and give it https://{host} as the server, admin as the username and the password you gave. The plugin makes its database by itself."
+		},
+		"de": {
+			"description": "Ein CouchDB-Server, der deine Obsidian-Vaults mit Self-hosted LiveSync synchronisiert",
+			"notes": "Installier in Obsidian das Plugin Self-hosted LiveSync und gib ihm https://{host} als Server, admin als Benutzernamen und das Passwort, das du festgelegt hast. Seine Datenbank legt das Plugin selbst an."
+		},
+		"es": {
+			"description": "Un servidor CouchDB que sincroniza tus bóvedas de Obsidian con Self-hosted LiveSync",
+			"notes": "En Obsidian, instala el plugin Self-hosted LiveSync e indícale https://{host} como servidor, admin como usuario y la contraseña que indicaste. El plugin crea su base de datos por sí mismo."
+		},
+		"fr": {
+			"description": "Un serveur CouchDB qui synchronise vos coffres Obsidian avec Self-hosted LiveSync",
+			"notes": "Dans Obsidian, installez le plugin Self-hosted LiveSync et donnez-lui https://{host} comme serveur, admin comme nom d’utilisateur et le mot de passe que vous avez choisi. Le plugin crée sa base de données lui-même."
+		},
+		"pl": {
+			"description": "Serwer CouchDB, który synchronizuje twoje sejfy Obsidiana przez Self-hosted LiveSync",
+			"notes": "W Obsidianie zainstaluj wtyczkę Self-hosted LiveSync i podaj jej https://{host} jako serwer, admin jako nazwę użytkownika i hasło podane przy tworzeniu projektu. Bazę danych wtyczka założy sama."
+		},
+		"pt": {
+			"description": "Um servidor CouchDB que sincroniza seus cofres do Obsidian com o Self-hosted LiveSync",
+			"notes": "No Obsidian, instale o plugin Self-hosted LiveSync e informe https://{host} como servidor, admin como usuário e a senha que você definiu. O plugin cria o banco de dados sozinho."
+		},
+		"ru": {
+			"description": "Сервер CouchDB, который синхронизирует ваши хранилища Obsidian через Self-hosted LiveSync",
+			"notes": "В Obsidian установите плагин Self-hosted LiveSync и укажите в нем https://{host} как сервер, admin как имя пользователя и пароль, который вы задали. Базу данных плагин создаст сам."
+		},
+		"uk": {
+			"description": "Сервер CouchDB, що синхронізує ваші сховища Obsidian через Self-hosted LiveSync",
+			"notes": "В Obsidian установіть плагін Self-hosted LiveSync і вкажіть у ньому https://{host} як сервер, admin як ім’я користувача та пароль, який ви вказали. Базу даних плагін створить сам."
+		}
+	}
+}

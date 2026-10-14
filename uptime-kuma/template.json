@@ -1,0 +1,43 @@
+{
+	"name": "Uptime Kuma",
+	"emoji": "🐻",
+	"route": {
+		"service": "uptime-kuma",
+		"port": 3001
+	},
+	"variables": [],
+	"texts": {
+		"en": {
+			"description": "Uptime monitoring with alerts and status pages",
+			"notes": "Open the address and create the admin account on the first page. Do it right away: until then the page is open to whoever has the address. Then add your first monitor."
+		},
+		"de": {
+			"description": "Uptime-Monitoring mit Benachrichtigungen und Statusseiten",
+			"notes": "Öffne die Adresse und erstell auf der ersten Seite das Admin-Konto. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Füg dann deinen ersten Monitor hinzu."
+		},
+		"es": {
+			"description": "Monitores de disponibilidad con alertas y páginas de estado",
+			"notes": "Abre la dirección y crea la cuenta de administrador en la primera página. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Luego agrega tu primer monitor."
+		},
+		"fr": {
+			"description": "Surveillance de disponibilité avec alertes et pages de statut",
+			"notes": "Ouvrez l’adresse et créez le compte administrateur sur la première page. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Ajoutez ensuite votre première sonde."
+		},
+		"pl": {
+			"description": "Monitoring dostępności z alertami i stronami statusu",
+			"notes": "Otwórz adres projektu i na pierwszej stronie załóż konto administratora. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Potem dodaj swój pierwszy monitor."
+		},
+		"pt": {
+			"description": "Monitoramento de uptime com alertas e páginas de status",
+			"notes": "Abra o endereço e crie a conta de administrador na primeira página. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. Depois adicione seu primeiro monitor."
+		},
+		"ru": {
+			"description": "Мониторинг аптайма с уведомлениями и страницами статуса",
+			"notes": "Откройте адрес и создайте аккаунт администратора на первой странице. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Затем добавьте первый монитор."
+		},
+		"uk": {
+			"description": "Моніторинг доступності зі сповіщеннями та сторінками статусу",
+			"notes": "Відкрийте адресу і створіть акаунт адміністратора на першій сторінці. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Потім додайте свій перший монітор."
+		}
+	}
+}

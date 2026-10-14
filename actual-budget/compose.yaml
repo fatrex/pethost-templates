@@ -1,0 +1,9 @@
+services:
+  actual:
+    image: actualbudget/actual-server:26.10.0
+    restart: unless-stopped
+    volumes:
+      - data:/data
+
+volumes:
+  data:

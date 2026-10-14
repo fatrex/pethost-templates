@@ -1,0 +1,13 @@
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:2
+    restart: unless-stopped
+    environment:
+      # SQLite in the data volume: the first page is then the admin account,
+      # not a choice of database.
+      UPTIME_KUMA_DB_TYPE: sqlite
+    volumes:
+      - data:/app/data
+
+volumes:
+  data:

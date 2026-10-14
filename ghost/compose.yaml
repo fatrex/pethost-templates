@@ -1,0 +1,43 @@
+services:
+  ghost:
+    image: ghost:6-alpine
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    # Mail settings (mail__transport, mail__options__host, ...) go into .env.
+    env_file: .env
+    environment:
+      url: ${URL}
+      server__host: 0.0.0.0
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: ghost
+      database__connection__password: ${DB_PASSWORD}
+      database__connection__database: ghost
+      # Ghost emails a code to every new device that signs in. Without mail
+      # that locks the owner out, so it is off. Remove this line once mail works.
+      security__staffDeviceVerification: "false"
+    volumes:
+      - content:/var/lib/ghost/content
+
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ghost
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 60s
+
+volumes:
+  content:
+  db:

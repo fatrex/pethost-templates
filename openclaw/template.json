@@ -1,0 +1,62 @@
+{
+	"name": "OpenClaw",
+	"emoji": "🦞",
+	"route": {
+		"service": "openclaw",
+		"port": 18789
+	},
+	"variables": [
+		{
+			"name": "CONTROL_UI_ORIGIN",
+			"from": "url"
+		},
+		{
+			"name": "OPENCLAW_GATEWAY_TOKEN",
+			"secret": 32
+		},
+		{
+			"name": "OPENAI_API_KEY",
+			"ask": "openaiKey",
+			"optional": true
+		},
+		{
+			"name": "ANTHROPIC_API_KEY",
+			"ask": "anthropicKey",
+			"optional": true
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "An AI assistant that lives in your chat apps",
+			"notes": "Open the address and paste the gateway token into Gateway secret: it is OPENCLAW_GATEWAY_TOKEN in the project’s .env. Then approve the browser once in the openclaw service’s terminal: openclaw devices list, then openclaw devices approve <requestId>. A model’s key is added under Settings, Models."
+		},
+		"de": {
+			"description": "Ein KI-Assistent, der in deinen Chat-Apps zu Hause ist",
+			"notes": "Öffne die Adresse und füg das Gateway-Token bei „Gateway secret“ ein: Es steht als OPENCLAW_GATEWAY_TOKEN in der .env des Projekts. Bestätige dann den Browser einmal im Terminal des Service openclaw: openclaw devices list, dann openclaw devices approve <requestId>. Den Key eines Modells trägst du unter „Settings“, „Models“ ein."
+		},
+		"es": {
+			"description": "Un asistente de IA que vive en tus apps de chat",
+			"notes": "Abre la dirección y pega el token del gateway en Gateway secret: es OPENCLAW_GATEWAY_TOKEN en el .env del proyecto. Luego aprueba el navegador una sola vez en el shell del servicio openclaw: openclaw devices list y después openclaw devices approve <requestId>. La clave de un modelo se agrega en Settings, Models."
+		},
+		"fr": {
+			"description": "Un assistant IA qui vit dans vos messageries",
+			"notes": "Ouvrez l’adresse et collez le token de la gateway dans Gateway secret : c’est OPENCLAW_GATEWAY_TOKEN dans le .env du projet. Approuvez ensuite le navigateur, une seule fois, dans le terminal du service openclaw : openclaw devices list, puis openclaw devices approve <requestId>. La clé d’un modèle s’ajoute dans Settings, Models."
+		},
+		"pl": {
+			"description": "Asystent AI, który mieszka w twoich komunikatorach",
+			"notes": "Otwórz adres projektu i wklej token gatewaya do pola Gateway secret: to OPENCLAW_GATEWAY_TOKEN w pliku .env projektu. Potem raz zatwierdź przeglądarkę w terminalu usługi openclaw: openclaw devices list, a następnie openclaw devices approve <requestId>. Klucz modelu dodasz w Settings, Models."
+		},
+		"pt": {
+			"description": "Um assistente de IA que vive nos seus apps de mensagens",
+			"notes": "Abra o endereço e cole o token do gateway em Gateway secret: ele está em OPENCLAW_GATEWAY_TOKEN, no .env do projeto. Depois aprove o navegador uma vez no terminal do serviço openclaw: openclaw devices list e depois openclaw devices approve <requestId>. A chave de um modelo é adicionada em Settings, Models."
+		},
+		"ru": {
+			"description": "ИИ-ассистент, который живет в ваших мессенджерах",
+			"notes": "Откройте адрес и вставьте токен шлюза в поле Gateway secret: это OPENCLAW_GATEWAY_TOKEN в .env проекта. Затем один раз одобрите браузер в терминале сервиса openclaw: сначала openclaw devices list, потом openclaw devices approve <requestId>. Ключ модели добавляется в разделе Settings, Models."
+		},
+		"uk": {
+			"description": "ШІ-асистент, що живе у ваших месенджерах",
+			"notes": "Відкрийте адресу і вставте токен шлюзу в поле Gateway secret: це OPENCLAW_GATEWAY_TOKEN у файлі .env проєкту. Потім один раз підтвердьте браузер у терміналі сервісу openclaw: спершу openclaw devices list, далі openclaw devices approve <requestId>. Ключ моделі додають у Settings, Models."
+		}
+	}
+}

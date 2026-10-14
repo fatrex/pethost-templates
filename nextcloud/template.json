@@ -1,0 +1,60 @@
+{
+	"name": "Nextcloud",
+	"emoji": "☁️",
+	"route": {
+		"service": "app",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "HOST",
+			"from": "host"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "File sync, calendar and contacts on a server of your own",
+			"notes": "Sign in as admin with the password you gave."
+		},
+		"de": {
+			"description": "Datei-Sync, Kalender und Kontakte auf deinem eigenen Server",
+			"notes": "Melde dich als admin mit dem Passwort an, das du festgelegt hast."
+		},
+		"es": {
+			"description": "Sincronización de archivos, calendario y contactos en tu propio servidor",
+			"notes": "Inicia sesión como admin con la contraseña que indicaste."
+		},
+		"fr": {
+			"description": "Synchronisation de fichiers, agenda et contacts sur votre propre serveur",
+			"notes": "Connectez-vous avec le nom d’utilisateur admin et le mot de passe que vous avez choisi."
+		},
+		"pl": {
+			"description": "Synchronizacja plików, kalendarz i kontakty na własnym serwerze",
+			"notes": "Zaloguj się jako admin z hasłem podanym przy tworzeniu projektu."
+		},
+		"pt": {
+			"description": "Sincronização de arquivos, calendário e contatos em um servidor só seu",
+			"notes": "Entre como admin com a senha que você definiu."
+		},
+		"ru": {
+			"description": "Синхронизация файлов, календарь и контакты на собственном сервере",
+			"notes": "Войдите как admin с паролем, который вы задали."
+		},
+		"uk": {
+			"description": "Синхронізація файлів, календар і контакти на власному сервері",
+			"notes": "Увійдіть як admin із паролем, який ви вказали."
+		}
+	}
+}

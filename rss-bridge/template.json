@@ -1,0 +1,43 @@
+{
+	"name": "RSS-Bridge",
+	"emoji": "🌉",
+	"route": {
+		"service": "rss-bridge",
+		"port": 80
+	},
+	"variables": [],
+	"texts": {
+		"en": {
+			"description": "RSS and Atom feeds for sites that have none",
+			"notes": "Open the address, pick a bridge, fill in its form and copy the feed’s link into your reader. RSS-Bridge has no accounts: anyone with the address can use it."
+		},
+		"de": {
+			"description": "RSS- und Atom-Feeds für Websites, die keine haben",
+			"notes": "Öffne die Adresse, wähl eine Bridge, füll ihr Formular aus und kopier den Link des Feeds in deinen Reader. RSS-Bridge hat keine Konten: Alle, die die Adresse haben, können es nutzen."
+		},
+		"es": {
+			"description": "Feeds RSS y Atom para sitios que no los tienen",
+			"notes": "Abre la dirección, elige un bridge, completa su formulario y copia el enlace del feed en tu lector. RSS-Bridge no tiene cuentas: cualquiera que tenga la dirección puede usarlo."
+		},
+		"fr": {
+			"description": "Des flux RSS et Atom pour les sites qui n’en ont pas",
+			"notes": "Ouvrez l’adresse, choisissez un bridge, remplissez son formulaire et copiez le lien du flux dans votre lecteur. RSS-Bridge n’a pas de comptes : quiconque connaît l’adresse peut l’utiliser."
+		},
+		"pl": {
+			"description": "Kanały RSS i Atom dla stron, które ich nie mają",
+			"notes": "Otwórz adres projektu, wybierz bridge, wypełnij jego formularz i skopiuj link do kanału do swojego czytnika. RSS-Bridge nie ma kont: może z niego korzystać każdy, kto zna adres."
+		},
+		"pt": {
+			"description": "Feeds RSS e Atom para sites que não têm",
+			"notes": "Abra o endereço, escolha um bridge, preencha o formulário dele e copie o link do feed para o seu leitor. O RSS-Bridge não tem contas: qualquer pessoa com o endereço pode usá-lo."
+		},
+		"ru": {
+			"description": "RSS- и Atom-ленты для сайтов, у которых их нет",
+			"notes": "Откройте адрес, выберите бридж, заполните его форму и скопируйте ссылку на ленту в свою читалку. В RSS-Bridge нет аккаунтов: им может пользоваться любой, кто знает адрес."
+		},
+		"uk": {
+			"description": "RSS- та Atom-стрічки для сайтів, які їх не мають",
+			"notes": "Відкрийте адресу, оберіть бридж, заповніть його форму й скопіюйте посилання на стрічку у свою читалку. У RSS-Bridge немає акаунтів: ним може користуватися кожен, хто знає адресу."
+		}
+	}
+}

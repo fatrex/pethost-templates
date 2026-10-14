@@ -1,0 +1,9 @@
+services:
+  memos:
+    image: neosmemo/memos:0.31
+    restart: unless-stopped
+    volumes:
+      - memos:/var/opt/memos
+
+volumes:
+  memos:

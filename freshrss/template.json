@@ -1,0 +1,43 @@
+{
+	"name": "FreshRSS",
+	"emoji": "📰",
+	"route": {
+		"service": "freshrss",
+		"port": 80
+	},
+	"variables": [],
+	"texts": {
+		"en": {
+			"description": "An RSS and Atom feed reader",
+			"notes": "Open the address and go through the install page: leave SQLite as the database, then create your user. Do it right away: until then the page is open to whoever has the address."
+		},
+		"de": {
+			"description": "Ein Feedreader für RSS und Atom",
+			"notes": "Öffne die Adresse und geh die Installationsseite durch: Lass SQLite als Datenbank stehen und erstell dann dein Benutzerkonto. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben."
+		},
+		"es": {
+			"description": "Un lector de feeds RSS y Atom",
+			"notes": "Abre la dirección y sigue los pasos de la página de instalación: deja SQLite como base de datos y luego crea tu usuario. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección."
+		},
+		"fr": {
+			"description": "Un lecteur de flux RSS et Atom",
+			"notes": "Ouvrez l’adresse et suivez la page d’installation : gardez SQLite comme base de données, puis créez votre utilisateur. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse."
+		},
+		"pl": {
+			"description": "Czytnik kanałów RSS i Atom",
+			"notes": "Otwórz adres projektu i przejdź przez stronę instalacji: zostaw SQLite jako bazę danych, a potem utwórz swojego użytkownika. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres."
+		},
+		"pt": {
+			"description": "Um leitor de feeds RSS e Atom",
+			"notes": "Abra o endereço e passe pela página de instalação: deixe o SQLite como banco de dados e depois crie seu usuário. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço."
+		},
+		"ru": {
+			"description": "Читалка лент RSS и Atom",
+			"notes": "Откройте адрес и пройдите страницу установки: базой данных оставьте SQLite, затем создайте своего пользователя. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес."
+		},
+		"uk": {
+			"description": "Читалка стрічок RSS і Atom",
+			"notes": "Відкрийте адресу і пройдіть сторінку встановлення: залиште SQLite як базу даних, потім створіть свого користувача. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу."
+		}
+	}
+}

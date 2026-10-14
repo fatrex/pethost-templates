@@ -1,0 +1,45 @@
+services:
+  app:
+    image: listmonk/listmonk:v6.2.0
+    restart: unless-stopped
+    command: [sh, -c, "./listmonk --install --idempotent --yes --config '' && ./listmonk --upgrade --yes --config '' && ./listmonk --config ''"]
+    environment:
+      LISTMONK_app__address: "0.0.0.0:9000"
+      LISTMONK_db__host: db
+      LISTMONK_db__port: 5432
+      LISTMONK_db__user: listmonk
+      LISTMONK_db__password: ${DB_PASSWORD}
+      LISTMONK_db__database: listmonk
+      LISTMONK_db__ssl_mode: disable
+      LISTMONK_db__max_open: 25
+      LISTMONK_db__max_idle: 25
+      LISTMONK_db__max_lifetime: 300s
+      # The install makes this Super Admin, so no setup page is left open.
+      LISTMONK_ADMIN_USER: admin
+      LISTMONK_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      TZ: Etc/UTC
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - uploads:/listmonk/uploads
+
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: listmonk
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: listmonk
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U listmonk -d listmonk"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  uploads:
+  db:

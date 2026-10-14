@@ -1,0 +1,13 @@
+services:
+  komga:
+    image: gotson/komga:1.x
+    restart: unless-stopped
+    volumes:
+      # The image declares /config a volume: Komga's database and settings are in it.
+      - config:/config
+      # Writable, so that books can be copied in over SFTP.
+      - data:/data
+
+volumes:
+  config:
+  data:

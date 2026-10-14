@@ -1,0 +1,52 @@
+{
+	"name": "NodeBB",
+	"emoji": "🗣️",
+	"route": {
+		"service": "nodebb",
+		"port": 4567
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A forum for your community",
+			"notes": "Sign in as admin with the password you gave; the first start builds the forum and takes a few minutes. Anyone may register: who can join is set under Admin > Settings > Users. Email, password resets included, works once an SMTP server is set under Admin > Settings > Email."
+		},
+		"de": {
+			"description": "Ein Forum für deine Community",
+			"notes": "Melde dich als admin mit dem Passwort an, das du festgelegt hast; der erste Start baut das Forum auf und dauert einige Minuten. Alle dürfen sich registrieren: Wer beitreten darf, legst du unter „Admin > Settings > Users“ fest. E-Mails, auch das Zurücksetzen von Passwörtern, funktionieren, sobald unter „Admin > Settings > Email“ ein SMTP-Server eingetragen ist."
+		},
+		"es": {
+			"description": "Un foro para tu comunidad",
+			"notes": "Inicia sesión como admin con la contraseña que indicaste; el primer inicio construye el foro y tarda unos minutos. Cualquiera puede registrarse: quién puede unirse se define en Admin > Settings > Users. El correo, incluidos los restablecimientos de contraseña, funciona cuando se define un servidor SMTP en Admin > Settings > Email."
+		},
+		"fr": {
+			"description": "Un forum pour votre communauté",
+			"notes": "Connectez-vous avec le nom d’utilisateur admin et le mot de passe que vous avez choisi ; le premier démarrage construit le forum et prend quelques minutes. N’importe qui peut s’inscrire : qui peut rejoindre le forum se règle dans Admin > Settings > Users. Les e-mails, réinitialisations de mot de passe comprises, fonctionnent dès qu’un serveur SMTP est défini dans Admin > Settings > Email."
+		},
+		"pl": {
+			"description": "Forum dla twojej społeczności",
+			"notes": "Zaloguj się jako admin z hasłem podanym przy tworzeniu projektu; pierwsze uruchomienie buduje forum i trwa kilka minut. Zarejestrować się może każdy: kto może dołączyć, ustawisz w Admin > Settings > Users. E-maile, w tym resetowanie haseł, zadziałają, gdy w Admin > Settings > Email ustawisz serwer SMTP."
+		},
+		"pt": {
+			"description": "Um fórum para a sua comunidade",
+			"notes": "Entre como admin com a senha que você definiu; na primeira vez, o app monta o fórum e leva alguns minutos para iniciar. Qualquer pessoa pode se cadastrar: quem pode entrar é definido em Admin > Settings > Users. O e-mail, inclusive a redefinição de senha, funciona depois que um servidor SMTP é definido em Admin > Settings > Email."
+		},
+		"ru": {
+			"description": "Форум для вашего сообщества",
+			"notes": "Войдите как admin с паролем, который вы задали; первый запуск собирает форум и занимает несколько минут. Зарегистрироваться может любой: кто может присоединиться, задается в Admin > Settings > Users. Почта, в том числе сброс паролей, заработает, когда в Admin > Settings > Email будет указан SMTP-сервер."
+		},
+		"uk": {
+			"description": "Форум для вашої спільноти",
+			"notes": "Увійдіть як admin із паролем, який ви вказали; перший запуск збирає форум і триває кілька хвилин. Зареєструватися може будь-хто: хто може долучитися, задають в Admin > Settings > Users. Пошта, зокрема скидання паролів, запрацює, коли в Admin > Settings > Email буде вказано SMTP-сервер."
+		}
+	}
+}

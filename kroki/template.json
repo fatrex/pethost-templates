@@ -1,0 +1,43 @@
+{
+	"name": "Kroki",
+	"emoji": "📐",
+	"route": {
+		"service": "kroki",
+		"port": 8000
+	},
+	"variables": [],
+	"texts": {
+		"en": {
+			"description": "Diagrams from text: PlantUML, Mermaid, Graphviz and more",
+			"notes": "Send a diagram’s source to https://{host}/<type>/svg, as /plantuml/svg or /mermaid/svg, and get the picture back; editors and docs tools take https://{host} as their Kroki server. Kroki has no accounts: anyone with the address can use it. BPMN and Excalidraw are left out, to save memory."
+		},
+		"de": {
+			"description": "Diagramme aus Text: PlantUML, Mermaid, Graphviz und mehr",
+			"notes": "Schick den Quelltext eines Diagramms an https://{host}/<type>/svg, etwa /plantuml/svg oder /mermaid/svg, und du bekommst das Bild zurück; Editoren und Doku-Tools nehmen https://{host} als ihren Kroki-Server. Kroki hat keine Konten: Alle, die die Adresse haben, können es nutzen. BPMN und Excalidraw sind weggelassen, um Speicher zu sparen."
+		},
+		"es": {
+			"description": "Diagramas a partir de texto: PlantUML, Mermaid, Graphviz y más",
+			"notes": "Envía el código de un diagrama a https://{host}/<type>/svg, como /plantuml/svg o /mermaid/svg, y recibes la imagen; los editores y las herramientas de documentación usan https://{host} como su servidor Kroki. Kroki no tiene cuentas: cualquiera que tenga la dirección puede usarlo. BPMN y Excalidraw quedan fuera para ahorrar memoria."
+		},
+		"fr": {
+			"description": "Des diagrammes à partir de texte : PlantUML, Mermaid, Graphviz et plus",
+			"notes": "Envoyez la source d’un diagramme à https://{host}/<type>/svg, par exemple /plantuml/svg ou /mermaid/svg, et vous recevez l’image ; les éditeurs et les outils de documentation prennent https://{host} comme serveur Kroki. Kroki n’a pas de comptes : quiconque connaît l’adresse peut l’utiliser. BPMN et Excalidraw sont laissés de côté pour économiser la mémoire."
+		},
+		"pl": {
+			"description": "Diagramy z tekstu: PlantUML, Mermaid, Graphviz i inne",
+			"notes": "Wyślij kod diagramu na https://{host}/<type>/svg, na przykład /plantuml/svg albo /mermaid/svg, a dostaniesz obrazek; edytory i narzędzia do dokumentacji przyjmą https://{host} jako swój serwer Kroki. Kroki nie ma kont: może z niego korzystać każdy, kto zna adres. BPMN i Excalidraw pominięto, żeby oszczędzić pamięć."
+		},
+		"pt": {
+			"description": "Diagramas a partir de texto: PlantUML, Mermaid, Graphviz e mais",
+			"notes": "Envie o código de um diagrama para https://{host}/<type>/svg, como /plantuml/svg ou /mermaid/svg, e receba a imagem; editores e ferramentas de documentação usam https://{host} como servidor Kroki. O Kroki não tem contas: qualquer pessoa com o endereço pode usá-lo. BPMN e Excalidraw ficaram de fora para economizar memória."
+		},
+		"ru": {
+			"description": "Диаграммы из текста: PlantUML, Mermaid, Graphviz и другие",
+			"notes": "Отправьте исходник диаграммы на https://{host}/<type>/svg, например /plantuml/svg или /mermaid/svg, и получите картинку; редакторы и инструменты документации принимают https://{host} как свой сервер Kroki. В Kroki нет аккаунтов: им может пользоваться любой, кто знает адрес. BPMN и Excalidraw не включены, чтобы сэкономить память."
+		},
+		"uk": {
+			"description": "Діаграми з тексту: PlantUML, Mermaid, Graphviz та інші",
+			"notes": "Надішліть вихідний код діаграми на https://{host}/<type>/svg, наприклад /plantuml/svg або /mermaid/svg, і отримайте зображення; редактори й інструменти документації приймають https://{host} як свій сервер Kroki. У Kroki немає акаунтів: ним може користуватися кожен, хто знає адресу. BPMN і Excalidraw не ввімкнено, щоб заощадити пам’ять."
+		}
+	}
+}

@@ -1,0 +1,24 @@
+services:
+  kener:
+    image: rajnandan1/kener:4.1.7
+    restart: unless-stopped
+    environment:
+      KENER_SECRET_KEY: ${SECRET_KEY}
+      ORIGIN: ${URL}
+      REDIS_URL: redis://redis:6379
+    volumes:
+      # The SQLite database: monitors, their history, incidents and settings.
+      - data:/app/database
+    depends_on:
+      - redis
+
+  # Kener's queues and scheduler.
+  redis:
+    image: redis:8-alpine
+    restart: unless-stopped
+    volumes:
+      - redis:/data
+
+volumes:
+  data:
+  redis:

@@ -1,0 +1,52 @@
+{
+	"name": "Kener",
+	"emoji": "🟢",
+	"route": {
+		"service": "kener",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "SECRET_KEY",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A status page with uptime monitors and incidents",
+			"notes": "Open the address, choose Login and create the admin account. Do it right away: until then the page is open to whoever has the address. Then put https://{host} in Site URL under Site Configurations: the links in emails and in the RSS feed are made from it."
+		},
+		"de": {
+			"description": "Eine Statusseite mit Uptime-Monitoren und Störungsmeldungen",
+			"notes": "Öffne die Adresse, wähl „Login“ und erstell das Admin-Konto. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Trag dann unter „Site Configurations“ https://{host} als „Site URL“ ein: Daraus entstehen die Links in E-Mails und im RSS-Feed."
+		},
+		"es": {
+			"description": "Una página de estado con monitores de disponibilidad e incidentes",
+			"notes": "Abre la dirección, elige Login y crea la cuenta de administrador. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Luego pon https://{host} en Site URL, en Site Configurations: con ella se forman los enlaces de los correos y del feed RSS."
+		},
+		"fr": {
+			"description": "Une page de statut avec sondes de disponibilité et incidents",
+			"notes": "Ouvrez l’adresse, choisissez Login et créez le compte administrateur. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Mettez ensuite https://{host} dans Site URL, sous Site Configurations : les liens des e-mails et du flux RSS en sont tirés."
+		},
+		"pl": {
+			"description": "Strona statusu z monitorami dostępności i incydentami",
+			"notes": "Otwórz adres projektu, wybierz Login i załóż konto administratora. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Potem w Site Configurations wpisz https://{host} w polu Site URL: z niego powstają linki w e-mailach i w kanale RSS."
+		},
+		"pt": {
+			"description": "Uma página de status com monitores de disponibilidade e incidentes",
+			"notes": "Abra o endereço, escolha Login e crie a conta de administrador. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. Depois coloque https://{host} em Site URL, em Site Configurations: os links dos e-mails e do feed RSS são montados a partir dele."
+		},
+		"ru": {
+			"description": "Страница статуса с мониторами доступности и инцидентами",
+			"notes": "Откройте адрес, выберите Login и создайте аккаунт администратора. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Затем в Site Configurations укажите https://{host} в поле Site URL: из него собираются ссылки в письмах и в RSS-ленте."
+		},
+		"uk": {
+			"description": "Сторінка статусу з моніторами доступності та інцидентами",
+			"notes": "Відкрийте адресу, оберіть Login і створіть акаунт адміністратора. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Потім у Site Configurations вкажіть https://{host} у полі Site URL: з нього складаються посилання в листах і в RSS-стрічці."
+		}
+	}
+}

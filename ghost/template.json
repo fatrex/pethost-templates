@@ -1,0 +1,56 @@
+{
+	"name": "Ghost",
+	"emoji": "👻",
+	"route": {
+		"service": "ghost",
+		"port": 2368
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 16
+		},
+		{
+			"name": "DB_ROOT_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A publishing platform for blogs and newsletters",
+			"notes": "Create the owner account at /ghost; the first start takes about a minute. Do it right away: until then the page is open to whoever has the address. Email works after you add Ghost’s mail__ variables to the project’s .env and deploy again."
+		},
+		"de": {
+			"description": "Eine Publishing-Plattform für Blogs und Newsletter",
+			"notes": "Erstell das Owner-Konto unter /ghost; der erste Start dauert etwa eine Minute. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Der E-Mail-Versand funktioniert, sobald du die mail__-Variablen von Ghost in die .env des Projekts eingetragen und neu deployt hast."
+		},
+		"es": {
+			"description": "Una plataforma de publicación para blogs y newsletters",
+			"notes": "Crea la cuenta de propietario en /ghost; el primer inicio tarda alrededor de un minuto. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. El correo funcionará cuando agregues las variables mail__ de Ghost al .env del proyecto y vuelvas a desplegar."
+		},
+		"fr": {
+			"description": "Une plateforme de publication pour blogs et newsletters",
+			"notes": "Créez le compte propriétaire sur /ghost ; le premier démarrage prend environ une minute. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Pour que les e-mails fonctionnent, ajoutez les variables mail__ de Ghost au .env du projet et redéployez."
+		},
+		"pl": {
+			"description": "Platforma do publikowania blogów i newsletterów",
+			"notes": "Załóż konto właściciela pod adresem /ghost; pierwsze uruchomienie trwa około minuty. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Wysyłka e-maili zadziała, gdy dodasz do pliku .env projektu zmienne mail__, których używa Ghost, i wdrożysz ponownie."
+		},
+		"pt": {
+			"description": "Uma plataforma de publicação para blogs e newsletters",
+			"notes": "Crie a conta do dono em /ghost; na primeira vez, o app leva cerca de um minuto para iniciar. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. O e-mail passa a funcionar depois que você adicionar as variáveis mail__ do Ghost ao .env do projeto e fizer o deploy de novo."
+		},
+		"ru": {
+			"description": "Платформа для блогов и рассылок",
+			"notes": "Создайте аккаунт владельца по адресу /ghost; первый запуск занимает около минуты. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Почта заработает, когда вы добавите в .env проекта переменные Ghost с префиксом mail__ и задеплоите проект заново."
+		},
+		"uk": {
+			"description": "Видавнича платформа для блогів і розсилок",
+			"notes": "Створіть акаунт власника за адресою /ghost; перший запуск триває близько хвилини. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Пошта запрацює, коли ви додасте змінні mail__ застосунку Ghost у файл .env проєкту й задеплоїте ще раз."
+		}
+	}
+}

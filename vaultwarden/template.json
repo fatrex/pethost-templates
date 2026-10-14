@@ -1,0 +1,48 @@
+{
+	"name": "Vaultwarden",
+	"emoji": "🔐",
+	"route": {
+		"service": "vaultwarden",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A password manager server for the Bitwarden apps",
+			"notes": "Open the site, choose Create account and set a master password: it cannot be recovered. Then add SIGNUPS_ALLOWED=false to the project’s .env and deploy again, and name https://{host} as the self-hosted server in the Bitwarden apps."
+		},
+		"de": {
+			"description": "Ein Passwortmanager-Server für die Bitwarden-Apps",
+			"notes": "Öffne die Website, wähl „Create account“ und leg ein Master-Passwort fest: Es lässt sich nicht wiederherstellen. Trag dann SIGNUPS_ALLOWED=false in die .env des Projekts ein und deploy neu, und gib in den Bitwarden-Apps https://{host} als selbst gehosteten Server an."
+		},
+		"es": {
+			"description": "Un servidor de contraseñas para las apps de Bitwarden",
+			"notes": "Abre el sitio, elige Create account y define una contraseña maestra: no se puede recuperar. Luego agrega SIGNUPS_ALLOWED=false al .env del proyecto y vuelve a desplegar, e indica https://{host} como servidor autoalojado en las apps de Bitwarden."
+		},
+		"fr": {
+			"description": "Un serveur de gestion de mots de passe pour les applications Bitwarden",
+			"notes": "Ouvrez le site, choisissez Create account et définissez un mot de passe principal : il ne peut pas être récupéré. Ajoutez ensuite SIGNUPS_ALLOWED=false au .env du projet et redéployez, puis indiquez https://{host} comme serveur auto-hébergé dans les applications Bitwarden."
+		},
+		"pl": {
+			"description": "Serwer menedżera haseł dla aplikacji Bitwarden",
+			"notes": "Otwórz witrynę, wybierz Create account i ustaw hasło główne: nie da się go odzyskać. Potem dodaj SIGNUPS_ALLOWED=false do pliku .env projektu i wdróż ponownie, a w aplikacjach Bitwarden podaj https://{host} jako serwer self-hosted."
+		},
+		"pt": {
+			"description": "Um servidor de gerenciamento de senhas para os apps do Bitwarden",
+			"notes": "Abra o site, escolha Create account e defina uma senha mestra: ela não pode ser recuperada. Depois adicione SIGNUPS_ALLOWED=false ao .env do projeto e faça o deploy de novo, e indique https://{host} como servidor auto-hospedado nos apps do Bitwarden."
+		},
+		"ru": {
+			"description": "Сервер менеджера паролей для приложений Bitwarden",
+			"notes": "Откройте сайт, выберите Create account и задайте мастер-пароль: восстановить его нельзя. Затем добавьте SIGNUPS_ALLOWED=false в .env проекта и задеплойте проект заново, а в приложениях Bitwarden укажите https://{host} как собственный сервер."
+		},
+		"uk": {
+			"description": "Сервер менеджера паролів для застосунків Bitwarden",
+			"notes": "Відкрийте сайт, оберіть Create account і задайте головний пароль: відновити його неможливо. Потім додайте SIGNUPS_ALLOWED=false у файл .env проєкту й задеплойте ще раз, а в застосунках Bitwarden вкажіть https://{host} як власний сервер."
+		}
+	}
+}

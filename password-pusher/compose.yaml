@@ -1,0 +1,21 @@
+services:
+  pwpush:
+    image: pglombardo/pwpush:2
+    restart: unless-stopped
+    environment:
+      # Pushes are encrypted with the master key; sessions are signed with the other.
+      PWPUSH_MASTER_KEY: ${MASTER_KEY}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      PWP__HOST_DOMAIN: ${HOST}
+      PWP__HOST_PROTOCOL: https
+      PWP__FILES__STORAGE: local
+      # The admin is made on the first-run page, with the boot code from the log; nobody else
+      # signs up or pushes until the notes' lines are added. A link opens without an account.
+      PWP__DISABLE_SIGNUPS: ${DISABLE_SIGNUPS:-true}
+      PWP__ALLOW_ANONYMOUS: ${ALLOW_ANONYMOUS:-false}
+    volumes:
+      # The SQLite database and the files pushed.
+      - storage:/opt/PasswordPusher/storage
+
+volumes:
+  storage:

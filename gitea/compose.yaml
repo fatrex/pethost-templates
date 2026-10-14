@@ -1,0 +1,25 @@
+services:
+  gitea:
+    image: gitea/gitea:28-rootless
+    restart: unless-stopped
+    environment:
+      GITEA__server__ROOT_URL: ${APP_URL}/
+      GITEA__server__SSH_DOMAIN: ${APP_HOST}
+      GITEA__server__SSH_PORT: "2222"
+      GITEA__server__SSH_LISTEN_PORT: "2222"
+      GITEA__server__START_SSH_SERVER: "true"
+      GITEA__database__DB_TYPE: sqlite3
+      GITEA__security__INSTALL_LOCK: "true"
+      GITEA__security__SECRET_KEY: ${GITEA_SECRET_KEY}
+      GITEA__security__REVERSE_PROXY_TRUSTED_PROXIES: "*"
+      GITEA__service__DISABLE_REGISTRATION: ${GITEA_DISABLE_REGISTRATION:-false}
+      GITEA__service__REGISTER_MANUAL_CONFIRM: "true"
+    ports:
+      - "2222:2222"
+    volumes:
+      - data:/var/lib/gitea
+      - config:/etc/gitea
+
+volumes:
+  data:
+  config:

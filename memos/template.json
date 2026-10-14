@@ -1,0 +1,43 @@
+{
+	"name": "Memos",
+	"emoji": "📝",
+	"route": {
+		"service": "memos",
+		"port": 5230
+	},
+	"variables": [],
+	"texts": {
+		"en": {
+			"description": "Short Markdown notes on a private timeline",
+			"notes": "Open the address and create the first account: it becomes the admin. Do it right away: until then the page is open to whoever has the address. To keep the instance to yourself, turn off registration in Settings."
+		},
+		"de": {
+			"description": "Kurze Markdown-Notizen in einer privaten Timeline",
+			"notes": "Öffne die Adresse und erstell das erste Konto: Es wird zum Admin-Konto. Mach das gleich: Bis dahin steht die Seite allen offen, die die Adresse haben. Willst du die Instanz für dich allein, schalte die Registrierung unter „Settings“ aus."
+		},
+		"es": {
+			"description": "Notas breves en Markdown en una línea de tiempo privada",
+			"notes": "Abre la dirección y crea la primera cuenta: será la del administrador. Hazlo enseguida: hasta entonces la página está abierta para cualquiera que tenga la dirección. Para que la instancia sea solo tuya, desactiva el registro en Settings."
+		},
+		"fr": {
+			"description": "De courtes notes en Markdown sur un fil privé",
+			"notes": "Ouvrez l’adresse et créez le premier compte : il devient l’administrateur. Faites-le tout de suite : d’ici là, la page est ouverte à quiconque connaît l’adresse. Pour garder l’instance rien que pour vous, désactivez les inscriptions dans Settings."
+		},
+		"pl": {
+			"description": "Krótkie notatki Markdown na prywatnej osi czasu",
+			"notes": "Otwórz adres projektu i załóż pierwsze konto: zostaje administratorem. Zrób to od razu: do tego czasu strona jest otwarta dla każdego, kto zna adres. Żeby instancja była tylko dla ciebie, wyłącz rejestrację w Settings."
+		},
+		"pt": {
+			"description": "Notas curtas em Markdown em uma linha do tempo privada",
+			"notes": "Abra o endereço e crie a primeira conta: ela vira a conta de administrador. Faça isso logo: até lá, a página fica aberta para quem tiver o endereço. Para manter a instância só para você, desative o cadastro em Settings."
+		},
+		"ru": {
+			"description": "Короткие Markdown-заметки в личной ленте",
+			"notes": "Откройте адрес и создайте первый аккаунт: он станет администратором. Сделайте это сразу: до тех пор страница открыта любому, кто знает адрес. Чтобы оставить Memos только себе, выключите регистрацию в разделе Settings."
+		},
+		"uk": {
+			"description": "Короткі нотатки в Markdown на приватній стрічці",
+			"notes": "Відкрийте адресу і створіть перший акаунт: він стане адміністратором. Зробіть це одразу: доти сторінка відкрита кожному, хто знає адресу. Щоб лишити застосунок тільки собі, вимкніть реєстрацію в Settings."
+		}
+	}
+}

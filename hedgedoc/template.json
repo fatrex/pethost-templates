@@ -1,0 +1,64 @@
+{
+	"name": "HedgeDoc",
+	"emoji": "🦔",
+	"route": {
+		"service": "hedgedoc",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "HOST",
+			"from": "host"
+		},
+		{
+			"name": "EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "PASSWORD",
+			"ask": "password"
+		},
+		{
+			"name": "SESSION_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Markdown notes you write together in real time",
+			"notes": "Sign in with the email and password you gave. Nobody else can sign up: to let others in, add CMD_ALLOW_EMAIL_REGISTER=true to the project’s .env and deploy again. The password is changed in .env too: every start sets it again."
+		},
+		"de": {
+			"description": "Markdown-Notizen, die du mit anderen in Echtzeit gemeinsam schreibst",
+			"notes": "Melde dich mit der E-Mail-Adresse und dem Passwort an, die du festgelegt hast. Niemand sonst kann sich registrieren: Damit auch andere hineinkommen, trag CMD_ALLOW_EMAIL_REGISTER=true in die .env des Projekts ein und deploy neu. Auch das Passwort änderst du in der .env: Jeder Start setzt es neu."
+		},
+		"es": {
+			"description": "Notas en Markdown que escribes junto con otros en tiempo real",
+			"notes": "Inicia sesión con el correo y la contraseña que indicaste. Nadie más puede registrarse: para dejar entrar a otros, agrega CMD_ALLOW_EMAIL_REGISTER=true al .env del proyecto y vuelve a desplegar. La contraseña también se cambia en .env: cada inicio la vuelve a establecer."
+		},
+		"fr": {
+			"description": "Des notes Markdown que l’on écrit à plusieurs, en temps réel",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe que vous avez choisis. Personne d’autre ne peut s’inscrire : pour laisser entrer d’autres personnes, ajoutez CMD_ALLOW_EMAIL_REGISTER=true au .env du projet et redéployez. Le mot de passe se modifie lui aussi dans le .env : chaque démarrage l’applique de nouveau."
+		},
+		"pl": {
+			"description": "Notatki w Markdownie, które piszesz razem z innymi w czasie rzeczywistym",
+			"notes": "Zaloguj się adresem e-mail i hasłem podanymi przy tworzeniu projektu. Nikt inny nie może się zarejestrować: żeby wpuścić innych, dodaj CMD_ALLOW_EMAIL_REGISTER=true do pliku .env projektu i wdróż ponownie. Hasło też zmienisz w .env: każde uruchomienie ustawia je od nowa."
+		},
+		"pt": {
+			"description": "Notas em Markdown que você escreve com outras pessoas, em tempo real",
+			"notes": "Entre com o e-mail e a senha que você definiu. Ninguém mais pode se cadastrar: para deixar outras pessoas entrarem, adicione CMD_ALLOW_EMAIL_REGISTER=true ao .env do projeto e faça o deploy de novo. A senha também é alterada no .env: toda vez que o app inicia, ela é definida de novo."
+		},
+		"ru": {
+			"description": "Markdown-заметки, которые вы пишете вместе с другими в реальном времени",
+			"notes": "Войдите с email и паролем, которые вы задали. Больше никто не сможет зарегистрироваться: чтобы пустить других, добавьте CMD_ALLOW_EMAIL_REGISTER=true в .env проекта и задеплойте проект заново. Пароль тоже меняется в .env: при каждом запуске он задается заново."
+		},
+		"uk": {
+			"description": "Нотатки в Markdown, які ви пишете разом з іншими в реальному часі",
+			"notes": "Увійдіть з адресою електронної пошти й паролем, які ви вказали. Більше ніхто не зможе зареєструватися: щоб пустити інших, додайте CMD_ALLOW_EMAIL_REGISTER=true у файл .env проєкту й задеплойте ще раз. Пароль теж змінюють у .env: кожен запуск задає його заново."
+		}
+	}
+}

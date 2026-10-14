@@ -1,0 +1,60 @@
+{
+	"name": "Paperless-ngx",
+	"emoji": "📄",
+	"route": {
+		"service": "webserver",
+		"port": 8000
+	},
+	"variables": [
+		{
+			"name": "PAPERLESS_URL",
+			"from": "url"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "PAPERLESS_SECRET_KEY",
+			"secret": 32
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A document archive with OCR and full-text search",
+			"notes": "Sign in as admin with the password you gave. Documents are read as English until you change the OCR language under Configuration."
+		},
+		"de": {
+			"description": "Ein Dokumentenarchiv mit OCR und Volltextsuche",
+			"notes": "Melde dich als admin mit dem Passwort an, das du festgelegt hast. Dokumente werden als englischer Text gelesen, bis du unter „Configuration“ die OCR-Sprache änderst."
+		},
+		"es": {
+			"description": "Un archivo digital de documentos con OCR y búsqueda de texto completo",
+			"notes": "Inicia sesión como admin con la contraseña que indicaste. Los documentos se leen como si estuvieran en inglés hasta que cambies el idioma del OCR en Configuration."
+		},
+		"fr": {
+			"description": "Une archive de documents avec OCR et recherche plein texte",
+			"notes": "Connectez-vous avec le nom d’utilisateur admin et le mot de passe que vous avez choisi. Les documents sont lus comme de l’anglais tant que vous n’avez pas changé la langue de l’OCR dans Configuration."
+		},
+		"pl": {
+			"description": "Archiwum dokumentów z OCR i wyszukiwaniem pełnotekstowym",
+			"notes": "Zaloguj się jako admin z hasłem podanym przy tworzeniu projektu. Dokumenty są odczytywane jako angielskie, dopóki nie zmienisz języka OCR w Configuration."
+		},
+		"pt": {
+			"description": "Um acervo de documentos com OCR e busca em texto completo",
+			"notes": "Entre como admin com a senha que você definiu. Os documentos são lidos como se estivessem em inglês até você alterar o idioma do OCR em Configuration."
+		},
+		"ru": {
+			"description": "Архив документов с OCR и полнотекстовым поиском",
+			"notes": "Войдите как admin с паролем, который вы задали. Документы распознаются как английские, пока вы не смените язык OCR в разделе Configuration."
+		},
+		"uk": {
+			"description": "Архів документів з OCR і повнотекстовим пошуком",
+			"notes": "Увійдіть як admin із паролем, який ви вказали. Документи розпізнаються як англомовні, доки ви не зміните мову OCR у розділі Configuration."
+		}
+	}
+}

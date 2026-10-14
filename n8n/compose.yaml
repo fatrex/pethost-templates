@@ -1,0 +1,27 @@
+services:
+  n8n:
+    image: n8nio/n8n:2.43.4
+    restart: unless-stopped
+    environment:
+      N8N_HOST: ${APP_HOST}
+      N8N_PORT: "5678"
+      N8N_PROTOCOL: https
+      N8N_PROXY_HOPS: "1"
+      N8N_EDITOR_BASE_URL: ${APP_URL}
+      WEBHOOK_URL: ${APP_URL}/
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY}
+      N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
+      GENERIC_TIMEZONE: ${GENERIC_TIMEZONE:-UTC}
+      TZ: ${GENERIC_TIMEZONE:-UTC}
+    volumes:
+      - data:/home/node/.n8n
+    # The port listens before the editor is ready: the deploy waits for the editor.
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:5678/healthz/readiness').then(r=>process.exit(r.ok?0:1),()=>process.exit(1))"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 120s
+
+volumes:
+  data:
