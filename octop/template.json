@@ -1,0 +1,48 @@
+{
+	"name": "Octop",
+	"emoji": "🐙",
+	"route": {
+		"service": "octop",
+		"port": 8088
+	},
+	"variables": [
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A self-hosted AI assistant for a team or a family: several users, expert agents, Telegram, Discord and more",
+			"notes": "Sign in as admin with the admin password you gave; it needs at least 8 characters, with letters and digits, or the first page asks for the code Octop writes to /data/octop-login.txt in its container. Then add a model provider’s key in the settings."
+		},
+		"de": {
+			"description": "Ein selbst gehosteter KI-Assistent für ein Team oder eine Familie: mehrere Nutzer, Experten-Agenten, Telegram, Discord und mehr",
+			"notes": "Melde dich als admin mit dem angegebenen Admin-Passwort an; es braucht mindestens 8 Zeichen mit Buchstaben und Ziffern, sonst fragt die erste Seite nach dem Code, den Octop in seinem Container nach /data/octop-login.txt schreibt. Trag dann in den Einstellungen den Key eines Modellanbieters ein."
+		},
+		"es": {
+			"description": "Un asistente de IA autoalojado para un equipo o una familia: varios usuarios, agentes expertos, Telegram, Discord y más",
+			"notes": "Entra como admin con la contraseña de administrador que indicaste; necesita al menos 8 caracteres, con letras y números, o la primera página pide el código que Octop escribe en /data/octop-login.txt de su contenedor. Luego añade en los ajustes la clave de un proveedor de modelos."
+		},
+		"fr": {
+			"description": "Un assistant IA auto-hébergé pour une équipe ou une famille : plusieurs utilisateurs, des agents experts, Telegram, Discord et plus",
+			"notes": "Connectez-vous en tant qu’admin avec le mot de passe administrateur indiqué ; il lui faut au moins 8 caractères, avec des lettres et des chiffres, sinon la première page demande le code qu’Octop écrit dans /data/octop-login.txt de son conteneur. Ajoutez ensuite dans les réglages la clé d’un fournisseur de modèles."
+		},
+		"pl": {
+			"description": "Samodzielnie hostowany asystent AI dla zespołu lub rodziny: wielu użytkowników, agenci-eksperci, Telegram, Discord i więcej",
+			"notes": "Zaloguj się jako admin hasłem administratora, które podano; musi mieć co najmniej 8 znaków, z literami i cyframi, inaczej pierwsza strona poprosi o kod, który Octop zapisuje w /data/octop-login.txt w swoim kontenerze. Potem w ustawieniach dodaj klucz dostawcy modeli."
+		},
+		"pt": {
+			"description": "Um assistente de IA auto-hospedado para uma equipe ou uma família: vários usuários, agentes especialistas, Telegram, Discord e mais",
+			"notes": "Entre como admin com a senha de administrador que você informou; ela precisa de pelo menos 8 caracteres, com letras e números, ou a primeira página pede o código que o Octop grava em /data/octop-login.txt no contêiner dele. Depois adicione nas configurações a chave de um provedor de modelos."
+		},
+		"ru": {
+			"description": "ИИ-ассистент на своём сервере для команды или семьи: несколько пользователей, агенты-эксперты, Telegram, Discord и другое",
+			"notes": "Войдите как admin с паролем администратора, который вы указали; в нём нужно не меньше 8 символов, с буквами и цифрами, иначе первая страница спросит код, который Octop пишет в /data/octop-login.txt в своём контейнере. Затем добавьте в настройках ключ провайдера моделей."
+		},
+		"uk": {
+			"description": "ШІ-асистент на власному сервері для команди чи родини: кілька користувачів, агенти-експерти, Telegram, Discord та інше",
+			"notes": "Увійдіть як admin із паролем адміністратора, який ви вказали; у ньому потрібно щонайменше 8 символів, з літерами й цифрами, інакше перша сторінка запитає код, який Octop пише в /data/octop-login.txt у своєму контейнері. Потім додайте в налаштуваннях ключ провайдера моделей."
+		}
+	}
+}

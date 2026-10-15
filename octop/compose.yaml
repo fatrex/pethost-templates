@@ -1,0 +1,20 @@
+services:
+  octop:
+    image: ghcr.io/tencentcloud/octop:1.0.2b8
+    restart: unless-stopped
+    environment:
+      HOME: /data
+      OCTOP_BIND_HOST: 0.0.0.0
+      OCTOP_PORT: 8088
+      # The admin is made at the first start from this password, when it has at least
+      # 8 characters with letters and digits; else the setup asks for the code it
+      # writes to /data/octop-login.txt.
+      OCTOP_ADMIN_USERNAME: admin
+      OCTOP_DEFAULT_PASSWORD: ${ADMIN_PASSWORD}
+      LANGFUSE_TRACING_ENABLED: "false"
+    # SQLite, the agents, their workspaces and the settings.
+    volumes:
+      - data:/data/.octop
+
+volumes:
+  data:
