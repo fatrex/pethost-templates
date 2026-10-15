@@ -1,0 +1,68 @@
+{
+	"name": "InsForge",
+	"emoji": "🧱",
+	"route": {
+		"service": "insforge",
+		"port": 7130
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "JWT_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "ENCRYPTION_KEY",
+			"secret": 32
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A backend for apps that coding agents build: Postgres, auth, storage and edge functions",
+			"notes": "Sign in to the dashboard with the email and the admin password you gave. Your apps and agents reach the API at https://{host}; the dashboard shows the API key and how to connect an agent."
+		},
+		"de": {
+			"description": "Ein Backend für Apps, die Coding-Agenten bauen: Postgres, Auth, Speicher und Edge Functions",
+			"notes": "Melde dich im Dashboard mit der angegebenen E-Mail und dem Admin-Passwort an. Deine Apps und Agenten erreichen die API unter https://{host}; das Dashboard zeigt den API-Schlüssel und wie ein Agent verbunden wird."
+		},
+		"es": {
+			"description": "Un backend para apps que construyen agentes de código: Postgres, autenticación, almacenamiento y edge functions",
+			"notes": "Entra en el panel con el correo y la contraseña de administrador que indicaste. Tus apps y agentes llegan a la API en https://{host}; el panel muestra la clave de API y cómo conectar un agente."
+		},
+		"fr": {
+			"description": "Un backend pour les applications que construisent les agents de code : Postgres, authentification, stockage et edge functions",
+			"notes": "Connectez-vous au tableau de bord avec l’e-mail et le mot de passe administrateur indiqués. Vos applications et vos agents atteignent l’API à https://{host} ; le tableau de bord affiche la clé d’API et la façon de connecter un agent."
+		},
+		"pl": {
+			"description": "Backend dla aplikacji, które budują agenci kodujący: Postgres, uwierzytelnianie, pliki i edge functions",
+			"notes": "Zaloguj się do panelu e-mailem i hasłem administratora, które podano. Twoje aplikacje i agenci łączą się z API pod https://{host}; panel pokazuje klucz API i sposób podłączenia agenta."
+		},
+		"pt": {
+			"description": "Um backend para apps que agentes de código constroem: Postgres, autenticação, armazenamento e edge functions",
+			"notes": "Entre no painel com o e-mail e a senha de administrador que você informou. Seus apps e agentes acessam a API em https://{host}; o painel mostra a chave de API e como conectar um agente."
+		},
+		"ru": {
+			"description": "Бэкенд для приложений, которые пишут AI-агенты: Postgres, авторизация, файлы и edge functions",
+			"notes": "Войдите в панель с почтой и паролем администратора, которые вы указали. Ваши приложения и агенты обращаются к API на https://{host}; в панели — API-ключ и подключение агента."
+		},
+		"uk": {
+			"description": "Бекенд для застосунків, які пишуть AI-агенти: Postgres, авторизація, файли та edge functions",
+			"notes": "Увійдіть у панель з поштою й паролем адміністратора, які ви вказали. Ваші застосунки й агенти звертаються до API на https://{host}; у панелі — API-ключ і підключення агента."
+		}
+	}
+}

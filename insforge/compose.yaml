@@ -1,0 +1,224 @@
+services:
+  postgres:
+    image: ghcr.io/insforge/postgres:v15.13.4
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: insforge
+      PGDATA: /var/lib/postgresql/data/pgdata
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+    # InsForge's own compose file mounts these three files from its repository; they are the
+    # files of release v2.3.4, written before Postgres starts.
+    entrypoint:
+      - sh
+      - -c
+      - |
+        cat > /etc/postgresql/postgresql.conf <<'CONF'
+        listen_addresses = '*'
+
+        wal_level = logical
+        max_replication_slots = 10
+        max_wal_senders = 10
+
+        shared_preload_libraries = 'pg_cron,http,pgcrypto,insforge_pg_utils'
+
+        insforge.policy_grant_role = 'project_admin'
+        insforge.extension_grant_role = 'project_admin'
+        insforge.policy_grant_tables = 'storage.objects,realtime.channels,realtime.messages,payments.stripe_checkout_sessions,payments.stripe_customer_portal_sessions,payments.razorpay_orders,payments.razorpay_subscriptions'
+
+        insforge.internal_schemas = 'ai,auth,compute,deployments,email,functions,memory,payments,realtime,schedules,storage,system'
+
+        cron.database_name = 'insforge'
+        CONF
+        cat > /docker-entrypoint-initdb.d/01-init.sql <<'SQL'
+        CREATE ROLE anon NOLOGIN;
+
+        CREATE ROLE authenticated NOLOGIN;
+
+        CREATE ROLE project_admin NOLOGIN;
+
+        GRANT USAGE ON SCHEMA public TO anon;
+        GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO anon;
+        GRANT USAGE ON SCHEMA public TO authenticated;
+        GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO authenticated;
+        GRANT USAGE ON SCHEMA public TO project_admin;
+        GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO project_admin;
+
+        GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO anon, authenticated, project_admin;
+        ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO anon, authenticated, project_admin;
+        CREATE OR REPLACE FUNCTION public.create_default_policies()
+        RETURNS event_trigger AS $$$$
+        DECLARE
+          obj record;
+          table_schema text;
+          table_name text;
+          has_rls boolean;
+        BEGIN
+          FOR obj IN SELECT * FROM pg_event_trigger_ddl_commands() WHERE command_tag = 'CREATE TABLE'
+          LOOP
+            SELECT INTO table_schema, table_name
+              split_part(obj.object_identity, '.', 1),
+              trim(both '"' from split_part(obj.object_identity, '.', 2));
+            SELECT INTO has_rls
+              rowsecurity
+            FROM pg_tables
+            WHERE schemaname = table_schema
+              AND tablename = table_name;
+            IF has_rls THEN
+              EXECUTE format('CREATE POLICY "project_admin_policy" ON %s FOR ALL TO project_admin USING (true) WITH CHECK (true)', obj.object_identity);
+            END IF;
+          END LOOP;
+        END;
+        $$$$ LANGUAGE plpgsql;
+
+        CREATE EVENT TRIGGER create_policies_on_table_create
+          ON ddl_command_end
+          WHEN TAG IN ('CREATE TABLE')
+          EXECUTE FUNCTION public.create_default_policies();
+
+        CREATE OR REPLACE FUNCTION public.create_policies_after_rls()
+        RETURNS event_trigger AS $$$$
+        DECLARE
+          obj record;
+          table_schema text;
+          table_name text;
+        BEGIN
+          FOR obj IN SELECT * FROM pg_event_trigger_ddl_commands() WHERE command_tag = 'ALTER TABLE'
+          LOOP
+            SELECT INTO table_schema, table_name
+              split_part(obj.object_identity, '.', 1),
+              trim(both '"' from split_part(obj.object_identity, '.', 2));
+            IF EXISTS (
+              SELECT 1 FROM pg_tables
+              WHERE schemaname = table_schema
+                AND tablename = table_name
+                AND rowsecurity = true
+            ) AND NOT EXISTS (
+              SELECT 1 FROM pg_policies
+              WHERE schemaname = table_schema
+                AND tablename = table_name
+            ) THEN
+              EXECUTE format('CREATE POLICY "project_admin_policy" ON %s FOR ALL TO project_admin USING (true) WITH CHECK (true)', obj.object_identity);
+            END IF;
+          END LOOP;
+        END;
+        $$$$ LANGUAGE plpgsql;
+
+        CREATE EVENT TRIGGER create_policies_on_rls_enable
+          ON ddl_command_end
+          WHEN TAG IN ('ALTER TABLE')
+          EXECUTE FUNCTION public.create_policies_after_rls();
+        SQL
+        cat > /docker-entrypoint-initdb.d/02-jwt.sql <<'SQL'
+        \set jwt_secret `echo "$$JWT_SECRET"`
+        \set jwt_exp `echo "$$JWT_EXP"`
+
+        ALTER DATABASE postgres SET "app.settings.jwt_secret" TO :'jwt_secret';
+        ALTER DATABASE postgres SET "app.settings.jwt_exp" TO :'jwt_exp';
+        SQL
+        exec docker-entrypoint.sh postgres -c config_file=/etc/postgresql/postgresql.conf -c cron.database_name=insforge -c app.encryption_key="$$ENCRYPTION_KEY"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  postgrest:
+    image: postgrest/postgrest:v12.2.12
+    restart: unless-stopped
+    environment:
+      PGRST_DB_URI: postgres://postgres:${POSTGRES_PASSWORD}@postgres:5432/insforge
+      PGRST_OPENAPI_SERVER_PROXY_URI: http://localhost:3000
+      PGRST_DB_SCHEMA: public
+      PGRST_DB_ANON_ROLE: anon
+      PGRST_DB_POOL: "50"
+      PGRST_JWT_SECRET: ${JWT_SECRET}
+      PGRST_DB_CHANNEL_ENABLED: "true"
+      PGRST_DB_CHANNEL: pgrst
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  insforge:
+    image: ghcr.io/insforge/insforge-oss:v2.3.4
+    restart: unless-stopped
+    working_dir: /app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      postgrest:
+        condition: service_started
+    environment:
+      PORT: "7130"
+      PROJECT_ROOT: /app
+      API_BASE_URL: ${URL}
+      VITE_API_BASE_URL: ${URL}
+      JWT_SECRET: ${JWT_SECRET}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      # The dashboard's admin is checked against these two values on every sign-in.
+      ROOT_ADMIN_USERNAME: ${ADMIN_EMAIL}
+      ROOT_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: insforge
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/insforge
+      POSTGREST_BASE_URL: http://postgrest:3000
+      DENO_RUNTIME_URL: http://deno:7133
+      LOGS_DIR: /insforge-logs
+      STORAGE_DIR: /insforge-storage
+    volumes:
+      - storage-data:/insforge-storage
+      - insforge-logs:/insforge-logs
+
+  # Edge functions. InsForge's compose file mounts functions/ from its repository: the three
+  # files of release v2.3.4 are fetched once into the container.
+  deno:
+    image: denoland/deno:alpine-2.0.6
+    restart: unless-stopped
+    working_dir: /app
+    depends_on:
+      - postgres
+      - postgrest
+    environment:
+      PORT: "7133"
+      DENO_ENV: production
+      DENO_DIR: /deno-dir
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: insforge
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGREST_BASE_URL: http://postgrest:3000
+      WORKER_TIMEOUT_MS: "60000"
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      JWT_SECRET: ${JWT_SECRET}
+    entrypoint:
+      - sh
+      - -c
+      - |
+        set -e
+        mkdir -p functions
+        for f in deno.json server.ts worker-template.js; do
+          [ -s functions/$$f ] || wget -q -O functions/$$f https://raw.githubusercontent.com/InsForge/InsForge/v2.3.4/functions/$$f
+        done
+        deno cache --no-lock functions/server.ts
+        exec deno run --no-lock --unstable-worker-options --allow-net --allow-env --allow-read=./functions/worker-template.js functions/server.ts
+    volumes:
+      - deno-cache:/deno-dir
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:7133/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+volumes:
+  postgres-data:
+  storage-data:
+  insforge-logs:
+  deno-cache:
