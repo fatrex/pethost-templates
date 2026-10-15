@@ -1,0 +1,67 @@
+services:
+  koel:
+    image: phanan/koel:9.15.0
+    restart: unless-stopped
+    environment:
+      APP_URL: ${URL}
+      FORCE_HTTPS: "true"
+      APP_DEBUG: "false"
+      APP_KEY: ${APP_KEY}
+      DB_CONNECTION: pgsql
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_DATABASE: koel
+      DB_USERNAME: koel
+      DB_PASSWORD: ${DB_PASSWORD}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # The image initialises Koel only when a .env file exists, and koel:init makes the admin
+    # with a password everyone knows: the admin gets the email and the password given instead,
+    # while it still has that one.
+    entrypoint:
+      - sh
+      - -c
+      - |
+        cd /var/www/html
+        touch .env && chown www-data .env
+        runuser -u www-data -- koel-init
+        runuser -u www-data -- php -r '
+          require "vendor/autoload.php";
+          $$app = require "bootstrap/app.php";
+          $$app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+          $$admin = App\Models\User::where("email", App\Models\User::FIRST_ADMIN_EMAIL)->first();
+          if ($$admin && Illuminate\Support\Facades\Hash::check(App\Models\User::FIRST_ADMIN_PASSWORD, $$admin->password)) {
+            $$admin->email = getenv("ADMIN_EMAIL");
+            $$admin->password = Illuminate\Support\Facades\Hash::make(getenv("ADMIN_PASSWORD"));
+            $$admin->save();
+          }'
+        exec docker-php-entrypoint apache2-foreground
+    depends_on:
+      database:
+        condition: service_healthy
+    # The three folders the image declares as volumes.
+    volumes:
+      - music:/music
+      - images:/var/www/html/storage/app/public/images
+      - search:/var/www/html/storage/search-indexes
+
+  database:
+    image: postgres:18.3-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: koel
+      POSTGRES_USER: koel
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "koel", "-d", "koel"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  music:
+  images:
+  search:
+  db:

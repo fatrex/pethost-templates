@@ -1,0 +1,64 @@
+{
+	"name": "Koel",
+	"emoji": "🎵",
+	"route": {
+		"service": "koel",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "APP_KEY",
+			"secret": 16
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 16
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Your music library streamed to the browser and the phone apps, a personal Spotify",
+			"notes": "Sign in with the email and the admin password you gave. Upload songs in Koel, or copy them into the project’s music volume and scan the library in Settings."
+		},
+		"de": {
+			"description": "Deine Musiksammlung als Stream im Browser und in den Handy-Apps, ein persönliches Spotify",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Admin-Passwort an. Lade Songs in Koel hoch oder kopier sie ins Volume music des Projekts und scanne die Bibliothek in den Settings."
+		},
+		"es": {
+			"description": "Tu biblioteca de música en streaming en el navegador y en las apps del móvil, un Spotify personal",
+			"notes": "Entra con el correo y la contraseña de administrador que indicaste. Sube canciones en Koel, o cópialas en el volumen music del proyecto y escanea la biblioteca en Settings."
+		},
+		"fr": {
+			"description": "Votre bibliothèque musicale en streaming dans le navigateur et les apps mobiles, un Spotify personnel",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe administrateur indiqués. Envoyez des morceaux dans Koel, ou copiez-les dans le volume music du projet et scannez la bibliothèque dans Settings."
+		},
+		"pl": {
+			"description": "Własna biblioteka muzyki strumieniowana do przeglądarki i aplikacji na telefon, osobisty Spotify",
+			"notes": "Zaloguj się adresem e-mail i hasłem administratora, które podano. Wgraj utwory w Koel albo skopiuj je do wolumenu music projektu i przeskanuj bibliotekę w Settings."
+		},
+		"pt": {
+			"description": "Sua biblioteca de música em streaming no navegador e nos apps do celular, um Spotify pessoal",
+			"notes": "Entre com o e-mail e a senha de administrador que você informou. Envie músicas pelo Koel, ou copie-as para o volume music do projeto e escaneie a biblioteca em Settings."
+		},
+		"ru": {
+			"description": "Ваша музыкальная библиотека стримится в браузер и мобильные приложения — личный Spotify",
+			"notes": "Войдите с почтой и паролем администратора, которые вы указали. Загружайте песни в Koel или скопируйте их в том music проекта и просканируйте библиотеку в Settings."
+		},
+		"uk": {
+			"description": "Ваша музична бібліотека стримиться в браузер і мобільні застосунки — особистий Spotify",
+			"notes": "Увійдіть із поштою й паролем адміністратора, які ви вказали. Завантажуйте пісні в Koel або скопіюйте їх у том music проєкту й проскануйте бібліотеку в Settings."
+		}
+	}
+}
