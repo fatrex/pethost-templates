@@ -1,0 +1,72 @@
+{
+	"name": "Flowise",
+	"emoji": "🌊",
+	"route": {
+		"service": "flowise",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "JWT_AUTH_TOKEN_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "JWT_REFRESH_TOKEN_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "EXPRESS_SESSION_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "TOKEN_HASH_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Build AI agents and LLM workflows visually, then call them over an API or embed them as a chat widget",
+			"notes": "Sign in with the email and the admin password you gave: the template registers that owner at the first start. Add a credential for your model's provider, then build a chatflow or an agentflow."
+		},
+		"de": {
+			"description": "KI-Agenten und LLM-Workflows visuell bauen, dann per API aufrufen oder als Chat-Widget einbetten",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Admin-Passwort an: Die Vorlage registriert diesen Owner beim ersten Start. Lege ein Credential für den Anbieter deines Modells an, dann einen Chatflow oder einen Agentflow."
+		},
+		"es": {
+			"description": "Crea agentes de IA y flujos con LLM de forma visual y luego llámalos por API o incrústalos como widget de chat",
+			"notes": "Entra con el correo y la contraseña de administrador que indicaste: la plantilla registra ese owner en el primer arranque. Añade una credencial del proveedor de tu modelo y luego crea un chatflow o un agentflow."
+		},
+		"fr": {
+			"description": "Construisez des agents IA et des workflows LLM visuellement, puis appelez-les par API ou intégrez-les en widget de chat",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe administrateur indiqués : le modèle enregistre cet owner au premier démarrage. Ajoutez un credential pour le fournisseur de votre modèle, puis créez un chatflow ou un agentflow."
+		},
+		"pl": {
+			"description": "Buduj agentów AI i przepływy LLM wizualnie, a potem wywołuj je przez API albo osadzaj jako widżet czatu",
+			"notes": "Zaloguj się adresem e-mail i hasłem administratora, które podano: szablon rejestruje tego ownera przy pierwszym starcie. Dodaj credential dostawcy swojego modelu, a potem zbuduj chatflow albo agentflow."
+		},
+		"pt": {
+			"description": "Crie agentes de IA e fluxos com LLM visualmente e depois chame-os por API ou incorpore-os como widget de chat",
+			"notes": "Entre com o e-mail e a senha de administrador que você informou: o template registra esse owner na primeira inicialização. Adicione uma credencial do provedor do seu modelo e depois crie um chatflow ou um agentflow."
+		},
+		"ru": {
+			"description": "Визуальная сборка ИИ-агентов и LLM-воркфлоу, которые затем вызываются по API или встраиваются как чат-виджет",
+			"notes": "Войдите с почтой и паролем администратора, которые вы указали: шаблон регистрирует этого owner при первом запуске. Добавьте credential провайдера вашей модели, затем соберите chatflow или agentflow."
+		},
+		"uk": {
+			"description": "Візуальне складання ШІ-агентів і LLM-воркфлоу, які потім викликаються через API або вбудовуються як чат-віджет",
+			"notes": "Увійдіть із поштою й паролем адміністратора, які ви вказали: шаблон реєструє цього owner під час першого запуску. Додайте credential провайдера вашої моделі, потім зберіть chatflow або agentflow."
+		}
+	}
+}

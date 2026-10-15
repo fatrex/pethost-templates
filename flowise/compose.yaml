@@ -1,0 +1,48 @@
+services:
+  flowise:
+    image: flowiseai/flowise:3.1.3
+    restart: unless-stopped
+    environment:
+      PORT: "3000"
+      APP_URL: ${URL}
+      JWT_AUTH_TOKEN_SECRET: ${JWT_AUTH_TOKEN_SECRET}
+      JWT_REFRESH_TOKEN_SECRET: ${JWT_REFRESH_TOKEN_SECRET}
+      EXPRESS_SESSION_SECRET: ${EXPRESS_SESSION_SECRET}
+      TOKEN_HASH_SECRET: ${TOKEN_HASH_SECRET}
+      NUMBER_OF_PROXIES: "1"
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # Flowise lets its first visitor register the owner. The first start runs it on a port no
+    # route reaches, registers the email and password given there, then serves it on 3000.
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        PORT=3001 flowise start &
+        setup=$$!
+        node -e '
+          const base = "http://127.0.0.1:3001/api/v1";
+          const body = JSON.stringify({ user: { name: "Admin", email: process.env.ADMIN_EMAIL, credential: process.env.ADMIN_PASSWORD } });
+          const wait = (ms) => new Promise((done) => setTimeout(done, ms));
+          (async () => {
+            for (let tries = 0; tries < 300; tries++) {
+              try {
+                const ping = await fetch(base + "/ping");
+                if (ping.ok) break;
+              } catch {}
+              await wait(1000);
+            }
+            const answer = await fetch(base + "/account/register", { method: "POST", headers: { "Content-Type": "application/json" }, body });
+            const text = await answer.text();
+            if (answer.ok || /only have one organization/.test(text)) return;
+            console.error("registering the owner failed:", answer.status, text);
+            process.exit(1);
+          })();
+        ' || exit 1
+        kill $$setup
+        wait $$setup
+        exec flowise start
+    volumes:
+      - data:/home/node
+
+volumes:
+  data:
