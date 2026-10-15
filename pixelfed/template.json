@@ -1,0 +1,72 @@
+{
+	"name": "Pixelfed",
+	"emoji": "📷",
+	"route": {
+		"service": "pixelfed",
+		"port": 8080
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "HOST",
+			"from": "host"
+		},
+		{
+			"name": "APP_KEY",
+			"secret": 16
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 16
+		},
+		{
+			"name": "ADMIN_USERNAME",
+			"ask": "username"
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Photo sharing without ads or algorithms, an Instagram alternative that federates with Mastodon",
+			"notes": "Sign in with the email and the admin password you gave. Sign-ups are closed: open them in the admin dashboard, or make accounts there. The address can’t change later, as other servers know the accounts by it."
+		},
+		"de": {
+			"description": "Fotos teilen ohne Werbung und Algorithmen, eine Instagram-Alternative, die mit Mastodon föderiert",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Admin-Passwort an. Registrierungen sind geschlossen: Öffne sie im Admin-Dashboard oder leg dort Konten an. Die Adresse lässt sich später nicht ändern, da andere Server die Konten unter ihr kennen."
+		},
+		"es": {
+			"description": "Comparte fotos sin anuncios ni algoritmos, una alternativa a Instagram que se federa con Mastodon",
+			"notes": "Entra con el correo y la contraseña de administrador que indicaste. Los registros están cerrados: ábrelos en el panel de administración o crea allí las cuentas. La dirección no se puede cambiar después, porque los demás servidores conocen las cuentas por ella."
+		},
+		"fr": {
+			"description": "Partage de photos sans publicités ni algorithmes, une alternative à Instagram fédérée avec Mastodon",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe administrateur indiqués. Les inscriptions sont fermées : ouvrez-les dans le tableau de bord d’administration, ou créez-y les comptes. L’adresse ne peut plus changer ensuite, car les autres serveurs connaissent les comptes par elle."
+		},
+		"pl": {
+			"description": "Udostępnianie zdjęć bez reklam i algorytmów, alternatywa dla Instagrama federująca się z Mastodonem",
+			"notes": "Zaloguj się adresem e-mail i hasłem administratora, które podano. Rejestracja jest zamknięta: otwórz ją w panelu administratora albo załóż tam konta. Adresu nie da się później zmienić, bo inne serwery znają konta po nim."
+		},
+		"pt": {
+			"description": "Compartilhamento de fotos sem anúncios nem algoritmos, uma alternativa ao Instagram que federa com o Mastodon",
+			"notes": "Entre com o e-mail e a senha de administrador que você informou. Os cadastros estão fechados: abra-os no painel de administração ou crie as contas lá. O endereço não pode mudar depois, pois os outros servidores conhecem as contas por ele."
+		},
+		"ru": {
+			"description": "Обмен фотографиями без рекламы и алгоритмов — альтернатива Instagram, которая федерируется с Mastodon",
+			"notes": "Войдите с почтой и паролем администратора, которые вы указали. Регистрация закрыта: откройте её в панели администратора или создайте там аккаунты. Адрес потом не сменить: другие серверы знают аккаунты по нему."
+		},
+		"uk": {
+			"description": "Обмін фотографіями без реклами й алгоритмів — альтернатива Instagram, яка федерується з Mastodon",
+			"notes": "Увійдіть із поштою й паролем адміністратора, які ви вказали. Реєстрацію закрито: відкрийте її в панелі адміністратора або створіть там акаунти. Адресу потім не змінити: інші сервери знають акаунти за нею."
+		}
+	}
+}

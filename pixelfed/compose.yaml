@@ -1,0 +1,138 @@
+# What the app, its queue worker and its scheduler all read.
+x-pixelfed: &pixelfed
+  image: ghcr.io/pixelfed/pixelfed:v0.14.4
+  restart: unless-stopped
+  environment: &env
+    APP_NAME: Pixelfed
+    APP_ENV: production
+    APP_DEBUG: "false"
+    APP_KEY: ${APP_KEY}
+    APP_URL: ${URL}
+    APP_DOMAIN: ${HOST}
+    ADMIN_DOMAIN: ${HOST}
+    TRUST_PROXIES: "*"
+    # Accounts are made by the admin; ENFORCE_EMAIL_VERIFICATION would need mail.
+    OPEN_REGISTRATION: "false"
+    ENFORCE_EMAIL_VERIFICATION: "false"
+    OAUTH_ENABLED: "true"
+    IMAGE_DRIVER: vips
+    ACTIVITY_PUB: "true"
+    AP_REMOTE_FOLLOW: "true"
+    AP_INBOX: "true"
+    AP_OUTBOX: "true"
+    AP_SHAREDINBOX: "true"
+    DB_CONNECTION: mysql
+    DB_HOST: db
+    DB_PORT: 3306
+    DB_DATABASE: pixelfed
+    DB_USERNAME: pixelfed
+    DB_PASSWORD: ${DB_PASSWORD}
+    REDIS_CLIENT: phpredis
+    REDIS_HOST: redis
+    REDIS_PASSWORD: "null"
+    REDIS_PORT: 6379
+    SESSION_DRIVER: database
+    CACHE_STORE: redis
+    QUEUE_DRIVER: redis
+    BROADCAST_DRIVER: log
+    MAIL_MAILER: log
+    PHP_POST_MAX_SIZE: 100M
+    PHP_UPLOAD_MAX_FILE_SIZE: 100M
+    PHP_OPCACHE_ENABLE: "1"
+    AUTORUN_ENABLED: "false"
+    AUTORUN_LARAVEL_STORAGE_LINK: "true"
+    AUTORUN_LARAVEL_CONFIG_CACHE: "true"
+  # Media, the OAuth keys and the logs, shared by the three.
+  volumes:
+    - storage:/var/www/html/storage
+  depends_on:
+    db:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+
+services:
+  pixelfed:
+    <<: *pixelfed
+    environment:
+      <<: *env
+      AUTORUN_ENABLED: "true"
+      AUTORUN_LARAVEL_MIGRATION: "true"
+      AUTORUN_LARAVEL_MIGRATION_ISOLATION: "true"
+      AUTORUN_LARAVEL_EVENT_CACHE: "true"
+      AUTORUN_LARAVEL_ROUTE_CACHE: "true"
+      AUTORUN_LARAVEL_VIEW_CACHE: "true"
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # After the migrations: the OAuth keys and the instance's actor once, and the admin
+    # from the fields while the instance has none.
+    command:
+      - sh
+      - -c
+      - |
+        [ -f storage/oauth-private.key ] || php artisan passport:keys
+        php artisan instance:actor
+        php -r '
+          require "vendor/autoload.php";
+          $$app = require "bootstrap/app.php";
+          $$app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+          exit(App\Models\User::where("is_admin", true)->exists() ? 1 : 0);
+        ' && php artisan user:create --name="$$ADMIN_USERNAME" --username="$$ADMIN_USERNAME" \
+          --email="$$ADMIN_EMAIL" --password="$$ADMIN_PASSWORD" --is_admin=true --confirm_email=1
+        exec frankenphp run --config /etc/frankenphp/Caddyfile --adapter caddyfile
+
+  horizon:
+    <<: *pixelfed
+    environment:
+      <<: *env
+      # One worker per supervisor for all its queues, not one per queue: a quarter of the memory.
+      HORIZON_BALANCE_STRATEGY: "false"
+    command: [php, artisan, horizon]
+    # The image's own healthcheck asks the web server, which runs in pixelfed only.
+    healthcheck:
+      test: [CMD, php, artisan, horizon:status]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  scheduler:
+    <<: *pixelfed
+    command: [php, artisan, schedule:work]
+    stop_signal: SIGTERM
+    healthcheck:
+      test: [CMD, healthcheck-schedule]
+      start_period: 10s
+
+  db:
+    image: mariadb:11.8
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: pixelfed
+      MARIADB_USER: pixelfed
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  redis:
+    image: redis:8-alpine
+    restart: unless-stopped
+    command: [redis-server, --appendonly, "yes"]
+    volumes:
+      - redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  storage:
+  db:
+  redis:
