@@ -1,0 +1,60 @@
+{
+	"name": "Coder",
+	"emoji": "🧑‍💻",
+	"route": {
+		"service": "coder",
+		"port": 7080
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Remote development environments from Terraform templates, opened in VS Code, JetBrains, a browser or over SSH",
+			"notes": "Sign in with the email and the admin password you gave: the template makes that owner at the first start. A workspace comes from a template: pick one that provisions it on a cloud you have an account with or on Kubernetes; the Docker one needs a Docker socket the project does not have."
+		},
+		"de": {
+			"description": "Entfernte Entwicklungsumgebungen aus Terraform-Vorlagen, geöffnet in VS Code, JetBrains, im Browser oder per SSH",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Admin-Passwort an: Die Vorlage legt diesen Owner beim ersten Start an. Ein Workspace entsteht aus einer Vorlage: Wähle eine, die ihn in einer Cloud mit deinem Konto oder auf Kubernetes bereitstellt; die Docker-Vorlage braucht einen Docker-Socket, den das Projekt nicht hat."
+		},
+		"es": {
+			"description": "Entornos de desarrollo remotos a partir de plantillas de Terraform, abiertos en VS Code, JetBrains, el navegador o por SSH",
+			"notes": "Entra con el correo y la contraseña de administrador que indicaste: la plantilla crea ese owner en el primer arranque. Un workspace sale de una plantilla: elige una que lo cree en una nube donde tengas cuenta o en Kubernetes; la de Docker necesita un socket de Docker que el proyecto no tiene."
+		},
+		"fr": {
+			"description": "Des environnements de développement distants issus de modèles Terraform, ouverts dans VS Code, JetBrains, le navigateur ou en SSH",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe administrateur indiqués : le modèle crée cet owner au premier démarrage. Un workspace vient d’un modèle : choisissez-en un qui le crée sur un cloud où vous avez un compte ou sur Kubernetes ; celui de Docker demande un socket Docker que le projet n’a pas."
+		},
+		"pl": {
+			"description": "Zdalne środowiska programistyczne z szablonów Terraform, otwierane w VS Code, JetBrains, przeglądarce albo przez SSH",
+			"notes": "Zaloguj się adresem e-mail i hasłem administratora, które podano: szablon tworzy tego ownera przy pierwszym starcie. Workspace powstaje z szablonu: wybierz taki, który tworzy go w chmurze, w której masz konto, albo na Kubernetesie; szablon Dockera potrzebuje gniazda Dockera, którego projekt nie ma."
+		},
+		"pt": {
+			"description": "Ambientes de desenvolvimento remotos a partir de templates do Terraform, abertos no VS Code, JetBrains, no navegador ou por SSH",
+			"notes": "Entre com o e-mail e a senha de administrador que você informou: o template cria esse owner na primeira inicialização. Um workspace sai de um template: escolha um que o crie numa nuvem onde você tem conta ou no Kubernetes; o do Docker precisa de um socket do Docker que o projeto não tem."
+		},
+		"ru": {
+			"description": "Удалённые среды разработки из шаблонов Terraform, которые открываются в VS Code, JetBrains, браузере или по SSH",
+			"notes": "Войдите с почтой и паролем администратора, которые вы указали: шаблон создаёт этого owner при первом запуске. Workspace создаётся из шаблона: выберите тот, что разворачивает его в облаке, где у вас есть аккаунт, или в Kubernetes; шаблону Docker нужен сокет Docker, которого у проекта нет."
+		},
+		"uk": {
+			"description": "Віддалені середовища розробки з шаблонів Terraform, які відкриваються у VS Code, JetBrains, браузері або через SSH",
+			"notes": "Увійдіть із поштою й паролем адміністратора, які ви вказали: шаблон створює цього owner під час першого запуску. Workspace створюється з шаблону: виберіть той, що розгортає його в хмарі, де у вас є акаунт, або в Kubernetes; шаблону Docker потрібен сокет Docker, якого в проєкту немає."
+		}
+	}
+}

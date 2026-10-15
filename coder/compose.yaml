@@ -1,0 +1,56 @@
+services:
+  coder:
+    image: ghcr.io/coder/coder:v2.37.4
+    restart: unless-stopped
+    environment:
+      CODER_PG_CONNECTION_URL: postgresql://coder:${POSTGRES_PASSWORD}@database/coder?sslmode=disable
+      CODER_HTTP_ADDRESS: 0.0.0.0:7080
+      CODER_ACCESS_URL: ${URL}
+      CODER_TELEMETRY_ENABLE: "false"
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # A new Coder lets its first visitor create the owner account. So, before it answers on its
+    # own port, it is started on one nobody reaches and the email and password asked become the
+    # owner, the first time only.
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        CODER_HTTP_ADDRESS=127.0.0.1:3001 /opt/coder server &
+        setup=$$!
+        tries=0
+        until wget -q -O /dev/null http://127.0.0.1:3001/healthz; do
+          tries=$$((tries + 1))
+          [ $$tries -lt 300 ] || exit 1
+          sleep 1
+        done
+        if ! wget -q -O /dev/null http://127.0.0.1:3001/api/v2/users/first; then
+          /opt/coder login http://127.0.0.1:3001 \
+            --first-user-username admin --first-user-full-name Admin \
+            --first-user-email "$$ADMIN_EMAIL" --first-user-password "$$ADMIN_PASSWORD" \
+            --first-user-trial=false || exit 1
+        fi
+        kill $$setup
+        wait $$setup
+        exec /opt/coder server
+    depends_on:
+      database:
+        condition: service_healthy
+
+  database:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: coder
+      POSTGRES_USER: coder
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U coder -d coder"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  db:
