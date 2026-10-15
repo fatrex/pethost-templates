@@ -1,0 +1,48 @@
+{
+	"name": "marimo",
+	"emoji": "🟢",
+	"route": {
+		"service": "marimo",
+		"port": 8080
+	},
+	"variables": [
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A reactive Python notebook: cells rerun when what they depend on changes, and a notebook is a plain .py file",
+			"notes": "Open the address and enter the admin password you gave. Notebooks are kept in /app/data, which survives a redeploy."
+		},
+		"de": {
+			"description": "Ein reaktives Python-Notebook: Zellen laufen neu, wenn sich ändert, wovon sie abhängen, und ein Notebook ist eine einfache .py-Datei",
+			"notes": "Öffne die Adresse und gib das angegebene Admin-Passwort ein. Notebooks liegen in /app/data, das ein erneutes Deployment übersteht."
+		},
+		"es": {
+			"description": "Un notebook de Python reactivo: las celdas se vuelven a ejecutar cuando cambia aquello de lo que dependen, y un notebook es un simple archivo .py",
+			"notes": "Abre la dirección e introduce la contraseña de administrador que indicaste. Los notebooks se guardan en /app/data, que sobrevive a un nuevo despliegue."
+		},
+		"fr": {
+			"description": "Un notebook Python réactif : les cellules se relancent quand ce dont elles dépendent change, et un notebook est un simple fichier .py",
+			"notes": "Ouvrez l’adresse et saisissez le mot de passe administrateur indiqué. Les notebooks sont gardés dans /app/data, qui survit à un redéploiement."
+		},
+		"pl": {
+			"description": "Reaktywny notatnik Pythona: komórki uruchamiają się ponownie, gdy zmienia się to, od czego zależą, a notatnik to zwykły plik .py",
+			"notes": "Otwórz adres i wpisz hasło administratora, które podano. Notatniki są w /app/data, które przetrwa ponowne wdrożenie."
+		},
+		"pt": {
+			"description": "Um notebook Python reativo: as células rodam de novo quando muda aquilo de que dependem, e um notebook é um simples arquivo .py",
+			"notes": "Abra o endereço e digite a senha de administrador que você informou. Os notebooks ficam em /app/data, que sobrevive a um novo deploy."
+		},
+		"ru": {
+			"description": "Реактивный Python-блокнот: ячейки перезапускаются, когда меняется то, от чего они зависят, а блокнот — обычный .py-файл",
+			"notes": "Откройте адрес и введите пароль администратора, который вы указали. Блокноты хранятся в /app/data, который переживает повторный деплой."
+		},
+		"uk": {
+			"description": "Реактивний Python-блокнот: комірки перезапускаються, коли змінюється те, від чого вони залежать, а блокнот — звичайний .py-файл",
+			"notes": "Відкрийте адресу й введіть пароль адміністратора, який ви вказали. Блокноти зберігаються в /app/data, що переживає повторний деплой."
+		}
+	}
+}

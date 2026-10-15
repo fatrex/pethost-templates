@@ -1,0 +1,15 @@
+services:
+  marimo:
+    image: ghcr.io/marimo-team/marimo:0.25.1
+    restart: unless-stopped
+    environment:
+      MARIMO_PASSWORD: ${ADMIN_PASSWORD}
+    command:
+      - sh
+      - -c
+      - exec marimo edit --headless --host 0.0.0.0 -p 8080 --token-password "$$MARIMO_PASSWORD" /app/data
+    volumes:
+      - notebooks:/app/data
+
+volumes:
+  notebooks:
