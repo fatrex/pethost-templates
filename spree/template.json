@@ -1,0 +1,76 @@
+{
+	"name": "Spree Commerce",
+	"emoji": "🛒",
+	"route": {
+		"service": "spree",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "HOST",
+			"from": "host"
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "SECRET_KEY_BASE",
+			"secret": 64
+		},
+		{
+			"name": "ENCRYPTION_PRIMARY_KEY",
+			"secret": 32
+		},
+		{
+			"name": "ENCRYPTION_DETERMINISTIC_KEY",
+			"secret": 32
+		},
+		{
+			"name": "ENCRYPTION_KEY_DERIVATION_SALT",
+			"secret": 32
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "An open-source e-commerce platform: products, orders, payments and a headless API for any storefront",
+			"notes": "Sign in to https://{host}/admin with the email and the admin password you gave: Spree makes that admin at the first start. Products, payment methods and shipping are set up there."
+		},
+		"de": {
+			"description": "Eine Open-Source-E-Commerce-Plattform: Produkte, Bestellungen, Zahlungen und eine Headless-API für jeden Storefront",
+			"notes": "Melde dich unter https://{host}/admin mit der angegebenen E-Mail und dem Admin-Passwort an: Spree legt diesen Admin beim ersten Start an. Dort richtest du Produkte, Zahlungsarten und Versand ein."
+		},
+		"es": {
+			"description": "Una plataforma de comercio electrónico de código abierto: productos, pedidos, pagos y una API headless para cualquier tienda",
+			"notes": "Entra en https://{host}/admin con el correo y la contraseña de administrador que indicaste: Spree crea ese administrador en el primer arranque. Ahí se configuran los productos, los métodos de pago y los envíos."
+		},
+		"fr": {
+			"description": "Une plateforme d’e-commerce open source : produits, commandes, paiements et une API headless pour n’importe quelle vitrine",
+			"notes": "Connectez-vous à https://{host}/admin avec l’e-mail et le mot de passe administrateur indiqués : Spree crée cet administrateur au premier démarrage. Les produits, les moyens de paiement et la livraison s’y configurent."
+		},
+		"pl": {
+			"description": "Otwartoźródłowa platforma e-commerce: produkty, zamówienia, płatności i headless API dla dowolnego sklepu",
+			"notes": "Zaloguj się na https://{host}/admin adresem e-mail i hasłem administratora, które podano: Spree tworzy tego administratora przy pierwszym starcie. Tam ustawia się produkty, metody płatności i wysyłkę."
+		},
+		"pt": {
+			"description": "Uma plataforma de e-commerce de código aberto: produtos, pedidos, pagamentos e uma API headless para qualquer loja",
+			"notes": "Entre em https://{host}/admin com o e-mail e a senha de administrador que você informou: o Spree cria esse administrador na primeira inicialização. Produtos, formas de pagamento e frete são configurados lá."
+		},
+		"ru": {
+			"description": "Платформа электронной коммерции с открытым кодом: товары, заказы, платежи и headless API для любой витрины",
+			"notes": "Войдите на https://{host}/admin с почтой и паролем администратора, которые вы указали: Spree создаёт этого администратора при первом запуске. Там настраиваются товары, способы оплаты и доставка."
+		},
+		"uk": {
+			"description": "Платформа електронної комерції з відкритим кодом: товари, замовлення, платежі й headless API для будь-якої вітрини",
+			"notes": "Увійдіть на https://{host}/admin із поштою й паролем адміністратора, які ви вказали: Spree створює цього адміністратора під час першого запуску. Там налаштовуються товари, способи оплати й доставка."
+		}
+	}
+}
