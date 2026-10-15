@@ -1,0 +1,52 @@
+{
+	"name": "ArchiveBox",
+	"emoji": "🗃️",
+	"route": {
+		"service": "archivebox",
+		"port": 5797
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Save web pages, videos and articles as HTML, PDF, screenshots and media files, your own web archive",
+			"notes": "Sign in as admin with the admin password you gave. The archive is private: nothing in it is seen and nothing is added without signing in. Archived pages are shown without their JavaScript, as ArchiveBox does on one address."
+		},
+		"de": {
+			"description": "Webseiten, Videos und Artikel als HTML, PDF, Screenshots und Mediendateien sichern, dein eigenes Webarchiv",
+			"notes": "Melde dich als admin mit dem angegebenen Admin-Passwort an. Das Archiv ist privat: Ohne Anmeldung sieht man nichts darin und fügt nichts hinzu. Archivierte Seiten werden ohne ihr JavaScript gezeigt, wie ArchiveBox es unter einer Adresse tut."
+		},
+		"es": {
+			"description": "Guarda páginas web, vídeos y artículos como HTML, PDF, capturas y archivos multimedia, tu propio archivo de la web",
+			"notes": "Entra como admin con la contraseña de administrador que indicaste. El archivo es privado: sin iniciar sesión no se ve nada ni se añade nada. Las páginas archivadas se muestran sin su JavaScript, como hace ArchiveBox en una sola dirección."
+		},
+		"fr": {
+			"description": "Sauvegardez pages web, vidéos et articles en HTML, PDF, captures et fichiers média, votre propre archive du web",
+			"notes": "Connectez-vous en tant qu’admin avec le mot de passe administrateur indiqué. L’archive est privée : sans connexion, on n’y voit rien et on n’y ajoute rien. Les pages archivées s’affichent sans leur JavaScript, comme le fait ArchiveBox sur une seule adresse."
+		},
+		"pl": {
+			"description": "Zapisuj strony, filmy i artykuły jako HTML, PDF, zrzuty ekranu i pliki multimedialne, własne archiwum sieci",
+			"notes": "Zaloguj się jako admin hasłem administratora, które podano. Archiwum jest prywatne: bez logowania nic w nim nie widać i nic się nie dodaje. Zarchiwizowane strony są pokazywane bez JavaScriptu, jak robi to ArchiveBox pod jednym adresem."
+		},
+		"pt": {
+			"description": "Guarde páginas web, vídeos e artigos como HTML, PDF, capturas de tela e arquivos de mídia, seu próprio arquivo da web",
+			"notes": "Entre como admin com a senha de administrador que você informou. O arquivo é privado: sem entrar, nada nele é visto e nada é adicionado. As páginas arquivadas aparecem sem o JavaScript delas, como o ArchiveBox faz em um único endereço."
+		},
+		"ru": {
+			"description": "Сохраняйте страницы, видео и статьи в HTML, PDF, скриншотах и медиафайлах — свой архив интернета",
+			"notes": "Войдите как admin с паролем администратора, который вы указали. Архив закрытый: без входа в нём ничего не видно и ничего не добавить. Архивные страницы показываются без своего JavaScript, как ArchiveBox делает на одном адресе."
+		},
+		"uk": {
+			"description": "Зберігайте сторінки, відео й статті в HTML, PDF, скриншотах і медіафайлах — власний архів інтернету",
+			"notes": "Увійдіть як admin із паролем адміністратора, який ви вказали. Архів закритий: без входу в ньому нічого не видно й нічого не додати. Архівні сторінки показуються без свого JavaScript, як ArchiveBox робить на одній адресі."
+		}
+	}
+}

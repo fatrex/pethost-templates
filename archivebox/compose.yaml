@@ -1,0 +1,25 @@
+services:
+  archivebox:
+    image: archivebox/archivebox:0.9.73
+    restart: unless-stopped
+    environment:
+      # One host, so archived pages are replayed without their JavaScript.
+      BASE_URL: ${URL}
+      SERVER_SECURITY_MODE: safe-onedomain-nojsreplay
+      # Made at the first start; changing them later has no effect.
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      # Nothing is seen or added without signing in.
+      PERMISSIONS: private
+      PUBLIC_INDEX: "False"
+      PUBLIC_ADD_VIEW: "False"
+    # Chrome needs more shared memory than Docker's 64 MB.
+    shm_size: 1gb
+    # Both folders the image declares as volumes: the collection and its exports.
+    volumes:
+      - data:/data
+      - out:/out
+
+volumes:
+  data:
+  out:
