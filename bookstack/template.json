@@ -1,0 +1,68 @@
+{
+	"name": "BookStack",
+	"emoji": "📚",
+	"route": {
+		"service": "bookstack",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "APP_KEY",
+			"secret": 16
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "DB_ROOT_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A wiki organised as shelves, books, chapters and pages",
+			"notes": "Sign in with the email and the admin password you gave, at least 8 characters: the template gives them to BookStack’s first admin, so the stock admin@admin.com never signs in. Uploads and settings are kept in /config."
+		},
+		"de": {
+			"description": "Ein Wiki aus Regalen, Büchern, Kapiteln und Seiten",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Admin-Passwort an, mindestens 8 Zeichen: Die Vorlage gibt sie dem ersten Admin von BookStack, sodass sich das voreingestellte admin@admin.com nie anmeldet. Uploads und Einstellungen bleiben in /config erhalten."
+		},
+		"es": {
+			"description": "Una wiki organizada en estantes, libros, capítulos y páginas",
+			"notes": "Entra con el correo y la contraseña de administrador que indicaste, de al menos 8 caracteres: la plantilla se los da al primer administrador de BookStack, así que la cuenta predeterminada admin@admin.com nunca entra. Las subidas y la configuración se conservan en /config."
+		},
+		"fr": {
+			"description": "Un wiki organisé en étagères, livres, chapitres et pages",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe administrateur indiqués, d’au moins 8 caractères : le modèle les donne au premier administrateur de BookStack, si bien que le compte par défaut admin@admin.com ne se connecte jamais. Les fichiers envoyés et les réglages sont conservés dans /config."
+		},
+		"pl": {
+			"description": "Wiki uporządkowane w półki, książki, rozdziały i strony",
+			"notes": "Zaloguj się e-mailem i hasłem administratora, które podano, co najmniej 8 znaków: szablon nadaje je pierwszemu administratorowi BookStack, więc domyślne konto admin@admin.com nigdy się nie zaloguje. Przesłane pliki i ustawienia zostają w /config."
+		},
+		"pt": {
+			"description": "Uma wiki organizada em estantes, livros, capítulos e páginas",
+			"notes": "Entre com o e-mail e a senha de administrador que você informou, de pelo menos 8 caracteres: o template os dá ao primeiro administrador do BookStack, então a conta padrão admin@admin.com nunca entra. Uploads e configurações ficam guardados em /config."
+		},
+		"ru": {
+			"description": "Вики, разложенная по полкам, книгам, главам и страницам",
+			"notes": "Войдите с почтой и паролем администратора, которые вы указали, не короче 8 символов: шаблон отдаёт их первому администратору BookStack, так что стандартный admin@admin.com никогда не войдёт. Загрузки и настройки хранятся в /config."
+		},
+		"uk": {
+			"description": "Вікі, розкладена по полицях, книгах, розділах і сторінках",
+			"notes": "Увійдіть з поштою й паролем адміністратора, які ви вказали, не коротшим за 8 символів: шаблон віддає їх першому адміністраторові BookStack, тож стандартний admin@admin.com ніколи не ввійде. Завантаження й налаштування зберігаються в /config."
+		}
+	}
+}

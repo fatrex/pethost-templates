@@ -1,0 +1,54 @@
+services:
+  bookstack:
+    image: lscr.io/linuxserver/bookstack:v26.09.1-ls288
+    restart: unless-stopped
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      APP_URL: ${URL}
+      APP_KEY: ${APP_KEY}
+      DB_HOST: mariadb
+      DB_PORT: "3306"
+      DB_DATABASE: bookstack
+      DB_USERNAME: bookstack
+      DB_PASSWORD: ${DB_PASSWORD}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # BookStack's migrations make admin@admin.com with the password "password". A script of the
+    # image's custom-init step, which runs after the migrations and before the web server starts,
+    # gives that account the email and password given; once it is changed, the command leaves it.
+    entrypoint:
+      - sh
+      - -c
+      - |
+        mkdir -p /custom-cont-init.d
+        cat > /custom-cont-init.d/10-admin <<'SH'
+        #!/usr/bin/with-contenv sh
+        cd /app/www && php artisan bookstack:create-admin --initial --no-interaction --name=Admin --email="$$ADMIN_EMAIL" --password="$$ADMIN_PASSWORD"
+        SH
+        chmod 755 /custom-cont-init.d/10-admin
+        exec /init
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    volumes:
+      - config:/config
+  mariadb:
+    image: lscr.io/linuxserver/mariadb:11.8.8-r0-ls235
+    restart: unless-stopped
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: bookstack
+      MYSQL_USER: bookstack
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 -u bookstack -p\"$$MYSQL_PASSWORD\" --silent"]
+      interval: 5s
+      retries: 30
+    volumes:
+      - db:/config
+volumes:
+  config:
+  db:
