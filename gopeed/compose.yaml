@@ -1,0 +1,15 @@
+services:
+  gopeed:
+    image: liwei2633/gopeed:v1.9.3
+    restart: unless-stopped
+    environment:
+      # Gopeed asks for a sign-in only when a password is set; without one, anyone with the address
+      # could download through it.
+      GOPEED_USERNAME: gopeed
+      GOPEED_PASSWORD: ${ADMIN_PASSWORD}
+    volumes:
+      - downloads:/app/Downloads
+      - storage:/app/storage
+volumes:
+  downloads:
+  storage:

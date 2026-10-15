@@ -1,0 +1,48 @@
+{
+	"name": "Gopeed",
+	"emoji": "⬇️",
+	"route": {
+		"service": "gopeed",
+		"port": 9999
+	},
+	"variables": [
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A fast download manager in the browser: HTTP, BitTorrent and magnet links, with extensions",
+			"notes": "Sign in as gopeed with the admin password you gave. Files are downloaded into the project’s volume on your machine; open a finished one from the task list to save it to your computer."
+		},
+		"de": {
+			"description": "Ein schneller Download-Manager im Browser: HTTP, BitTorrent und Magnet-Links, mit Erweiterungen",
+			"notes": "Melde dich als gopeed mit dem angegebenen Admin-Passwort an. Die Dateien werden in das Volume des Projekts auf deiner Maschine geladen; öffne eine fertige in der Aufgabenliste, um sie auf deinem Computer zu speichern."
+		},
+		"es": {
+			"description": "Un gestor de descargas rápido en el navegador: HTTP, BitTorrent y enlaces magnet, con extensiones",
+			"notes": "Entra como gopeed con la contraseña de administrador que indicaste. Los archivos se descargan en el volumen del proyecto en tu máquina; abre uno terminado desde la lista de tareas para guardarlo en tu ordenador."
+		},
+		"fr": {
+			"description": "Un gestionnaire de téléchargements rapide dans le navigateur : HTTP, BitTorrent et liens magnet, avec des extensions",
+			"notes": "Connectez-vous en tant que gopeed avec le mot de passe administrateur indiqué. Les fichiers sont téléchargés dans le volume du projet sur votre machine ; ouvrez-en un terminé depuis la liste des tâches pour l’enregistrer sur votre ordinateur."
+		},
+		"pl": {
+			"description": "Szybki menedżer pobierania w przeglądarce: HTTP, BitTorrent i linki magnet, z rozszerzeniami",
+			"notes": "Zaloguj się jako gopeed hasłem administratora, które podano. Pliki są pobierane do woluminu projektu na twojej maszynie; otwórz gotowy z listy zadań, aby zapisać go na komputerze."
+		},
+		"pt": {
+			"description": "Um gerenciador de downloads rápido no navegador: HTTP, BitTorrent e links magnet, com extensões",
+			"notes": "Entre como gopeed com a senha de administrador que você informou. Os arquivos são baixados para o volume do projeto na sua máquina; abra um concluído na lista de tarefas para salvá-lo no seu computador."
+		},
+		"ru": {
+			"description": "Быстрый менеджер загрузок в браузере: HTTP, BitTorrent и magnet-ссылки, с расширениями",
+			"notes": "Войдите как gopeed с паролем администратора, который вы указали. Файлы скачиваются в том проекта на вашей машине; откройте готовый в списке задач, чтобы сохранить его на свой компьютер."
+		},
+		"uk": {
+			"description": "Швидкий менеджер завантажень у браузері: HTTP, BitTorrent і magnet-посилання, з розширеннями",
+			"notes": "Увійдіть як gopeed із паролем адміністратора, який ви вказали. Файли завантажуються в том проєкту на вашій машині; відкрийте готовий у списку завдань, щоб зберегти його на свій комп’ютер."
+		}
+	}
+}
