@@ -1,0 +1,34 @@
+services:
+  ntfy:
+    image: binwiederhier/ntfy:v2.30.0
+    restart: unless-stopped
+    environment:
+      NTFY_BASE_URL: ${URL}
+      NTFY_LISTEN_HTTP: ":80"
+      NTFY_BEHIND_PROXY: "true"
+      NTFY_CACHE_FILE: /var/lib/ntfy/cache.db
+      NTFY_AUTH_FILE: /var/lib/ntfy/user.db
+      # Without a user nobody reads or sends: the address alone does not open a topic.
+      NTFY_AUTH_DEFAULT_ACCESS: deny-all
+      NTFY_ENABLE_LOGIN: "true"
+      NTFY_REQUIRE_LOGIN: "true"
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # ntfy makes its user database at the first start, and only then takes a user: it is started
+    # once on a port nobody reaches, the admin is added, and the server proper starts.
+    entrypoint:
+      - sh
+      - -c
+      - |
+        set -e
+        if [ ! -f /var/lib/ntfy/user.db ]; then
+          ntfy serve --listen-http 127.0.0.1:81 &
+          until wget -q -O /dev/null http://127.0.0.1:81/v1/health; do sleep 1; done
+          kill $$!
+          wait $$! || true
+          NTFY_PASSWORD="$$ADMIN_PASSWORD" ntfy user add --role=admin admin
+        fi
+        exec ntfy serve
+    volumes:
+      - data:/var/lib/ntfy
+volumes:
+  data:

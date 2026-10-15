@@ -1,0 +1,52 @@
+{
+	"name": "ntfy",
+	"emoji": "🔔",
+	"route": {
+		"service": "ntfy",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Push notifications to your phone and desktop from scripts, over HTTP",
+			"notes": "Sign in as admin with the admin password you gave. Topics are closed to everyone else: give a phone or a script its own user in the ntfy service’s terminal, with ntfy user add and ntfy access. In the ntfy app, add https://{host} as the server. Messages are kept in /var/lib/ntfy."
+		},
+		"de": {
+			"description": "Push-Benachrichtigungen per HTTP an Handy und Desktop, aus deinen Skripten",
+			"notes": "Melde dich als admin mit dem angegebenen Admin-Passwort an. Für alle anderen sind die Topics geschlossen: Leg für ein Handy oder ein Skript einen eigenen Nutzer im Terminal des Service ntfy an, mit ntfy user add und ntfy access. Trag in der ntfy-App https://{host} als Server ein. Die Nachrichten bleiben in /var/lib/ntfy erhalten."
+		},
+		"es": {
+			"description": "Notificaciones push al móvil y al escritorio desde tus scripts, por HTTP",
+			"notes": "Entra como admin con la contraseña de administrador que indicaste. Los temas están cerrados para los demás: crea un usuario propio para un móvil o un script en el shell del servicio ntfy, con ntfy user add y ntfy access. En la app de ntfy, agrega https://{host} como servidor. Los mensajes se conservan en /var/lib/ntfy."
+		},
+		"fr": {
+			"description": "Notifications push vers le téléphone et le bureau depuis vos scripts, par HTTP",
+			"notes": "Connectez-vous en tant qu’admin avec le mot de passe administrateur indiqué. Les topics sont fermés à tous les autres : créez un utilisateur pour un téléphone ou un script dans le terminal du service ntfy, avec ntfy user add et ntfy access. Dans l’app ntfy, ajoutez https://{host} comme serveur. Les messages sont conservés dans /var/lib/ntfy."
+		},
+		"pl": {
+			"description": "Powiadomienia push na telefon i pulpit z twoich skryptów, przez HTTP",
+			"notes": "Zaloguj się jako admin hasłem administratora, które podano. Dla wszystkich innych tematy są zamknięte: utwórz osobnego użytkownika dla telefonu lub skryptu w terminalu usługi ntfy, poleceniami ntfy user add i ntfy access. W aplikacji ntfy dodaj https://{host} jako serwer. Wiadomości zostają w /var/lib/ntfy."
+		},
+		"pt": {
+			"description": "Notificações push no celular e no desktop a partir dos seus scripts, por HTTP",
+			"notes": "Entre como admin com a senha de administrador que você informou. Os tópicos ficam fechados para os demais: crie um usuário para um celular ou um script no terminal do serviço ntfy, com ntfy user add e ntfy access. No app ntfy, adicione https://{host} como servidor. As mensagens ficam guardadas em /var/lib/ntfy."
+		},
+		"ru": {
+			"description": "Push-уведомления на телефон и компьютер из ваших скриптов, по HTTP",
+			"notes": "Войдите как admin с паролем администратора, который вы указали. Для всех остальных топики закрыты: заведите отдельного пользователя для телефона или скрипта в терминале сервиса ntfy, командами ntfy user add и ntfy access. В приложении ntfy добавьте https://{host} как сервер. Сообщения хранятся в /var/lib/ntfy."
+		},
+		"uk": {
+			"description": "Push-сповіщення на телефон і комп’ютер із ваших скриптів, через HTTP",
+			"notes": "Увійдіть як admin із паролем адміністратора, який ви вказали. Для всіх інших топіки закриті: створіть окремого користувача для телефона чи скрипта в терміналі сервісу ntfy, командами ntfy user add і ntfy access. У застосунку ntfy додайте https://{host} як сервер. Повідомлення зберігаються в /var/lib/ntfy."
+		}
+	}
+}
