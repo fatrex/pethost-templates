@@ -1,0 +1,37 @@
+services:
+  reactive-resume:
+    image: amruthpillai/reactive-resume:v6.0.3
+    restart: unless-stopped
+    environment:
+      APP_URL: ${URL}
+      DATABASE_URL: postgresql://resume:${POSTGRES_PASSWORD}@postgres:5432/resume
+      AUTH_SECRET: ${AUTH_SECRET}
+      # Lets people save their own AI provider's key, kept encrypted with this.
+      ENCRYPTION_SECRET: ${ENCRYPTION_SECRET}
+      # Sign-ups are open until FLAG_DISABLE_SIGNUPS=true is added to the project's .env.
+      FLAG_DISABLE_SIGNUPS: ${FLAG_DISABLE_SIGNUPS:-false}
+    volumes:
+      - data:/app/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: resume
+      POSTGRES_USER: resume
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U resume -d resume"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  data:
+  db:

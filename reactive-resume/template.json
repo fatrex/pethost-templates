@@ -1,0 +1,60 @@
+{
+	"name": "Reactive Resume",
+	"emoji": "📝",
+	"route": {
+		"service": "reactive-resume",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "AUTH_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "ENCRYPTION_SECRET",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A resume builder: write, design and share resumes and cover letters, and export them to PDF",
+			"notes": "Press Build your resume and create your account; you are signed in at once. Sign-ups stay open to anyone who finds the address: once your account exists, add FLAG_DISABLE_SIGNUPS=true to the project’s .env and deploy. Without an SMTP server, verification and password reset links are written to the service’s log."
+		},
+		"de": {
+			"description": "Ein Lebenslauf-Editor: Lebensläufe und Anschreiben schreiben, gestalten, teilen und als PDF exportieren",
+			"notes": "Klick auf Build your resume und leg dein Konto an; du bist sofort angemeldet. Registrierungen bleiben für jeden offen, der die Adresse findet: Sobald dein Konto existiert, trag FLAG_DISABLE_SIGNUPS=true in die .env des Projekts ein und deploye. Ohne SMTP-Server stehen Bestätigungs- und Passwort-Links im Log des Dienstes."
+		},
+		"es": {
+			"description": "Un editor de currículums: escribe, diseña y comparte currículums y cartas de presentación, y expórtalos a PDF",
+			"notes": "Pulsa Build your resume y crea tu cuenta; entras al momento. El registro sigue abierto a cualquiera que encuentre la dirección: cuando tu cuenta exista, añade FLAG_DISABLE_SIGNUPS=true al .env del proyecto y despliega. Sin servidor SMTP, los enlaces de verificación y de restablecer la contraseña se escriben en el log del servicio."
+		},
+		"fr": {
+			"description": "Un éditeur de CV : rédigez, mettez en forme et partagez CV et lettres de motivation, et exportez-les en PDF",
+			"notes": "Cliquez sur Build your resume et créez votre compte ; vous êtes connecté aussitôt. Les inscriptions restent ouvertes à quiconque trouve l’adresse : une fois votre compte créé, ajoutez FLAG_DISABLE_SIGNUPS=true au .env du projet et déployez. Sans serveur SMTP, les liens de vérification et de réinitialisation du mot de passe sont écrits dans le log du service."
+		},
+		"pl": {
+			"description": "Kreator CV: pisz, projektuj i udostępniaj CV oraz listy motywacyjne i eksportuj je do PDF",
+			"notes": "Kliknij Build your resume i załóż konto; od razu jesteś zalogowany. Rejestracja zostaje otwarta dla każdego, kto znajdzie adres: gdy twoje konto już istnieje, dodaj FLAG_DISABLE_SIGNUPS=true do pliku .env projektu i wdróż. Bez serwera SMTP linki weryfikacyjne i do resetu hasła trafiają do logu usługi."
+		},
+		"pt": {
+			"description": "Um editor de currículos: escreva, diagrame e compartilhe currículos e cartas de apresentação, e exporte em PDF",
+			"notes": "Clique em Build your resume e crie sua conta; você entra na hora. O cadastro fica aberto para quem encontrar o endereço: quando sua conta existir, adicione FLAG_DISABLE_SIGNUPS=true ao .env do projeto e faça o deploy. Sem um servidor SMTP, os links de verificação e de redefinição de senha são escritos no log do serviço."
+		},
+		"ru": {
+			"description": "Конструктор резюме: пишите, оформляйте и публикуйте резюме и сопроводительные письма, экспортируйте их в PDF",
+			"notes": "Нажмите Build your resume и создайте учётную запись, вход происходит сразу. Регистрация открыта любому, кто найдёт адрес: когда ваша учётная запись готова, добавьте FLAG_DISABLE_SIGNUPS=true в .env проекта и сделайте деплой. Без SMTP-сервера ссылки для подтверждения и сброса пароля пишутся в лог сервиса."
+		},
+		"uk": {
+			"description": "Конструктор резюме: пишіть, оформлюйте й публікуйте резюме та супровідні листи, експортуйте їх у PDF",
+			"notes": "Натисніть Build your resume і створіть обліковий запис, вхід відбувається одразу. Реєстрація відкрита будь-кому, хто знайде адресу: коли ваш обліковий запис готовий, додайте FLAG_DISABLE_SIGNUPS=true до .env проєкту й зробіть деплой. Без SMTP-сервера посилання для підтвердження й скидання пароля пишуться в лог сервісу."
+		}
+	}
+}
