@@ -1,0 +1,32 @@
+services:
+  grav:
+    image: getgrav/grav:php8.4
+    restart: unless-stopped
+    # The image downloads Grav with its admin into the volume on the first start. The admin
+    # account is made from the fields before Apache starts, so the admin's "create the first
+    # account" page is never open to a visitor; Grav refuses a password without an upper-case
+    # letter, a lower-case letter and a digit, at least 8 characters, and the start stops then.
+    entrypoint:
+      - bash
+      - -c
+      - |
+        cat > /docker-entrypoint.d/admin.sh <<'SCRIPT'
+        #!/bin/bash
+        set -e
+        cd /var/www/html
+        if ! ls user/accounts/*.yaml >/dev/null 2>&1; then
+          runuser -u www-data -- bin/plugin login new-user --user=admin --password="$$ADMIN_PASSWORD" \
+            --email="$$ADMIN_EMAIL" --permissions=b --fullname=Admin --title=Administrator --language=en
+        fi
+        SCRIPT
+        chmod +x /docker-entrypoint.d/admin.sh
+        exec docker-entrypoint.sh apache2-foreground
+    environment:
+      GRAV_VERSION: 2.2.9
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    volumes:
+      - site:/var/www/html
+
+volumes:
+  site:

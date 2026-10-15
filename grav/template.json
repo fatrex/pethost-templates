@@ -1,0 +1,52 @@
+{
+	"name": "Grav",
+	"emoji": "🪐",
+	"route": {
+		"service": "grav",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A flat-file CMS: a fast website or blog with an admin panel and no database",
+			"notes": "Open https://{host}/admin and sign in as admin with the admin password you gave: at least 8 characters, with an upper-case letter, a lower-case letter and a digit. Pages, themes and plugins are managed there."
+		},
+		"de": {
+			"description": "Ein Flat-File-CMS: eine schnelle Website oder ein Blog mit Admin-Bereich und ohne Datenbank",
+			"notes": "Öffne https://{host}/admin und melde dich als admin mit dem angegebenen Admin-Passwort an: mindestens 8 Zeichen, mit einem Großbuchstaben, einem Kleinbuchstaben und einer Ziffer. Dort verwaltest du Seiten, Themes und Plugins."
+		},
+		"es": {
+			"description": "Un CMS de archivos planos: una web o un blog rápidos con panel de administración y sin base de datos",
+			"notes": "Abre https://{host}/admin y entra como admin con la contraseña de administrador que indicaste: al menos 8 caracteres, con una mayúscula, una minúscula y un dígito. Ahí se gestionan las páginas, los temas y los plugins."
+		},
+		"fr": {
+			"description": "Un CMS à fichiers plats : un site ou un blog rapide, avec une administration et sans base de données",
+			"notes": "Ouvrez https://{host}/admin et connectez-vous en tant qu’admin avec le mot de passe administrateur indiqué : au moins 8 caractères, avec une majuscule, une minuscule et un chiffre. Les pages, les thèmes et les plugins se gèrent là."
+		},
+		"pl": {
+			"description": "CMS na plikach: szybka strona albo blog z panelem administracyjnym i bez bazy danych",
+			"notes": "Otwórz https://{host}/admin i zaloguj się jako admin hasłem administratora, które podano: co najmniej 8 znaków, w tym wielka litera, mała litera i cyfra. Tam zarządza się stronami, motywami i wtyczkami."
+		},
+		"pt": {
+			"description": "Um CMS de arquivos: um site ou blog rápido, com painel de administração e sem banco de dados",
+			"notes": "Abra https://{host}/admin e entre como admin com a senha de administrador que você informou: pelo menos 8 caracteres, com uma letra maiúscula, uma minúscula e um dígito. As páginas, os temas e os plugins são geridos lá."
+		},
+		"ru": {
+			"description": "CMS на файлах: быстрый сайт или блог с админкой и без базы данных",
+			"notes": "Откройте https://{host}/admin и войдите как admin с паролем администратора, который вы указали: не короче 8 символов, с заглавной буквой, строчной буквой и цифрой. Там управляются страницы, темы и плагины."
+		},
+		"uk": {
+			"description": "CMS на файлах: швидкий сайт або блог з адмінкою й без бази даних",
+			"notes": "Відкрийте https://{host}/admin і увійдіть як admin із паролем адміністратора, який ви вказали: щонайменше 8 символів, із великою літерою, малою літерою й цифрою. Там керують сторінками, темами й плагінами."
+		}
+	}
+}
