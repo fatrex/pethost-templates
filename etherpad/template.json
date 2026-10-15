@@ -1,0 +1,52 @@
+{
+	"name": "Etherpad",
+	"emoji": "📝",
+	"route": {
+		"service": "etherpad",
+		"port": 9001
+	},
+	"variables": [
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Documents edited together in real time: each author in their own colour, with chat, history and plugins",
+			"notes": "Open the address, name a pad and share its link. Anyone with the address can create and edit pads. The admin pages are at https://{host}/admin: sign in as admin with the admin password you gave to install plugins and manage pads."
+		},
+		"de": {
+			"description": "Dokumente, die gemeinsam in Echtzeit bearbeitet werden: jede Person in ihrer eigenen Farbe, mit Chat, Verlauf und Plugins",
+			"notes": "Öffne die Adresse, gib einem Pad einen Namen und teile seinen Link. Jeder mit der Adresse kann Pads anlegen und bearbeiten. Die Admin-Seiten sind unter https://{host}/admin: Melde dich als admin mit dem angegebenen Admin-Passwort an, um Plugins zu installieren und Pads zu verwalten."
+		},
+		"es": {
+			"description": "Documentos editados en equipo en tiempo real: cada autor con su propio color, con chat, historial y plugins",
+			"notes": "Abre la dirección, pon nombre a un pad y comparte su enlace. Cualquiera con la dirección puede crear y editar pads. Las páginas de administración están en https://{host}/admin: entra como admin con la contraseña de administrador que indicaste para instalar plugins y gestionar los pads."
+		},
+		"fr": {
+			"description": "Des documents rédigés à plusieurs en temps réel : chaque auteur dans sa couleur, avec chat, historique et plugins",
+			"notes": "Ouvrez l’adresse, nommez un pad et partagez son lien. Toute personne qui a l’adresse peut créer et modifier des pads. L’administration est à https://{host}/admin : connectez-vous en tant qu’admin avec le mot de passe administrateur indiqué pour installer des plugins et gérer les pads."
+		},
+		"pl": {
+			"description": "Dokumenty edytowane wspólnie w czasie rzeczywistym: każdy autor w swoim kolorze, z czatem, historią i wtyczkami",
+			"notes": "Otwórz adres projektu, nazwij pad i udostępnij jego link. Każdy, kto zna adres, może tworzyć i edytować pady. Strony administracyjne są pod https://{host}/admin: zaloguj się jako admin hasłem administratora, które podano, żeby instalować wtyczki i zarządzać padami."
+		},
+		"pt": {
+			"description": "Documentos editados em conjunto em tempo real: cada autor com a sua cor, com chat, histórico e plugins",
+			"notes": "Abra o endereço, dê um nome a um pad e compartilhe o link dele. Qualquer pessoa com o endereço pode criar e editar pads. As páginas de administração ficam em https://{host}/admin: entre como admin com a senha de administrador que você informou para instalar plugins e gerir os pads."
+		},
+		"ru": {
+			"description": "Документы, которые редактируют вместе в реальном времени: у каждого автора свой цвет, есть чат, история и плагины",
+			"notes": "Откройте адрес, назовите пад и поделитесь его ссылкой. Создавать и редактировать пады может любой, у кого есть адрес. Админка — по адресу https://{host}/admin: войдите как admin с паролем администратора, который вы указали, чтобы ставить плагины и управлять падами."
+		},
+		"uk": {
+			"description": "Документи, які редагують разом у реальному часі: у кожного автора свій колір, є чат, історія й плагіни",
+			"notes": "Відкрийте адресу, назвіть пад і поділіться його посиланням. Створювати й редагувати пади може будь-хто, у кого є адреса. Адмінка — за адресою https://{host}/admin: увійдіть як admin із паролем адміністратора, який ви вказали, щоб ставити плагіни й керувати падами."
+		}
+	}
+}
