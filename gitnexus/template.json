@@ -1,0 +1,52 @@
+{
+	"name": "GitNexus",
+	"emoji": "🕸️",
+	"route": {
+		"service": "web",
+		"port": 4173
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "TOKEN",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Index a code repository into a knowledge graph and explore it, or let an agent query it over MCP",
+			"notes": "The site asks for an access token: TOKEN in the project’s .env. The browser forgets it with the tab, and an agent sends it to the address’s /api/mcp. Whoever has it reads every indexed repository. Its license, PolyForm Noncommercial, allows noncommercial use only."
+		},
+		"de": {
+			"description": "Ein Code-Repository als Wissensgraph indexieren und erkunden oder einen Agenten per MCP darin suchen lassen",
+			"notes": "Die Seite fragt nach einem Zugangstoken: TOKEN in der .env des Projekts. Der Browser vergisst es mit dem Tab, und ein Agent schickt es an /api/mcp unter der Adresse. Wer es hat, liest jedes indexierte Repository. Die Lizenz, PolyForm Noncommercial, erlaubt nur nichtkommerzielle Nutzung."
+		},
+		"es": {
+			"description": "Indexa un repositorio de código como un grafo de conocimiento y explóralo, o deja que un agente lo consulte por MCP",
+			"notes": "El sitio pide un token de acceso: TOKEN en el .env del proyecto. El navegador lo olvida al cerrar la pestaña, y un agente lo envía a /api/mcp en la dirección. Quien lo tenga lee todos los repositorios indexados. Su licencia, PolyForm Noncommercial, solo permite el uso no comercial."
+		},
+		"fr": {
+			"description": "Indexez un dépôt de code en graphe de connaissances et explorez-le, ou laissez un agent l’interroger via MCP",
+			"notes": "Le site demande un jeton d’accès : TOKEN dans le .env du projet. Le navigateur l’oublie avec l’onglet, et un agent l’envoie à /api/mcp sur l’adresse. Qui le détient lit tous les dépôts indexés. Sa licence, PolyForm Noncommercial, n’autorise qu’un usage non commercial."
+		},
+		"pl": {
+			"description": "Indeksuj repozytorium kodu jako graf wiedzy i przeglądaj go albo pozwól agentowi odpytywać go przez MCP",
+			"notes": "Strona poprosi o token dostępu: TOKEN z pliku .env projektu. Przeglądarka zapomina go razem z kartą, a agent wysyła go do /api/mcp pod adresem projektu. Kto go ma, czyta każde zindeksowane repozytorium. Licencja, PolyForm Noncommercial, pozwala tylko na użytek niekomercyjny."
+		},
+		"pt": {
+			"description": "Indexe um repositório de código como um grafo de conhecimento e explore-o, ou deixe um agente consultá-lo por MCP",
+			"notes": "O site pede um token de acesso: o TOKEN no .env do projeto. O navegador o esquece ao fechar a aba, e um agente o envia para /api/mcp no endereço. Quem o tiver lê todos os repositórios indexados. A licença, PolyForm Noncommercial, permite apenas uso não comercial."
+		},
+		"ru": {
+			"description": "Индексирует репозиторий кода в граф знаний: исследуйте его сами или дайте агенту спрашивать его по MCP",
+			"notes": "Сайт спросит токен доступа: это TOKEN в .env проекта. Браузер забывает его вместе с вкладкой, а агент отправляет его на /api/mcp по адресу проекта. У кого он есть, тот читает все проиндексированные репозитории. Лицензия, PolyForm Noncommercial, разрешает только некоммерческое использование."
+		},
+		"uk": {
+			"description": "Індексує репозиторій коду в граф знань: досліджуйте його самі або дайте агентові запитувати його через MCP",
+			"notes": "Сайт запитає токен доступу: це TOKEN у .env проєкту. Браузер забуває його разом із вкладкою, а агент надсилає його на /api/mcp за адресою проєкту. Хто його має, той читає всі проіндексовані репозиторії. Ліцензія, PolyForm Noncommercial, дозволяє лише некомерційне використання."
+		}
+	}
+}

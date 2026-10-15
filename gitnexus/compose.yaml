@@ -1,0 +1,25 @@
+services:
+  # The UI, and the one way in: it forwards /api to the server only with the token.
+  web:
+    image: ghcr.io/abhigyanpatwari/gitnexus-web:1.6.12
+    restart: unless-stopped
+    environment:
+      GITNEXUS_BACKEND_URL: ${URL}
+      GITNEXUS_UPSTREAM_URL: http://server:4747
+      GITNEXUS_SERVE_AUTH_TOKEN: ${TOKEN}
+      GITNEXUS_PROXY_TRUST_XFF: 1
+    depends_on:
+      - server
+
+  # Indexes repositories into a knowledge graph; it has no address of its own.
+  server:
+    image: ghcr.io/abhigyanpatwari/gitnexus:1.6.12
+    restart: unless-stopped
+    environment:
+      GITNEXUS_TRUST_PROXY: 1
+    # The registry, the indexes and the cloned repositories.
+    volumes:
+      - data:/data/gitnexus
+
+volumes:
+  data:
