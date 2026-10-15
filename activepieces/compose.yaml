@@ -1,0 +1,77 @@
+services:
+  activepieces:
+    image: ghcr.io/activepieces/activepieces:0.92.3
+    restart: unless-stopped
+    environment:
+      AP_FRONTEND_URL: ${URL}
+      AP_ENVIRONMENT: prod
+      AP_ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      AP_JWT_SECRET: ${JWT_SECRET}
+      AP_EXECUTION_MODE: UNSANDBOXED
+      AP_POSTGRES_HOST: postgres
+      AP_POSTGRES_PORT: "5432"
+      AP_POSTGRES_DATABASE: activepieces
+      AP_POSTGRES_USERNAME: activepieces
+      AP_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      AP_REDIS_HOST: redis
+      AP_REDIS_PORT: "6379"
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # The first account signed up becomes the platform's admin. At the first start the server runs
+    # alone on port 3001, which no route reaches, the email and password given are signed up there,
+    # and only then does it start on 80 with its worker.
+    entrypoint:
+      - sh
+      - -c
+      - |
+        AP_CONTAINER_TYPE=APP AP_PORT=3001 node packages/server/api/dist/src/bootstrap.js &
+        node -e '
+          const url = "http://127.0.0.1:3001/api/v1";
+          const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+          (async () => {
+            for (;;) {
+              try { if ((await fetch(url + "/health")).ok) break; } catch {}
+              await wait(1000);
+            }
+            const flags = await (await fetch(url + "/flags")).json();
+            if (flags.USER_CREATED) return;
+            const answer = await fetch(url + "/authentication/sign-up", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email: process.env.ADMIN_EMAIL, password: process.env.ADMIN_PASSWORD, firstName: "Admin", lastName: "Admin", trackEvents: false, newsLetter: false }),
+            });
+            if (!answer.ok) { console.error("sign-up:", answer.status, await answer.text()); process.exit(1); }
+          })();
+        ' || exit 1
+        kill $$!
+        wait $$!
+        exec ./docker-entrypoint.sh
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    volumes:
+      - cache:/usr/src/app/cache
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: activepieces
+      POSTGRES_USER: activepieces
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U activepieces -d activepieces"]
+      interval: 5s
+      retries: 20
+    volumes:
+      - db:/var/lib/postgresql/data
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis:/data
+volumes:
+  cache:
+  db:
+  redis:

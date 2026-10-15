@@ -1,0 +1,68 @@
+{
+	"name": "Activepieces",
+	"emoji": "🧩",
+	"route": {
+		"service": "activepieces",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "ENCRYPTION_KEY",
+			"secret": 16
+		},
+		{
+			"name": "JWT_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Automations and AI agents built from hundreds of pieces, with no code",
+			"notes": "Sign in with the email and the admin password you gave, at least 8 characters: the template signs that admin up at the first start. Then connect your apps and build a flow; webhooks reach it at https://{host}."
+		},
+		"de": {
+			"description": "Automatisierungen und KI-Agenten aus Hunderten Bausteinen, ohne Code",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Admin-Passwort an, mindestens 8 Zeichen: Die Vorlage registriert diesen Admin beim ersten Start. Verbinde dann deine Apps und bau einen Flow; Webhooks erreichen ihn unter https://{host}."
+		},
+		"es": {
+			"description": "Automatizaciones y agentes de IA hechos con cientos de piezas, sin código",
+			"notes": "Entra con el correo y la contraseña de administrador que indicaste, de al menos 8 caracteres: la plantilla registra a ese administrador en el primer arranque. Luego conecta tus apps y crea un flujo; los webhooks llegan a él en https://{host}."
+		},
+		"fr": {
+			"description": "Automatisations et agents IA construits à partir de centaines de briques, sans code",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe administrateur indiqués, d’au moins 8 caractères : le modèle inscrit cet administrateur au premier démarrage. Connectez ensuite vos applications et créez un flow ; les webhooks l’atteignent à https://{host}."
+		},
+		"pl": {
+			"description": "Automatyzacje i agenci AI z setek gotowych klocków, bez kodu",
+			"notes": "Zaloguj się e-mailem i hasłem administratora, które podano, co najmniej 8 znaków: szablon rejestruje tego administratora przy pierwszym uruchomieniu. Potem połącz swoje aplikacje i zbuduj flow; webhooki trafiają do niego pod https://{host}."
+		},
+		"pt": {
+			"description": "Automações e agentes de IA montados com centenas de peças, sem código",
+			"notes": "Entre com o e-mail e a senha de administrador que você informou, de pelo menos 8 caracteres: o template cadastra esse administrador na primeira inicialização. Depois conecte seus apps e monte um flow; os webhooks chegam a ele em https://{host}."
+		},
+		"ru": {
+			"description": "Автоматизации и AI-агенты из сотен готовых блоков, без кода",
+			"notes": "Войдите с почтой и паролем администратора, которые вы указали, не короче 8 символов: шаблон регистрирует этого администратора при первом запуске. Затем подключите свои приложения и соберите flow; вебхуки приходят к нему на https://{host}."
+		},
+		"uk": {
+			"description": "Автоматизації та AI-агенти із сотень готових блоків, без коду",
+			"notes": "Увійдіть з поштою й паролем адміністратора, які ви вказали, не коротшим за 8 символів: шаблон реєструє цього адміністратора під час першого запуску. Потім підключіть свої застосунки й зберіть flow; вебхуки надходять до нього на https://{host}."
+		}
+	}
+}
