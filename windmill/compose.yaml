@@ -1,0 +1,105 @@
+services:
+  windmill_server:
+    image: ghcr.io/windmill-labs/windmill:1.835.0
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@db/windmill?sslmode=disable
+      MODE: server
+      BASE_URL: ${URL}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # A new Windmill signs anyone in as admin@windmill.dev / changeme. So, before it answers on its
+    # own port, it is started on one nobody reaches, the email and password asked are made its
+    # superadmin, and the stock account is deleted.
+    command:
+      - sh
+      - -c
+      - |
+        PORT=8001 windmill &
+        setup=$$!
+        node -e '
+          const base = "http://127.0.0.1:8001/api";
+          const json = { "Content-Type": "application/json" };
+          const login = (email, password) => fetch(base + "/auth/login", { method: "POST", headers: json, body: JSON.stringify({ email, password }) });
+          const replaceStock = async (token) => {
+            const auth = { ...json, Authorization: "Bearer " + token };
+            const account = { email: process.env.ADMIN_EMAIL, password: process.env.ADMIN_PASSWORD, super_admin: true, name: "Admin" };
+            await fetch(base + "/users/create", { method: "POST", headers: auth, body: JSON.stringify(account) });
+            const mine = await login(account.email, account.password);
+            if (!mine.ok) throw new Error("the new superadmin cannot sign in: " + (await mine.text()));
+            const gone = await fetch(base + "/users/delete/admin@windmill.dev", { method: "DELETE", headers: { Authorization: "Bearer " + (await mine.text()) } });
+            if (!gone.ok) throw new Error("the stock account stays: " + (await gone.text()));
+          };
+          const run = async () => {
+            for (let i = 0; i < 300; i++) {
+              try {
+                const stock = await login("admin@windmill.dev", "changeme");
+                if (stock.status === 400 || stock.status === 401) return;
+                if (stock.ok) return await replaceStock(await stock.text());
+              } catch (error) {
+                if (String(error).includes("Error:")) console.error(String(error));
+              }
+              await new Promise((done) => setTimeout(done, 1000));
+            }
+            process.exit(1);
+          };
+          run().catch((error) => { console.error(String(error)); process.exit(1); });
+        ' || exit 1
+        kill $$setup
+        wait $$setup
+        exec windmill
+    volumes:
+      - worker_logs:/tmp/windmill/logs
+    depends_on:
+      db:
+        condition: service_healthy
+
+  windmill_worker:
+    image: ghcr.io/windmill-labs/windmill:1.835.0
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@db/windmill?sslmode=disable
+      MODE: worker
+      WORKER_GROUP: default
+    volumes:
+      - worker_dependency_cache:/tmp/windmill/cache
+      - worker_logs:/tmp/windmill/logs
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # Runs the light "native" jobs (HTTP and SQL steps) in process.
+  windmill_worker_native:
+    image: ghcr.io/windmill-labs/windmill:1.835.0
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@db/windmill?sslmode=disable
+      MODE: worker
+      WORKER_GROUP: native
+      NATIVE_MODE: "true"
+      SLEEP_QUEUE: "200"
+    volumes:
+      - worker_logs:/tmp/windmill/logs
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    shm_size: 1g
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: windmill
+    volumes:
+      - db_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  db_data:
+  worker_dependency_cache:
+  worker_logs:

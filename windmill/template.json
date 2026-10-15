@@ -1,0 +1,60 @@
+{
+	"name": "Windmill",
+	"emoji": "🌀",
+	"route": {
+		"service": "windmill_server",
+		"port": 8000
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Scripts, flows and apps from Python, TypeScript, Go, SQL or Bash, run by workers on a schedule, a webhook or a button",
+			"notes": "Sign in with the email and the admin password you gave: Windmill makes that superadmin at the first start. Create a workspace, then a script or a flow; its packages are installed on the first run."
+		},
+		"de": {
+			"description": "Skripte, Flows und Apps aus Python, TypeScript, Go, SQL oder Bash, von Workern nach Zeitplan, per Webhook oder Knopfdruck ausgeführt",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Admin-Passwort an: Windmill legt diesen Superadmin beim ersten Start an. Lege einen Workspace an, dann ein Skript oder einen Flow; seine Pakete werden beim ersten Lauf installiert."
+		},
+		"es": {
+			"description": "Scripts, flujos y apps en Python, TypeScript, Go, SQL o Bash, ejecutados por workers según un horario, un webhook o un botón",
+			"notes": "Entra con el correo y la contraseña de administrador que indicaste: Windmill crea ese superadministrador en el primer arranque. Crea un workspace y luego un script o un flujo; sus paquetes se instalan en la primera ejecución."
+		},
+		"fr": {
+			"description": "Des scripts, des flows et des applis en Python, TypeScript, Go, SQL ou Bash, lancés par des workers selon un horaire, un webhook ou un bouton",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe administrateur indiqués : Windmill crée ce superadmin au premier démarrage. Créez un workspace, puis un script ou un flow ; ses paquets sont installés à la première exécution."
+		},
+		"pl": {
+			"description": "Skrypty, flow i aplikacje w Pythonie, TypeScripcie, Go, SQL lub Bashu, uruchamiane przez workery według harmonogramu, webhookiem albo przyciskiem",
+			"notes": "Zaloguj się adresem e-mail i hasłem administratora, które podano: Windmill tworzy tego superadmina przy pierwszym starcie. Utwórz workspace, a potem skrypt albo flow; jego pakiety instalują się przy pierwszym uruchomieniu."
+		},
+		"pt": {
+			"description": "Scripts, fluxos e apps em Python, TypeScript, Go, SQL ou Bash, executados por workers num agendamento, num webhook ou num botão",
+			"notes": "Entre com o e-mail e a senha de administrador que você informou: o Windmill cria esse superadmin na primeira inicialização. Crie um workspace e depois um script ou um fluxo; os pacotes dele são instalados na primeira execução."
+		},
+		"ru": {
+			"description": "Скрипты, флоу и приложения на Python, TypeScript, Go, SQL или Bash, которые воркеры запускают по расписанию, вебхуку или кнопке",
+			"notes": "Войдите с почтой и паролем администратора, которые вы указали: Windmill создаёт этого суперадмина при первом запуске. Создайте workspace, затем скрипт или флоу; его пакеты ставятся при первом запуске."
+		},
+		"uk": {
+			"description": "Скрипти, флоу й застосунки на Python, TypeScript, Go, SQL чи Bash, які воркери запускають за розкладом, вебхуком або кнопкою",
+			"notes": "Увійдіть із поштою й паролем адміністратора, які ви вказали: Windmill створює цього суперадміна під час першого запуску. Створіть workspace, потім скрипт або флоу; його пакети встановлюються під час першого запуску."
+		}
+	}
+}
