@@ -1,0 +1,32 @@
+services:
+  wallabag:
+    image: wallabag/wallabag:2.6.14
+    restart: unless-stopped
+    # wallabag installs itself with the user wallabag, whose password everyone knows. On the first
+    # start the install is done here instead, and that user's password set to the one given before
+    # the site answers; the image's own start then finds the database ready.
+    entrypoint:
+      - sh
+      - -c
+      - |
+        set -e
+        cd /var/www/wallabag
+        if [ ! -s data/db/wallabag.sqlite ]; then
+          envsubst < /etc/wallabag/parameters.template.yml > app/config/parameters.yml
+          mkdir -p data/db
+          chown nobody: data/db
+          su -s /bin/sh nobody -c 'php bin/console wallabag:install --env=prod -n'
+          su -s /bin/sh nobody -c 'php bin/console fos:user:change-password wallabag "$$ADMIN_PASSWORD" --env=prod'
+        fi
+        exec /entrypoint.sh wallabag
+    environment:
+      SYMFONY__ENV__DOMAIN_NAME: ${URL}
+      SYMFONY__ENV__SECRET: ${SECRET}
+      SYMFONY__ENV__FOSUSER_REGISTRATION: "false"
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    volumes:
+      - data:/var/www/wallabag/data
+      - images:/var/www/wallabag/web/assets/images
+volumes:
+  data:
+  images:

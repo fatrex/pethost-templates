@@ -1,0 +1,56 @@
+{
+	"name": "wallabag",
+	"emoji": "📰",
+	"route": {
+		"service": "wallabag",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "SECRET",
+			"secret": 32
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Save web pages to read later, without ads or clutter, in the browser and in wallabag’s apps",
+			"notes": "Sign in as wallabag with the admin password you gave. Sign-ups are off; add people under Internal settings → Users. The mobile apps and browser extensions connect with a client made under API clients management."
+		},
+		"de": {
+			"description": "Webseiten zum späteren Lesen speichern, ohne Werbung und Ballast, im Browser und in den Apps von wallabag",
+			"notes": "Melde dich als wallabag mit dem angegebenen Admin-Passwort an. Registrierungen sind aus; weitere Personen fügst du unter Internal settings → Users hinzu. Die Mobil-Apps und Browser-Erweiterungen verbinden sich mit einem Client aus API clients management."
+		},
+		"es": {
+			"description": "Guarda páginas web para leerlas más tarde, sin anuncios ni ruido, en el navegador y en las apps de wallabag",
+			"notes": "Entra como wallabag con la contraseña de administrador que indicaste. El registro está desactivado; añade personas en Internal settings → Users. Las apps móviles y las extensiones del navegador se conectan con un cliente creado en API clients management."
+		},
+		"fr": {
+			"description": "Enregistrez des pages web pour les lire plus tard, sans publicité ni fioritures, dans le navigateur et dans les apps de wallabag",
+			"notes": "Connectez-vous en tant que wallabag avec le mot de passe administrateur indiqué. Les inscriptions sont fermées ; ajoutez des personnes dans Internal settings → Users. Les apps mobiles et les extensions de navigateur se connectent avec un client créé dans API clients management."
+		},
+		"pl": {
+			"description": "Zapisuj strony do przeczytania później, bez reklam i zbędnych elementów, w przeglądarce i w aplikacjach wallabag",
+			"notes": "Zaloguj się jako wallabag hasłem administratora, które podano. Rejestracja jest wyłączona; inne osoby dodasz w Internal settings → Users. Aplikacje mobilne i rozszerzenia przeglądarki łączą się przez klienta utworzonego w API clients management."
+		},
+		"pt": {
+			"description": "Salve páginas da web para ler depois, sem anúncios nem poluição, no navegador e nos apps do wallabag",
+			"notes": "Entre como wallabag com a senha de administrador que você informou. O cadastro está desativado; adicione pessoas em Internal settings → Users. Os apps para celular e as extensões do navegador se conectam com um cliente criado em API clients management."
+		},
+		"ru": {
+			"description": "Сохраняйте веб-страницы, чтобы прочитать позже, без рекламы и лишнего, в браузере и в приложениях wallabag",
+			"notes": "Войдите как wallabag с паролем администратора, который вы указали. Регистрация выключена; других людей добавляют в Internal settings → Users. Мобильные приложения и расширения браузера подключаются через клиента, созданного в API clients management."
+		},
+		"uk": {
+			"description": "Зберігайте вебсторінки, щоб прочитати пізніше, без реклами й зайвого, у браузері та в застосунках wallabag",
+			"notes": "Увійдіть як wallabag із паролем адміністратора, який ви вказали. Реєстрацію вимкнено; інших людей додають в Internal settings → Users. Мобільні застосунки й розширення браузера підключаються через клієнта, створеного в API clients management."
+		}
+	}
+}
