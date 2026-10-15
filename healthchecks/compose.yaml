@@ -1,0 +1,53 @@
+services:
+  healthchecks:
+    image: healthchecks/healthchecks:v4.4
+    restart: unless-stopped
+    environment:
+      DB: postgres
+      DB_HOST: postgres
+      DB_NAME: hc
+      DB_USER: hc
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      SECRET_KEY: ${SECRET_KEY}
+      SITE_ROOT: ${URL}
+      PING_ENDPOINT: ${URL}/ping/
+      SITE_NAME: Healthchecks
+      DEBUG: "False"
+      # Only the account below signs in: nobody signs up by the address.
+      REGISTRATION_OPEN: "False"
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # The account is made before the server answers, the first time only.
+    command:
+      - sh
+      - -c
+      - |
+        ./manage.py migrate || exit 1
+        ./manage.py shell -c '
+        import os, sys
+        from django.contrib.auth.models import User
+        sys.exit(0 if User.objects.filter(email=os.environ["ADMIN_EMAIL"].lower()).exists() else 1)
+        ' || ./manage.py createsuperuser --email "$$ADMIN_EMAIL" --password "$$ADMIN_PASSWORD" || exit 1
+        exec uwsgi /opt/healthchecks/docker/uwsgi.ini
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hc
+      POSTGRES_USER: hc
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U hc -d hc"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  db:

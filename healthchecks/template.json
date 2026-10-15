@@ -1,0 +1,64 @@
+{
+	"name": "Healthchecks",
+	"emoji": "⏰",
+	"route": {
+		"service": "healthchecks",
+		"port": 8000
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "SECRET_KEY",
+			"secret": 40
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Monitoring for cron jobs and background tasks: each job pings its URL, and you hear when a ping is late",
+			"notes": "Sign in with the email and the admin password you gave; sign-up is closed, so nobody else gets an account. Add a check, then have your job call its ping URL. Alerts go to the integrations you add under Integrations: email needs an SMTP server first."
+		},
+		"de": {
+			"description": "Überwachung für Cronjobs und Hintergrundaufgaben: Jeder Job pingt seine URL, und du erfährst es, wenn ein Ping ausbleibt",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Admin-Passwort an; die Registrierung ist geschlossen, sodass niemand sonst ein Konto bekommt. Lege einen Check an und lass deinen Job seine Ping-URL aufrufen. Alarme gehen an die Integrationen, die du unter Integrations hinzufügst: E-Mail braucht zuerst einen SMTP-Server."
+		},
+		"es": {
+			"description": "Monitorización de tareas cron y en segundo plano: cada tarea hace ping a su URL y te enteras cuando un ping se retrasa",
+			"notes": "Entra con el correo y la contraseña de administrador que indicaste; el registro está cerrado, así que nadie más obtiene una cuenta. Añade un check y haz que tu tarea llame a su URL de ping. Las alertas van a las integraciones que añadas en Integrations: el correo necesita antes un servidor SMTP."
+		},
+		"fr": {
+			"description": "La surveillance des tâches cron et en arrière-plan : chaque tâche appelle son URL, et vous êtes prévenu quand un ping tarde",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe administrateur indiqués ; l’inscription est fermée, donc personne d’autre n’obtient de compte. Ajoutez un check, puis faites appeler son URL de ping par votre tâche. Les alertes partent vers les intégrations ajoutées dans Integrations : l’e-mail demande d’abord un serveur SMTP."
+		},
+		"pl": {
+			"description": "Monitorowanie zadań cron i zadań w tle: każde zadanie pinguje swój URL, a ty dowiadujesz się, gdy ping się spóźnia",
+			"notes": "Zaloguj się adresem e-mail i hasłem administratora, które podano; rejestracja jest zamknięta, więc nikt inny nie dostanie konta. Dodaj check i niech twoje zadanie wywołuje jego URL pingu. Alerty trafiają do integracji dodanych w Integrations: e-mail wymaga najpierw serwera SMTP."
+		},
+		"pt": {
+			"description": "Monitoramento de tarefas cron e em segundo plano: cada tarefa faz ping na sua URL, e você fica sabendo quando um ping atrasa",
+			"notes": "Entre com o e-mail e a senha de administrador que você informou; o cadastro está fechado, então ninguém mais obtém uma conta. Adicione um check e faça sua tarefa chamar a URL de ping dele. Os alertas vão para as integrações que você adicionar em Integrations: o e-mail precisa antes de um servidor SMTP."
+		},
+		"ru": {
+			"description": "Мониторинг cron-задач и фоновых заданий: каждое задание пингует свой URL, и вы узнаёте, когда пинг опаздывает",
+			"notes": "Войдите с почтой и паролем администратора, которые вы указали; регистрация закрыта, поэтому больше никто аккаунт не получит. Добавьте check и пусть задание вызывает его URL пинга. Оповещения уходят в интеграции, добавленные в Integrations: для почты сначала нужен SMTP-сервер."
+		},
+		"uk": {
+			"description": "Моніторинг cron-задач і фонових завдань: кожне завдання пінгує свій URL, і ви дізнаєтеся, коли пінг запізнюється",
+			"notes": "Увійдіть із поштою й паролем адміністратора, які ви вказали; реєстрацію закрито, тож більше ніхто акаунт не отримає. Додайте check і нехай завдання викликає його URL пінгу. Сповіщення йдуть в інтеграції, додані в Integrations: для пошти спершу потрібен SMTP-сервер."
+		}
+	}
+}
