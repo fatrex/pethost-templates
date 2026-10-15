@@ -12,8 +12,23 @@ services:
       GITEA__security__INSTALL_LOCK: "true"
       GITEA__security__SECRET_KEY: ${GITEA_SECRET_KEY}
       GITEA__security__REVERSE_PROXY_TRUSTED_PROXIES: "*"
-      GITEA__service__DISABLE_REGISTRATION: ${GITEA_DISABLE_REGISTRATION:-false}
-      GITEA__service__REGISTER_MANUAL_CONFIRM: "true"
+      GITEA__service__DISABLE_REGISTRATION: "true"
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # The image's entrypoint writes app.ini, then runs this: the administrator is made from
+    # the project's .env once, before the web server answers anyone.
+    command:
+      - sh
+      - -c
+      - |
+        set -e
+        gitea -c "$$GITEA_APP_INI" migrate
+        if ! gitea -c "$$GITEA_APP_INI" admin user list --admin | tail -n +2 | grep -q .; then
+          gitea -c "$$GITEA_APP_INI" admin user create --admin --must-change-password=false \
+            --username "$$ADMIN_USERNAME" --email "$$ADMIN_EMAIL" --password "$$ADMIN_PASSWORD"
+        fi
+        exec gitea -c "$$GITEA_APP_INI" web
     ports:
       - "2222:2222"
     volumes:
