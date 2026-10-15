@@ -1,0 +1,162 @@
+x-env: &env
+  NEXTAUTH_URL: ${URL}
+  DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/postgres
+  SALT: ${SALT}
+  ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+  CLICKHOUSE_MIGRATION_URL: clickhouse://clickhouse:9000
+  CLICKHOUSE_URL: http://clickhouse:8123
+  CLICKHOUSE_USER: clickhouse
+  CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
+  CLICKHOUSE_CLUSTER_ENABLED: "false"
+  LANGFUSE_S3_EVENT_UPLOAD_BUCKET: langfuse
+  LANGFUSE_S3_EVENT_UPLOAD_REGION: auto
+  LANGFUSE_S3_EVENT_UPLOAD_ACCESS_KEY_ID: minio
+  LANGFUSE_S3_EVENT_UPLOAD_SECRET_ACCESS_KEY: ${MINIO_PASSWORD}
+  LANGFUSE_S3_EVENT_UPLOAD_ENDPOINT: http://minio:9000
+  LANGFUSE_S3_EVENT_UPLOAD_FORCE_PATH_STYLE: "true"
+  LANGFUSE_S3_EVENT_UPLOAD_PREFIX: events/
+  LANGFUSE_S3_MEDIA_UPLOAD_BUCKET: langfuse
+  LANGFUSE_S3_MEDIA_UPLOAD_REGION: auto
+  LANGFUSE_S3_MEDIA_UPLOAD_ACCESS_KEY_ID: minio
+  LANGFUSE_S3_MEDIA_UPLOAD_SECRET_ACCESS_KEY: ${MINIO_PASSWORD}
+  LANGFUSE_S3_MEDIA_UPLOAD_ENDPOINT: http://minio:9000
+  LANGFUSE_S3_MEDIA_UPLOAD_FORCE_PATH_STYLE: "true"
+  LANGFUSE_S3_MEDIA_UPLOAD_PREFIX: media/
+  REDIS_HOST: redis
+  REDIS_PORT: "6379"
+  REDIS_AUTH: ${REDIS_PASSWORD}
+
+x-depends: &depends
+  postgres:
+    condition: service_healthy
+  minio:
+    condition: service_healthy
+  redis:
+    condition: service_healthy
+  clickhouse:
+    condition: service_healthy
+
+services:
+  langfuse-web:
+    image: langfuse/langfuse:4.59.0
+    restart: unless-stopped
+    depends_on: *depends
+    environment:
+      <<: *env
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      # Node sizes its heap by the machine's memory; a bound keeps the six services within 4 GB.
+      # The web server needs about 500 MB of heap just to start.
+      NODE_OPTIONS: --max-old-space-size=1024
+      AUTH_DISABLE_SIGNUP: "true"
+      # The first start makes this organization, its project and its owner: nobody has to sign up.
+      LANGFUSE_INIT_ORG_ID: default
+      LANGFUSE_INIT_ORG_NAME: Default
+      LANGFUSE_INIT_PROJECT_ID: default
+      LANGFUSE_INIT_PROJECT_NAME: Default
+      LANGFUSE_INIT_USER_EMAIL: ${ADMIN_EMAIL}
+      LANGFUSE_INIT_USER_NAME: Admin
+      LANGFUSE_INIT_USER_PASSWORD: ${ADMIN_PASSWORD}
+
+  langfuse-worker:
+    image: langfuse/langfuse-worker:4.59.0
+    restart: unless-stopped
+    depends_on: *depends
+    environment:
+      <<: *env
+      NODE_OPTIONS: --max-old-space-size=512
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:25.12
+    restart: unless-stopped
+    environment:
+      CLICKHOUSE_DB: default
+      CLICKHOUSE_USER: clickhouse
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
+    # The stock config logs at trace level into ten files of 1000 MB and keeps its query, metric and
+    # trace tables for ever: on a small machine they would fill the disk over months. This keeps the
+    # server's log under 300 MB and those tables a week.
+    entrypoint:
+      - sh
+      - -c
+      - |
+        cat > /etc/clickhouse-server/config.d/small-machine.xml <<'XML'
+        <clickhouse>
+          <logger><level>information</level><size>100M</size><count>3</count></logger>
+          <query_log><ttl>event_date + INTERVAL 7 DAY DELETE</ttl></query_log>
+          <metric_log><ttl>event_date + INTERVAL 7 DAY DELETE</ttl></metric_log>
+          <asynchronous_metric_log><ttl>event_date + INTERVAL 7 DAY DELETE</ttl></asynchronous_metric_log>
+          <trace_log><ttl>event_date + INTERVAL 7 DAY DELETE</ttl></trace_log>
+          <text_log><ttl>event_date + INTERVAL 7 DAY DELETE</ttl></text_log>
+          <part_log><ttl>event_date + INTERVAL 7 DAY DELETE</ttl></part_log>
+          <error_log><ttl>event_date + INTERVAL 7 DAY DELETE</ttl></error_log>
+        </clickhouse>
+        XML
+        exec /entrypoint.sh
+    volumes:
+      - clickhouse:/var/lib/clickhouse
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:8123/ping || exit 1
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  # Langfuse's own compose file runs this image, as MinIO publishes no images of its own any more;
+  # the digest pins one build of it.
+  minio:
+    image: cgr.dev/chainguard/minio@sha256:2136d593beacf4461187035eca949fe49abd589d5079735025c711ca58fee0c8
+    restart: unless-stopped
+    entrypoint:
+      - sh
+      - -c
+      - mkdir -p /data/langfuse && exec minio server --address :9000 /data
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
+    volumes:
+      - minio:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+      start_period: 5s
+
+  redis:
+    image: redis:7.4
+    restart: unless-stopped
+    command:
+      - --requirepass
+      - ${REDIS_PASSWORD}
+      - --maxmemory-policy
+      - noeviction
+    volumes:
+      - redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 10s
+      retries: 10
+
+  postgres:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: postgres
+      TZ: UTC
+      PGTZ: UTC
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  clickhouse:
+  minio:
+  redis:
+  postgres:
