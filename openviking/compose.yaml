@@ -1,0 +1,44 @@
+services:
+  openviking:
+    image: ghcr.io/volcengine/openviking:v0.5.0
+    restart: unless-stopped
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      OPENVIKING_ROOT_API_KEY: ${OPENVIKING_ROOT_API_KEY}
+      OPENVIKING_PUBLIC_BASE_URL: ${URL}
+      # The bot needs a user's key of its own; the server runs without it.
+      OPENVIKING_WITH_BOT: "0"
+      # Written to ov.conf in the volume at the first start only. The server
+      # expands the ${...} in it at every start, so a key changed in .env
+      # takes effect on a restart.
+      OPENVIKING_CONF_CONTENT: |
+        {
+          "server": {
+            "host": "0.0.0.0",
+            "port": 1933,
+            "root_api_key": "$${OPENVIKING_ROOT_API_KEY}"
+          },
+          "storage": {
+            "workspace": "./data",
+            "vectordb": { "name": "context", "backend": "local" },
+            "agfs": { "backend": "local" }
+          },
+          "embedding": {
+            "dense": {
+              "provider": "openai",
+              "api_key": "$${OPENAI_API_KEY}",
+              "model": "text-embedding-3-small",
+              "dimension": 1536
+            }
+          },
+          "vlm": {
+            "provider": "openai",
+            "api_key": "$${OPENAI_API_KEY}",
+            "model": "gpt-4o-mini"
+          }
+        }
+    volumes:
+      - data:/app/.openviking
+
+volumes:
+  data:

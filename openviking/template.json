@@ -1,0 +1,56 @@
+{
+	"name": "OpenViking",
+	"emoji": "🧠",
+	"route": {
+		"service": "openviking",
+		"port": 1933
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "OPENVIKING_ROOT_API_KEY",
+			"secret": 32
+		},
+		{
+			"name": "OPENAI_API_KEY",
+			"ask": "openaiKey"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A context database for AI agents: memory, resources and skills in one place",
+			"notes": "Open https://{host}/studio/settings and paste the root key: it is OPENVIKING_ROOT_API_KEY in the project’s .env. Then create an account and a user at /studio/users: the user’s key is what the ov CLI, the SDKs and agents use. Embeddings and summaries go to OpenAI with your key. Data and ov.conf are kept in /app/.openviking."
+		},
+		"de": {
+			"description": "Eine Kontext-Datenbank für KI-Agenten: Gedächtnis, Ressourcen und Skills an einem Ort",
+			"notes": "Öffne https://{host}/studio/settings und füge den Root-Key ein: Er steht als OPENVIKING_ROOT_API_KEY in der .env des Projekts. Leg dann unter /studio/users einen Account und einen Nutzer an: Den Key des Nutzers verwenden die ov-CLI, die SDKs und Agenten. Embeddings und Zusammenfassungen gehen mit deinem Key an OpenAI. Daten und ov.conf bleiben in /app/.openviking erhalten."
+		},
+		"es": {
+			"description": "Una base de datos de contexto para agentes de IA: memoria, recursos y skills en un solo lugar",
+			"notes": "Abre https://{host}/studio/settings y pega la clave root: es OPENVIKING_ROOT_API_KEY en el .env del proyecto. Después crea una cuenta y un usuario en /studio/users: la clave del usuario es la que usan la CLI ov, los SDK y los agentes. Los embeddings y los resúmenes van a OpenAI con tu clave. Los datos y ov.conf se conservan en /app/.openviking."
+		},
+		"fr": {
+			"description": "Une base de contexte pour agents IA : mémoire, ressources et skills au même endroit",
+			"notes": "Ouvrez https://{host}/studio/settings et collez la clé root : c’est OPENVIKING_ROOT_API_KEY dans le .env du projet. Créez ensuite un compte et un utilisateur dans /studio/users : la clé de l’utilisateur est celle qu’utilisent la CLI ov, les SDK et les agents. Les embeddings et les résumés partent chez OpenAI avec votre clé. Les données et ov.conf sont conservés dans /app/.openviking."
+		},
+		"pl": {
+			"description": "Baza kontekstu dla agentów AI: pamięć, zasoby i skille w jednym miejscu",
+			"notes": "Otwórz https://{host}/studio/settings i wklej klucz root: to OPENVIKING_ROOT_API_KEY w pliku .env projektu. Potem utwórz konto i użytkownika w /studio/users: klucza użytkownika używają CLI ov, SDK i agenci. Embeddingi i podsumowania idą do OpenAI z twoim kluczem. Dane i ov.conf zostają w /app/.openviking."
+		},
+		"pt": {
+			"description": "Um banco de contexto para agentes de IA: memória, recursos e skills num só lugar",
+			"notes": "Abra https://{host}/studio/settings e cole a chave root: é OPENVIKING_ROOT_API_KEY no .env do projeto. Depois crie uma conta e um usuário em /studio/users: a chave do usuário é a que a CLI ov, os SDKs e os agentes usam. Os embeddings e os resumos vão para a OpenAI com a sua chave. Os dados e o ov.conf ficam guardados em /app/.openviking."
+		},
+		"ru": {
+			"description": "База контекста для ИИ-агентов: память, ресурсы и навыки в одном месте",
+			"notes": "Откройте https://{host}/studio/settings и вставьте root-ключ: это OPENVIKING_ROOT_API_KEY в .env проекта. Затем создайте аккаунт и пользователя в /studio/users: ключ пользователя нужен CLI ov, SDK и агентам. Эмбеддинги и сводки уходят в OpenAI с вашим ключом. Данные и ov.conf хранятся в /app/.openviking."
+		},
+		"uk": {
+			"description": "База контексту для ШІ-агентів: пам’ять, ресурси й навички в одному місці",
+			"notes": "Відкрийте https://{host}/studio/settings і вставте root-ключ: це OPENVIKING_ROOT_API_KEY у .env проєкту. Потім створіть акаунт і користувача в /studio/users: ключ користувача потрібен CLI ov, SDK та агентам. Ембединги й підсумки йдуть до OpenAI з вашим ключем. Дані та ov.conf зберігаються в /app/.openviking."
+		}
+	}
+}
