@@ -1,0 +1,19 @@
+services:
+  pdf2zh:
+    image: byaidu/pdf2zh:1.9.11
+    restart: unless-stopped
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # Without a file of users the web page is open to anyone with the address, and each visitor's
+    # PDFs are translated on this machine: the user admin with the password given is the only one.
+    entrypoint:
+      - sh
+      - -c
+      - |
+        printf 'admin,%s\n' "$$ADMIN_PASSWORD" > /tmp/users.txt
+        exec pdf2zh -i --authorized /tmp/users.txt
+    volumes:
+      # The services' settings and API keys entered on the page.
+      - config:/root/.config/PDFMathTranslate
+volumes:
+  config:

@@ -1,0 +1,48 @@
+{
+	"name": "PDFMathTranslate",
+	"emoji": "📄",
+	"route": {
+		"service": "pdf2zh",
+		"port": 7860
+	},
+	"variables": [
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Translates scientific PDFs and keeps their formulas, charts and layout",
+			"notes": "Sign in as admin with the admin password you gave; it must have no comma. Pick Bing as the service to translate with no key: Google's free service often refuses a server's address. For DeepL, OpenAI and the others, enter a key on the page."
+		},
+		"de": {
+			"description": "Übersetzt wissenschaftliche PDFs und behält Formeln, Diagramme und Layout",
+			"notes": "Melde dich als admin mit dem angegebenen Admin-Passwort an; es darf kein Komma enthalten. Wähle Bing als Dienst, um ohne Schlüssel zu übersetzen: Googles kostenloser Dienst weist die Adresse eines Servers oft ab. Für DeepL, OpenAI und die anderen gib auf der Seite einen Schlüssel ein."
+		},
+		"es": {
+			"description": "Traduce PDF científicos y conserva sus fórmulas, gráficos y maquetación",
+			"notes": "Entra como admin con la contraseña de administrador que indicaste; no debe llevar comas. Elige Bing como servicio para traducir sin clave: el servicio gratuito de Google suele rechazar la dirección de un servidor. Para DeepL, OpenAI y los demás, introduce una clave en la página."
+		},
+		"fr": {
+			"description": "Traduit les PDF scientifiques en gardant leurs formules, graphiques et mise en page",
+			"notes": "Connectez-vous en tant qu’admin avec le mot de passe administrateur indiqué ; il ne doit pas contenir de virgule. Choisissez Bing comme service pour traduire sans clé : le service gratuit de Google refuse souvent l’adresse d’un serveur. Pour DeepL, OpenAI et les autres, saisissez une clé sur la page."
+		},
+		"pl": {
+			"description": "Tłumaczy naukowe pliki PDF, zachowując wzory, wykresy i układ",
+			"notes": "Zaloguj się jako admin hasłem administratora, które podano; nie może zawierać przecinka. Wybierz Bing jako usługę, by tłumaczyć bez klucza: darmowa usługa Google często odrzuca adres serwera. Dla DeepL, OpenAI i innych wpisz klucz na stronie."
+		},
+		"pt": {
+			"description": "Traduz PDFs científicos mantendo fórmulas, gráficos e diagramação",
+			"notes": "Entre como admin com a senha de administrador que você informou; ela não pode ter vírgula. Escolha Bing como serviço para traduzir sem chave: o serviço gratuito do Google costuma recusar o endereço de um servidor. Para DeepL, OpenAI e os outros, informe uma chave na página."
+		},
+		"ru": {
+			"description": "Переводит научные PDF, сохраняя формулы, графики и вёрстку",
+			"notes": "Войдите как admin с паролем администратора, который вы указали; в нём не должно быть запятой. Чтобы переводить без ключа, выберите сервис Bing: бесплатный Google часто отказывает адресу сервера. Для DeepL, OpenAI и других введите ключ на странице."
+		},
+		"uk": {
+			"description": "Перекладає наукові PDF, зберігаючи формули, графіки й верстку",
+			"notes": "Увійдіть як admin з паролем адміністратора, який ви вказали; у ньому не має бути коми. Щоб перекладати без ключа, виберіть сервіс Bing: безкоштовний Google часто відмовляє адресі сервера. Для DeepL, OpenAI та інших введіть ключ на сторінці."
+		}
+	}
+}
