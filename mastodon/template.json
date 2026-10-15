@@ -1,0 +1,84 @@
+{
+	"name": "Mastodon",
+	"emoji": "🐘",
+	"route": {
+		"service": "proxy",
+		"port": 8080
+	},
+	"variables": [
+		{
+			"name": "HOST",
+			"from": "host"
+		},
+		{
+			"name": "ADMIN_USERNAME",
+			"ask": "username"
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "SECRET_KEY_BASE",
+			"secret": 64
+		},
+		{
+			"name": "AR_DETERMINISTIC_KEY",
+			"secret": 32
+		},
+		{
+			"name": "AR_KEY_DERIVATION_SALT",
+			"secret": 32
+		},
+		{
+			"name": "AR_PRIMARY_KEY",
+			"secret": 32
+		},
+		{
+			"name": "VAPID_SEED",
+			"secret": 32
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 24
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Your own server in the fediverse: posts, follows and replies across Mastodon and beyond",
+			"notes": "Sign in with the email and password you gave: you are the server’s owner, with the username you gave. The email must be one that receives mail: Mastodon checks its domain, and the deploy fails without that. Names such as admin or root are reserved by Mastodon. Sign-ups are closed; open them under Preferences, Administration, Server settings. Mastodon sends no email until SMTP_SERVER, SMTP_LOGIN, SMTP_PASSWORD and SMTP_FROM_ADDRESS are in the project’s .env and the project restarts. Every account is tied to this address for good, so give the project its final address before you post. Uploaded media is kept in /opt/mastodon/public/system."
+		},
+		"de": {
+			"description": "Dein eigener Server im Fediverse: Beiträge, Follows und Antworten über Mastodon hinaus",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Passwort an: Du bist der Owner des Servers, mit dem angegebenen Nutzernamen. Die E-Mail muss Post empfangen können: Mastodon prüft ihre Domain, sonst schlägt der Deploy fehl. Namen wie admin oder root reserviert Mastodon. Registrierungen sind geschlossen; öffne sie unter Einstellungen, Administration, Server-Einstellungen. Mastodon verschickt keine E-Mails, bis SMTP_SERVER, SMTP_LOGIN, SMTP_PASSWORD und SMTP_FROM_ADDRESS in der .env des Projekts stehen und das Projekt neu startet. Jedes Konto ist für immer an diese Adresse gebunden, also gib dem Projekt seine endgültige Adresse, bevor du postest. Hochgeladene Medien bleiben in /opt/mastodon/public/system erhalten."
+		},
+		"es": {
+			"description": "Tu propio servidor en el fediverso: publicaciones, seguidores y respuestas más allá de Mastodon",
+			"notes": "Entra con el correo y la contraseña que indicaste: eres el propietario del servidor, con el nombre de usuario que indicaste. El correo tiene que poder recibir mensajes: Mastodon comprueba su dominio y, si no, el despliegue falla. Mastodon reserva nombres como admin o root. Los registros están cerrados; ábrelos en Preferencias, Administración, Ajustes del servidor. Mastodon no envía correos hasta que SMTP_SERVER, SMTP_LOGIN, SMTP_PASSWORD y SMTP_FROM_ADDRESS estén en el .env del proyecto y el proyecto se reinicie. Cada cuenta queda ligada a esta dirección para siempre, así que da al proyecto su dirección definitiva antes de publicar. Los archivos subidos se conservan en /opt/mastodon/public/system."
+		},
+		"fr": {
+			"description": "Votre propre serveur dans le fédivers : messages, abonnements et réponses au-delà de Mastodon",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe indiqués : vous êtes le propriétaire du serveur, avec le nom d’utilisateur indiqué. L’e-mail doit pouvoir recevoir du courrier : Mastodon vérifie son domaine, et sinon le déploiement échoue. Mastodon réserve des noms comme admin ou root. Les inscriptions sont fermées ; ouvrez-les dans Préférences, Administration, Paramètres du serveur. Mastodon n’envoie aucun e-mail tant que SMTP_SERVER, SMTP_LOGIN, SMTP_PASSWORD et SMTP_FROM_ADDRESS ne sont pas dans le .env du projet et que le projet n’a pas redémarré. Chaque compte reste lié à cette adresse pour de bon : donnez au projet son adresse définitive avant de publier. Les médias envoyés sont conservés dans /opt/mastodon/public/system."
+		},
+		"pl": {
+			"description": "Twój własny serwer w fediwersum: wpisy, obserwowanie i odpowiedzi poza samym Mastodonem",
+			"notes": "Zaloguj się e-mailem i hasłem, które podano: jesteś właścicielem serwera, z nazwą użytkownika, którą podano. E-mail musi przyjmować pocztę: Mastodon sprawdza jego domenę, a bez tego wdrożenie się nie uda. Nazwy takie jak admin czy root Mastodon rezerwuje. Rejestracja jest zamknięta; otwórz ją w Ustawienia, Administracja, Ustawienia serwera. Mastodon nie wysyła e-maili, dopóki SMTP_SERVER, SMTP_LOGIN, SMTP_PASSWORD i SMTP_FROM_ADDRESS nie trafią do pliku .env projektu, a projekt się nie zrestartuje. Każde konto jest na zawsze związane z tym adresem, więc nadaj projektowi docelowy adres, zanim cokolwiek opublikujesz. Wgrane media zostają w /opt/mastodon/public/system."
+		},
+		"pt": {
+			"description": "Seu próprio servidor no fediverso: posts, seguidores e respostas além do Mastodon",
+			"notes": "Entre com o e-mail e a senha que você informou: você é o dono do servidor, com o nome de usuário que você informou. O e-mail precisa receber mensagens: o Mastodon verifica o domínio dele e, sem isso, o deploy falha. O Mastodon reserva nomes como admin ou root. Os cadastros estão fechados; abra-os em Preferências, Administração, Configurações do servidor. O Mastodon não envia e-mails até que SMTP_SERVER, SMTP_LOGIN, SMTP_PASSWORD e SMTP_FROM_ADDRESS estejam no .env do projeto e o projeto reinicie. Cada conta fica ligada a este endereço para sempre, então dê ao projeto o endereço definitivo antes de publicar. As mídias enviadas ficam guardadas em /opt/mastodon/public/system."
+		},
+		"ru": {
+			"description": "Свой сервер в федиверсе: посты, подписки и ответы по всему Mastodon и не только",
+			"notes": "Войдите с почтой и паролем, которые вы указали: вы владелец сервера, с тем именем пользователя, которое вы указали. Почта должна принимать письма: Mastodon проверяет её домен, иначе деплой не пройдёт. Имена вроде admin или root Mastodon резервирует. Регистрация закрыта; откройте её в Настройках, Администрирование, Настройки сервера. Mastodon не отправляет писем, пока SMTP_SERVER, SMTP_LOGIN, SMTP_PASSWORD и SMTP_FROM_ADDRESS не появятся в .env проекта и проект не перезапустится. Каждый аккаунт навсегда привязан к этому адресу, так что дайте проекту окончательный адрес до первых постов. Загруженные медиафайлы хранятся в /opt/mastodon/public/system."
+		},
+		"uk": {
+			"description": "Свій сервер у федиверсі: дописи, підписки й відповіді по всьому Mastodon і не лише",
+			"notes": "Увійдіть із поштою та паролем, які ви вказали: ви власник сервера, з тим ім’ям користувача, яке ви вказали. Пошта має приймати листи: Mastodon перевіряє її домен, інакше деплой не вдасться. Імена на кшталт admin або root Mastodon резервує. Реєстрацію закрито; відкрийте її в Налаштуваннях, Адміністрування, Налаштування сервера. Mastodon не надсилає листів, доки SMTP_SERVER, SMTP_LOGIN, SMTP_PASSWORD і SMTP_FROM_ADDRESS не з’являться в .env проєкту і проєкт не перезапуститься. Кожен акаунт назавжди прив’язаний до цієї адреси, тож дайте проєкту остаточну адресу до перших дописів. Завантажені медіафайли зберігаються в /opt/mastodon/public/system."
+		}
+	}
+}
