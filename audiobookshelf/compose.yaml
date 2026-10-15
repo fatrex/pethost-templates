@@ -1,0 +1,43 @@
+services:
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:2.37.1
+    restart: unless-stopped
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # The first visitor of a new server would create its root user. So, before it answers on its
+    # own port, it is started on one nobody reaches and given root with the password asked.
+    command:
+      - sh
+      - -c
+      - |
+        PORT=8081 node dist-server/index.js &
+        setup=$$!
+        node -e '
+          const init = async () => {
+            for (let i = 0; i < 180; i++) {
+              try {
+                const status = await fetch("http://127.0.0.1:8081/status").then((r) => r.json());
+                if (status.isInit) return;
+                const body = JSON.stringify({ newRoot: { username: "root", password: process.env.ADMIN_PASSWORD } });
+                const answer = await fetch("http://127.0.0.1:8081/init", { method: "POST", headers: { "Content-Type": "application/json" }, body });
+                if (answer.ok) return;
+              } catch {}
+              await new Promise((done) => setTimeout(done, 1000));
+            }
+            process.exit(1);
+          };
+          init();
+        ' || exit 1
+        kill $$setup
+        wait $$setup
+        exec node dist-server/index.js
+    volumes:
+      - config:/config
+      - metadata:/metadata
+      - audiobooks:/audiobooks
+      - podcasts:/podcasts
+volumes:
+  config:
+  metadata:
+  audiobooks:
+  podcasts:

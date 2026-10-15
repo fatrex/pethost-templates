@@ -1,0 +1,48 @@
+{
+	"name": "Audiobookshelf",
+	"emoji": "🎧",
+	"route": {
+		"service": "audiobookshelf",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Your own audiobook and podcast server: listen in the browser or the apps, with progress kept across devices",
+			"notes": "Sign in as root with the admin password you gave: the server is set up with it before it answers, so nobody else gets its setup page. Create a library under Settings → Libraries with the folder /audiobooks or /podcasts, then add books with the upload button at the top."
+		},
+		"de": {
+			"description": "Dein eigener Server für Hörbücher und Podcasts: im Browser oder in den Apps hören, mit Fortschritt über alle Geräte",
+			"notes": "Melde dich als root mit dem angegebenen Admin-Passwort an: Der Server wird damit eingerichtet, bevor er antwortet, sodass niemand sonst die Einrichtungsseite bekommt. Lege unter Settings → Libraries eine Bibliothek mit dem Ordner /audiobooks oder /podcasts an und füge dann mit dem Upload-Knopf oben Bücher hinzu."
+		},
+		"es": {
+			"description": "Tu propio servidor de audiolibros y podcasts: escucha en el navegador o en las apps, con el progreso guardado entre dispositivos",
+			"notes": "Entra como root con la contraseña de administrador que indicaste: el servidor se configura con ella antes de responder, así que nadie más ve su página de instalación. Crea una biblioteca en Settings → Libraries con la carpeta /audiobooks o /podcasts y añade libros con el botón de subida de arriba."
+		},
+		"fr": {
+			"description": "Votre propre serveur de livres audio et de podcasts : écoutez dans le navigateur ou les applis, avec la progression gardée d’un appareil à l’autre",
+			"notes": "Connectez-vous en tant que root avec le mot de passe administrateur indiqué : le serveur est configuré avec lui avant de répondre, donc personne d’autre ne voit sa page d’installation. Créez une bibliothèque dans Settings → Libraries avec le dossier /audiobooks ou /podcasts, puis ajoutez des livres avec le bouton d’envoi en haut."
+		},
+		"pl": {
+			"description": "Własny serwer audiobooków i podcastów: słuchaj w przeglądarce lub w aplikacjach, z postępem zapamiętanym na wszystkich urządzeniach",
+			"notes": "Zaloguj się jako root hasłem administratora, które podano: serwer jest nim skonfigurowany, zanim zacznie odpowiadać, więc nikt inny nie dostanie strony instalacji. Utwórz bibliotekę w Settings → Libraries z folderem /audiobooks lub /podcasts, a potem dodaj książki przyciskiem przesyłania u góry."
+		},
+		"pt": {
+			"description": "Seu próprio servidor de audiolivros e podcasts: ouça no navegador ou nos apps, com o progresso guardado entre dispositivos",
+			"notes": "Entre como root com a senha de administrador que você informou: o servidor é configurado com ela antes de responder, então ninguém mais vê a página de instalação. Crie uma biblioteca em Settings → Libraries com a pasta /audiobooks ou /podcasts e adicione livros com o botão de envio no topo."
+		},
+		"ru": {
+			"description": "Собственный сервер аудиокниг и подкастов: слушайте в браузере или приложениях, прогресс сохраняется на всех устройствах",
+			"notes": "Войдите как root с паролем администратора, который вы указали: сервер настраивается с ним до того, как начнёт отвечать, поэтому страницу установки больше никто не получит. Создайте библиотеку в Settings → Libraries с папкой /audiobooks или /podcasts и добавьте книги кнопкой загрузки вверху."
+		},
+		"uk": {
+			"description": "Власний сервер аудіокниг і подкастів: слухайте в браузері чи застосунках, прогрес зберігається на всіх пристроях",
+			"notes": "Увійдіть як root із паролем адміністратора, який ви вказали: сервер налаштовується з ним до того, як почне відповідати, тож сторінку встановлення більше ніхто не отримає. Створіть бібліотеку в Settings → Libraries з папкою /audiobooks або /podcasts і додайте книги кнопкою завантаження вгорі."
+		}
+	}
+}
