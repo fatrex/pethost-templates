@@ -1,0 +1,52 @@
+{
+	"name": "Checkmate",
+	"emoji": "♟️",
+	"route": {
+		"service": "checkmate",
+		"port": 52345
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "JWT_SECRET",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Uptime, page speed and infrastructure monitoring, with status pages",
+			"notes": "Open the address and create the account: the first one made is the admin, and everyone after joins by an invite. Do it right away: until then whoever has the address can make it. Email alerts and invites go out once an SMTP server is set in Settings."
+		},
+		"de": {
+			"description": "Überwachung von Erreichbarkeit, Ladezeiten und Servern, mit Statusseiten",
+			"notes": "Öffne die Adresse und erstell das Konto: Das erste wird Admin, alle weiteren kommen per Einladung dazu. Mach das gleich: Bis dahin kann es jeder anlegen, der die Adresse hat. Alarme und Einladungen per E-Mail gehen raus, sobald in den Settings ein SMTP-Server eingetragen ist."
+		},
+		"es": {
+			"description": "Monitoreo de disponibilidad, velocidad de páginas e infraestructura, con páginas de estado",
+			"notes": "Abre la dirección y crea la cuenta: la primera es la de administrador, y las siguientes entran por invitación. Hazlo enseguida: hasta entonces la puede crear cualquiera que tenga la dirección. Las alertas y las invitaciones por correo salen cuando pones un servidor SMTP en Settings."
+		},
+		"fr": {
+			"description": "Surveillance de la disponibilité, de la vitesse des pages et des serveurs, avec pages de statut",
+			"notes": "Ouvrez l’adresse et créez le compte : le premier créé est l’administrateur, les suivants arrivent par invitation. Faites-le tout de suite : d’ici là, quiconque connaît l’adresse peut le créer. Les alertes et les invitations par e-mail partent une fois un serveur SMTP indiqué dans Settings."
+		},
+		"pl": {
+			"description": "Monitoring dostępności, szybkości stron i serwerów, ze stronami statusu",
+			"notes": "Otwórz adres projektu i załóż konto: pierwsze założone jest kontem administratora, a kolejni dołączają przez zaproszenie. Zrób to od razu: do tego czasu może je założyć każdy, kto zna adres. Alerty i zaproszenia e-mailem wychodzą, gdy w Settings podasz serwer SMTP."
+		},
+		"pt": {
+			"description": "Monitoramento de disponibilidade, velocidade de páginas e servidores, com páginas de status",
+			"notes": "Abra o endereço e crie a conta: a primeira criada é a de administrador, e as seguintes entram por convite. Faça isso logo: até lá, quem tiver o endereço pode criá-la. Os alertas e os convites por e-mail saem quando você coloca um servidor SMTP em Settings."
+		},
+		"ru": {
+			"description": "Мониторинг доступности, скорости страниц и серверов, со страницами статуса",
+			"notes": "Откройте адрес и создайте аккаунт: первый созданный становится администратором, остальные входят по приглашению. Сделайте это сразу: до тех пор его может создать любой, кто знает адрес. Оповещения и приглашения по почте уходят, когда в Settings указан SMTP-сервер."
+		},
+		"uk": {
+			"description": "Моніторинг доступності, швидкості сторінок і серверів, зі сторінками статусу",
+			"notes": "Відкрийте адресу й створіть акаунт: перший створений стає адміністратором, решта входять за запрошенням. Зробіть це одразу: доти його може створити будь-хто, хто знає адресу. Сповіщення й запрошення поштою йдуть, коли в Settings вказано SMTP-сервер."
+		}
+	}
+}
