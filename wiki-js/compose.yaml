@@ -1,0 +1,71 @@
+services:
+  wiki:
+    image: ghcr.io/requarks/wiki:2.5.315
+    restart: unless-stopped
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_USER: wiki
+      DB_PASS: ${POSTGRES_PASSWORD}
+      DB_NAME: wiki
+      SITE_URL: ${URL}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # Wiki.js opens its setup page to whoever comes first. On the first start it runs once on
+    # port 3001, which nobody reaches, is set up there with the email and password given, and only
+    # then starts on 3000.
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        installed=$$(node -e "
+          const { Client } = require('pg');
+          const db = new Client({ host: 'postgres', user: process.env.DB_USER, password: process.env.DB_PASS, database: process.env.DB_NAME });
+          db.connect().then(() => db.query('select count(*) from settings')).then((r) => console.log(r.rows[0].count > 0 ? 'yes' : 'no'), () => console.log('no')).then(() => process.exit(0));
+        ")
+        if [ "$$installed" = no ]; then
+          sed 's/^port: 3000/port: 3001/' config.yml > /tmp/setup.yml
+          CONFIG_FILE=/tmp/setup.yml node server &
+          setup=$$!
+          node -e "
+            const body = JSON.stringify({ adminEmail: process.env.ADMIN_EMAIL, adminPassword: process.env.ADMIN_PASSWORD, adminPasswordConfirm: process.env.ADMIN_PASSWORD, siteUrl: process.env.SITE_URL, telemetry: false });
+            (async () => {
+              for (let i = 0; i < 180; i++) {
+                try {
+                  const answer = await fetch('http://127.0.0.1:3001/finalize', { method: 'POST', headers: { 'content-type': 'application/json' }, body });
+                  console.log('setup:', await answer.text());
+                  return;
+                } catch { await new Promise((done) => setTimeout(done, 1000)); }
+              }
+            })();
+          "
+          sleep 3
+          kill $$setup
+          wait $$setup
+        fi
+        exec node server
+    volumes:
+      - content:/wiki/data/content
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: wiki
+      POSTGRES_USER: wiki
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U wiki -d wiki"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  content:
+  db:

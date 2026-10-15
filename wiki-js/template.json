@@ -1,0 +1,60 @@
+{
+	"name": "Wiki.js",
+	"emoji": "🦋",
+	"route": {
+		"service": "wiki",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A wiki for a team or a project: pages in Markdown or a visual editor, search, permissions and sign-in providers",
+			"notes": "Sign in with the email and the admin password you gave: Wiki.js is set up with them before it answers, so nobody else gets its setup page. Pages are created from the home page; users, groups and sign-in providers are under Administration."
+		},
+		"de": {
+			"description": "Ein Wiki für ein Team oder ein Projekt: Seiten in Markdown oder einem visuellen Editor, Suche, Berechtigungen und Anmeldeanbieter",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Admin-Passwort an: Wiki.js wird damit eingerichtet, bevor es antwortet, sodass niemand sonst die Einrichtungsseite bekommt. Seiten legst du von der Startseite aus an; Benutzer, Gruppen und Anmeldeanbieter sind unter Administration."
+		},
+		"es": {
+			"description": "Una wiki para un equipo o un proyecto: páginas en Markdown o con un editor visual, búsqueda, permisos y proveedores de inicio de sesión",
+			"notes": "Entra con el correo y la contraseña de administrador que indicaste: Wiki.js se configura con ellos antes de responder, así que nadie más ve su página de instalación. Las páginas se crean desde la página de inicio; usuarios, grupos y proveedores de inicio de sesión están en Administration."
+		},
+		"fr": {
+			"description": "Un wiki pour une équipe ou un projet : pages en Markdown ou avec un éditeur visuel, recherche, permissions et fournisseurs de connexion",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe administrateur indiqués : Wiki.js est configuré avec eux avant de répondre, donc personne d’autre ne voit sa page d’installation. Les pages se créent depuis l’accueil ; utilisateurs, groupes et fournisseurs de connexion sont dans Administration."
+		},
+		"pl": {
+			"description": "Wiki dla zespołu albo projektu: strony w Markdownie lub w edytorze wizualnym, wyszukiwanie, uprawnienia i dostawcy logowania",
+			"notes": "Zaloguj się adresem e-mail i hasłem administratora, które podano: Wiki.js jest nimi skonfigurowane, zanim zacznie odpowiadać, więc nikt inny nie dostanie strony instalacji. Strony tworzy się ze strony głównej; użytkownicy, grupy i dostawcy logowania są w Administration."
+		},
+		"pt": {
+			"description": "Uma wiki para uma equipe ou um projeto: páginas em Markdown ou num editor visual, busca, permissões e provedores de login",
+			"notes": "Entre com o e-mail e a senha de administrador que você informou: o Wiki.js é configurado com eles antes de responder, então ninguém mais vê a página de instalação. As páginas são criadas a partir da página inicial; usuários, grupos e provedores de login ficam em Administration."
+		},
+		"ru": {
+			"description": "Вики для команды или проекта: страницы в Markdown или визуальном редакторе, поиск, права доступа и провайдеры входа",
+			"notes": "Войдите с почтой и паролем администратора, которые вы указали: Wiki.js настраивается с ними до того, как начнёт отвечать, поэтому страницу установки больше никто не получит. Страницы создаются с главной; пользователи, группы и провайдеры входа — в Administration."
+		},
+		"uk": {
+			"description": "Вікі для команди чи проєкту: сторінки в Markdown або у візуальному редакторі, пошук, права доступу й провайдери входу",
+			"notes": "Увійдіть із поштою й паролем адміністратора, які ви вказали: Wiki.js налаштовується з ними до того, як почне відповідати, тож сторінку встановлення більше ніхто не отримає. Сторінки створюються з головної; користувачі, групи й провайдери входу — в Administration."
+		}
+	}
+}
