@@ -1,0 +1,52 @@
+{
+	"name": "Open Design",
+	"emoji": "🎨",
+	"route": {
+		"service": "open-design",
+		"port": 7456
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "PASSWORD",
+			"ask": "password"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Design with AI: prototypes, slides and pages from a prompt, an open alternative to Claude Design",
+			"notes": "The browser asks for a user name and a password: the user name is open-design, the password the one you gave. Then in Settings choose API provider and give your provider’s base URL, key and model."
+		},
+		"de": {
+			"description": "Design mit KI: Prototypen, Folien und Seiten aus einem Prompt, eine offene Alternative zu Claude Design",
+			"notes": "Der Browser fragt nach Benutzername und Passwort: Der Benutzername ist open-design, das Passwort das angegebene. Wähl dann in den Settings „API provider“ und gib Base-URL, Key und Modell deines Anbieters an."
+		},
+		"es": {
+			"description": "Diseño con IA: prototipos, diapositivas y páginas a partir de un prompt, una alternativa abierta a Claude Design",
+			"notes": "El navegador pide un usuario y una contraseña: el usuario es open-design y la contraseña, la que indicaste. Luego, en Settings, elige API provider y pon la URL base, la clave y el modelo de tu proveedor."
+		},
+		"fr": {
+			"description": "Le design avec l’IA : prototypes, diapositives et pages à partir d’un prompt, une alternative ouverte à Claude Design",
+			"notes": "Le navigateur demande un nom d’utilisateur et un mot de passe : le nom est open-design, le mot de passe celui que vous avez indiqué. Ensuite, dans Settings, choisissez API provider et indiquez l’URL de base, la clé et le modèle de votre fournisseur."
+		},
+		"pl": {
+			"description": "Projektowanie z AI: prototypy, slajdy i strony z jednego promptu, otwarta alternatywa dla Claude Design",
+			"notes": "Przeglądarka poprosi o nazwę użytkownika i hasło: nazwa to open-design, a hasło to, które podano. Potem w Settings wybierz API provider i podaj bazowy URL, klucz i model swojego dostawcy."
+		},
+		"pt": {
+			"description": "Design com IA: protótipos, slides e páginas a partir de um prompt, uma alternativa aberta ao Claude Design",
+			"notes": "O navegador pede um nome de usuário e uma senha: o usuário é open-design e a senha, a que você informou. Depois, em Settings, escolha API provider e informe a URL base, a chave e o modelo do seu provedor."
+		},
+		"ru": {
+			"description": "Дизайн с ИИ: прототипы, слайды и страницы по промпту, открытая альтернатива Claude Design",
+			"notes": "Браузер спросит имя пользователя и пароль: имя — open-design, пароль — тот, что вы указали. Затем в Settings выберите API provider и укажите базовый URL, ключ и модель вашего провайдера."
+		},
+		"uk": {
+			"description": "Дизайн з ШІ: прототипи, слайди й сторінки з промпту, відкрита альтернатива Claude Design",
+			"notes": "Браузер запитає ім’я користувача й пароль: ім’я — open-design, пароль — той, що ви вказали. Потім у Settings виберіть API provider і вкажіть базовий URL, ключ і модель вашого провайдера."
+		}
+	}
+}

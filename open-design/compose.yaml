@@ -1,0 +1,16 @@
+services:
+  open-design:
+    image: ghcr.io/nexu-io/od:0.24.1
+    restart: unless-stopped
+    environment:
+      # A visitor's browser asks for it, with the user name open-design.
+      OD_API_TOKEN: ${PASSWORD}
+      OD_ALLOWED_ORIGINS: ${URL}
+      OD_PORT: 7456
+      OD_WEB_PORT: 7456
+    # Projects, artifacts and settings, in SQLite and files.
+    volumes:
+      - data:/app/.od
+
+volumes:
+  data:
