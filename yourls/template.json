@@ -1,0 +1,68 @@
+{
+	"name": "YOURLS",
+	"emoji": "🔗",
+	"route": {
+		"service": "yourls",
+		"port": 8080
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "ADMIN_USERNAME",
+			"ask": "username"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "COOKIE_KEY",
+			"secret": 32
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "DB_ROOT_PASSWORD",
+			"secret": 24
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Your own URL shortener with click stats",
+			"notes": "Sign in at https://{host}/admin/ with the username and password you gave; short links answer at https://{host}/<keyword>. The password is read from the project’s .env at every start: to change it, edit .env and deploy again."
+		},
+		"de": {
+			"description": "Dein eigener URL-Kürzer mit Klickstatistik",
+			"notes": "Melde dich unter https://{host}/admin/ mit dem Benutzernamen und dem Passwort an, die du festgelegt hast; Kurzlinks antworten unter https://{host}/<Kürzel>. Das Passwort wird bei jedem Start aus der .env des Projekts gelesen: Um es zu ändern, bearbeite die .env und deploy neu."
+		},
+		"es": {
+			"description": "Tu propio acortador de URL con estadísticas de clics",
+			"notes": "Inicia sesión en https://{host}/admin/ con el nombre de usuario y la contraseña que indicaste; los enlaces cortos responden en https://{host}/<palabra>. La contraseña se lee del .env del proyecto en cada arranque: para cambiarla, edita el .env y vuelve a desplegar."
+		},
+		"fr": {
+			"description": "Votre propre raccourcisseur d’URL avec statistiques de clics",
+			"notes": "Connectez-vous sur https://{host}/admin/ avec le nom d’utilisateur et le mot de passe que vous avez choisis ; les liens courts répondent sur https://{host}/<mot-clé>. Le mot de passe est lu dans le .env du projet à chaque démarrage : pour le changer, modifiez le .env et redéployez."
+		},
+		"pl": {
+			"description": "Własny skracacz linków ze statystykami kliknięć",
+			"notes": "Zaloguj się na https://{host}/admin/ nazwą użytkownika i hasłem podanymi przy tworzeniu projektu; krótkie linki działają pod https://{host}/<słowo>. Hasło jest odczytywane z pliku .env projektu przy każdym starcie: żeby je zmienić, popraw .env i wdróż ponownie."
+		},
+		"pt": {
+			"description": "Seu próprio encurtador de URL com estatísticas de cliques",
+			"notes": "Entre em https://{host}/admin/ com o usuário e a senha que você definiu; os links curtos respondem em https://{host}/<palavra>. A senha é lida do .env do projeto a cada início: para trocá-la, edite o .env e faça o deploy de novo."
+		},
+		"ru": {
+			"description": "Свой сокращатель ссылок со статистикой переходов",
+			"notes": "Войдите на https://{host}/admin/ с именем пользователя и паролем, которые вы задали; короткие ссылки открываются по адресу https://{host}/<слово>. Пароль читается из .env проекта при каждом запуске: чтобы сменить его, поправьте .env и задеплойте проект заново."
+		},
+		"uk": {
+			"description": "Власний скорочувач посилань зі статистикою переходів",
+			"notes": "Увійдіть на https://{host}/admin/ з іменем користувача й паролем, які ви вказали; короткі посилання відкриваються за адресою https://{host}/<слово>. Пароль читається з .env проєкту під час кожного запуску: щоб змінити його, виправте .env і задеплойте ще раз."
+		}
+	}
+}

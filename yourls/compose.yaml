@@ -1,0 +1,65 @@
+services:
+  yourls:
+    image: yourls:1.10.6-apache
+    restart: unless-stopped
+    environment:
+      YOURLS_SITE: ${URL}
+      YOURLS_USER: ${ADMIN_USERNAME}
+      YOURLS_PASS: ${ADMIN_PASSWORD}
+      YOURLS_COOKIEKEY: ${COOKIE_KEY}
+      YOURLS_DB_HOST: db
+      YOURLS_DB_USER: yourls
+      YOURLS_DB_PASS: ${DB_PASSWORD}
+      YOURLS_DB_NAME: yourls
+    # The image runs the PHP files of /docker-entrypoint-init.d before Apache starts: this one
+    # waits for the database and makes YOURLS's tables, which its install page would otherwise
+    # leave to a visitor's click.
+    command:
+      - sh
+      - -c
+      - |
+        mkdir -p /docker-entrypoint-init.d
+        cat > /docker-entrypoint-init.d/install.php <<'PHP'
+        <?php
+        for ($$try = 0; $$try < 60; $$try++) {
+            try {
+                new PDO('mysql:host=' . getenv('YOURLS_DB_HOST') . ';dbname=' . getenv('YOURLS_DB_NAME'), getenv('YOURLS_DB_USER'), getenv('YOURLS_DB_PASS'));
+                break;
+            } catch (PDOException $$e) {
+                sleep(2);
+            }
+        }
+        define('YOURLS_ADMIN', true);
+        define('YOURLS_INSTALLING', true);
+        require '/var/www/html/includes/load-yourls.php';
+        if (!yourls_is_installed()) {
+            $$result = yourls_create_sql_tables();
+            if (!empty($$result['error'])) {
+                fwrite(STDERR, implode("\n", $$result['error']) . "\n");
+                exit(1);
+            }
+        }
+        PHP
+        exec container-entrypoint.sh apache2-foreground
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: mariadb:11.8
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: yourls
+      MARIADB_USER: yourls
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 60s
+
+volumes:
+  db:
