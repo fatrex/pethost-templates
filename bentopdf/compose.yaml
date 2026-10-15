@@ -1,0 +1,6 @@
+services:
+  bentopdf:
+    # The self-hosted build: every tool, without the marketing pages of bentopdf.com. Files are
+    # processed in the visitor's browser and never reach the server.
+    image: ghcr.io/alam00000/bentopdf-simple:v2.8.8
+    restart: unless-stopped

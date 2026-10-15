@@ -1,0 +1,43 @@
+{
+	"name": "BentoPDF",
+	"emoji": "📄",
+	"route": {
+		"service": "bentopdf",
+		"port": 8080
+	},
+	"variables": [],
+	"texts": {
+		"en": {
+			"description": "PDF tools in the browser: merge, split, compress, sign, convert and edit, with the files never leaving it",
+			"notes": "Open the address and pick a tool. The files are processed in the visitor’s browser and never reach the server. BentoPDF has no accounts: anyone with the address can use it."
+		},
+		"de": {
+			"description": "PDF-Werkzeuge im Browser: zusammenführen, teilen, komprimieren, signieren, umwandeln und bearbeiten, ohne dass die Dateien ihn verlassen",
+			"notes": "Öffne die Adresse und wähl ein Werkzeug. Die Dateien werden im Browser der Besucher verarbeitet und erreichen den Server nie. BentoPDF hat keine Konten: Jeder mit der Adresse kann es nutzen."
+		},
+		"es": {
+			"description": "Herramientas PDF en el navegador: unir, dividir, comprimir, firmar, convertir y editar, sin que los archivos salgan de él",
+			"notes": "Abre la dirección y elige una herramienta. Los archivos se procesan en el navegador del visitante y nunca llegan al servidor. BentoPDF no tiene cuentas: cualquiera con la dirección puede usarlo."
+		},
+		"fr": {
+			"description": "Des outils PDF dans le navigateur : fusionner, découper, compresser, signer, convertir et modifier, sans que les fichiers en sortent",
+			"notes": "Ouvrez l’adresse et choisissez un outil. Les fichiers sont traités dans le navigateur du visiteur et n’atteignent jamais le serveur. BentoPDF n’a pas de comptes : toute personne qui a l’adresse peut s’en servir."
+		},
+		"pl": {
+			"description": "Narzędzia PDF w przeglądarce: łączenie, dzielenie, kompresja, podpisywanie, konwersja i edycja, a pliki jej nie opuszczają",
+			"notes": "Otwórz adres projektu i wybierz narzędzie. Pliki są przetwarzane w przeglądarce odwiedzającego i nigdy nie trafiają na serwer. BentoPDF nie ma kont: każdy, kto zna adres, może z niego korzystać."
+		},
+		"pt": {
+			"description": "Ferramentas de PDF no navegador: juntar, dividir, comprimir, assinar, converter e editar, sem que os arquivos saiam dele",
+			"notes": "Abra o endereço e escolha uma ferramenta. Os arquivos são processados no navegador de quem visita e nunca chegam ao servidor. O BentoPDF não tem contas: qualquer pessoa com o endereço pode usá-lo."
+		},
+		"ru": {
+			"description": "Инструменты для PDF в браузере: объединить, разделить, сжать, подписать, конвертировать и отредактировать, а файлы не покидают браузер",
+			"notes": "Откройте адрес и выберите инструмент. Файлы обрабатываются в браузере посетителя и никогда не попадают на сервер. В BentoPDF нет учётных записей: им может пользоваться любой, у кого есть адрес."
+		},
+		"uk": {
+			"description": "Інструменти для PDF у браузері: об’єднати, розділити, стиснути, підписати, конвертувати й відредагувати, а файли не залишають браузер",
+			"notes": "Відкрийте адресу й виберіть інструмент. Файли обробляються в браузері відвідувача й ніколи не потрапляють на сервер. У BentoPDF немає облікових записів: ним може користуватися будь-хто, у кого є адреса."
+		}
+	}
+}
