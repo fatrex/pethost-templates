@@ -1,0 +1,20 @@
+services:
+  open-connector:
+    image: ghcr.io/oomol-lab/open-connector:v1.8.0
+    restart: unless-stopped
+    environment:
+      # The redirect URLs of OAuth and the examples in the action guides.
+      OOMOL_CONNECT_ORIGIN: ${URL}
+      OOMOL_CONNECT_DATA_DIR: /app/data
+      # Encrypts the stored credentials: losing it loses them.
+      OOMOL_CONNECT_ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      # The web console and the admin API.
+      OOMOL_CONNECT_ADMIN_TOKEN: ${ADMIN_PASSWORD}
+      # Agents' calls to /mcp and /v1, so that they are never open.
+      OOMOL_CONNECT_RUNTIME_TOKEN: ${RUNTIME_TOKEN}
+    # SQLite, the connections and the transit files.
+    volumes:
+      - data:/app/data
+
+volumes:
+  data:

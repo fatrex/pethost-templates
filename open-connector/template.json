@@ -1,0 +1,60 @@
+{
+	"name": "OpenConnector",
+	"emoji": "🔌",
+	"route": {
+		"service": "open-connector",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "ENCRYPTION_KEY",
+			"secret": 32
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "RUNTIME_TOKEN",
+			"secret": 32
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "One MCP server and API for agents to act in GitHub, Gmail, Slack, Notion and hundreds of other services",
+			"notes": "Open the address and sign in to the console with the admin password you gave, then add the services’ API keys or OAuth apps. Agents connect to the address’s /mcp with a token from the console’s Access tab, or with RUNTIME_TOKEN from the project’s .env."
+		},
+		"de": {
+			"description": "Ein MCP-Server und eine API, mit denen Agenten in GitHub, Gmail, Slack, Notion und Hunderten weiteren Diensten handeln",
+			"notes": "Öffne die Adresse, melde dich in der Konsole mit dem angegebenen Admin-Passwort an und trag die API-Keys oder OAuth-Apps der Dienste ein. Agenten verbinden sich mit /mcp unter der Adresse, mit einem Token aus dem Tab Access der Konsole oder mit RUNTIME_TOKEN aus der .env des Projekts."
+		},
+		"es": {
+			"description": "Un servidor MCP y una API para que los agentes actúen en GitHub, Gmail, Slack, Notion y cientos de servicios más",
+			"notes": "Abre la dirección, entra en la consola con la contraseña de administrador que indicaste y añade las claves de API o las apps OAuth de los servicios. Los agentes se conectan a /mcp en la dirección con un token de la pestaña Access de la consola, o con RUNTIME_TOKEN del .env del proyecto."
+		},
+		"fr": {
+			"description": "Un serveur MCP et une API pour que les agents agissent dans GitHub, Gmail, Slack, Notion et des centaines d’autres services",
+			"notes": "Ouvrez l’adresse, connectez-vous à la console avec le mot de passe administrateur indiqué, puis ajoutez les clés d’API ou les apps OAuth des services. Les agents se connectent à /mcp sur l’adresse avec un jeton de l’onglet Access de la console, ou avec RUNTIME_TOKEN du .env du projet."
+		},
+		"pl": {
+			"description": "Jeden serwer MCP i API, przez które agenci działają w GitHubie, Gmailu, Slacku, Notion i setkach innych usług",
+			"notes": "Otwórz adres projektu, zaloguj się do konsoli hasłem administratora, które podano, i dodaj klucze API lub aplikacje OAuth usług. Agenci łączą się z /mcp pod adresem projektu tokenem z zakładki Access w konsoli albo RUNTIME_TOKEN z pliku .env projektu."
+		},
+		"pt": {
+			"description": "Um servidor MCP e uma API para agentes agirem no GitHub, Gmail, Slack, Notion e centenas de outros serviços",
+			"notes": "Abra o endereço, entre no console com a senha de administrador que você informou e adicione as chaves de API ou os apps OAuth dos serviços. Os agentes se conectam a /mcp no endereço com um token da aba Access do console, ou com RUNTIME_TOKEN do .env do projeto."
+		},
+		"ru": {
+			"description": "Один MCP-сервер и API, через которые агенты действуют в GitHub, Gmail, Slack, Notion и сотнях других сервисов",
+			"notes": "Откройте адрес, войдите в консоль с паролем администратора, который вы указали, и добавьте API-ключи или OAuth-приложения сервисов. Агенты подключаются к /mcp по адресу проекта с токеном со вкладки Access консоли или с RUNTIME_TOKEN из .env проекта."
+		},
+		"uk": {
+			"description": "Один MCP-сервер і API, через які агенти діють у GitHub, Gmail, Slack, Notion і сотнях інших сервісів",
+			"notes": "Відкрийте адресу, увійдіть у консоль із паролем адміністратора, який ви вказали, і додайте API-ключі або OAuth-застосунки сервісів. Агенти підключаються до /mcp за адресою проєкту з токеном із вкладки Access консолі або з RUNTIME_TOKEN із .env проєкту."
+		}
+	}
+}
