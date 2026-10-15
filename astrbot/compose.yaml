@@ -1,0 +1,15 @@
+services:
+  astrbot:
+    image: soulter/astrbot:v4.29.0
+    restart: unless-stopped
+    environment:
+      TZ: UTC
+      # The dashboard's first password, instead of a random one printed in the log. AstrBot asks
+      # for a new one at the first sign-in, and refuses to start on one without an upper-case
+      # letter, a lower-case letter and a digit.
+      ASTRBOT_DASHBOARD_INITIAL_PASSWORD: ${ADMIN_PASSWORD}
+    volumes:
+      - data:/AstrBot/data
+
+volumes:
+  data:

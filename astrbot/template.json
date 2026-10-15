@@ -1,0 +1,48 @@
+{
+	"name": "AstrBot",
+	"emoji": "🤖",
+	"route": {
+		"service": "astrbot",
+		"port": 6185
+	},
+	"variables": [
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "An AI chatbot and agent for Telegram, Discord, Slack, QQ, WeChat and more, with plugins and a web dashboard",
+			"notes": "Sign in to the dashboard as astrbot with the admin password you gave: it needs an upper-case letter, a lower-case letter and a digit. AstrBot asks for a new password at the first sign-in. Then add a model provider’s key and connect a messaging platform under Platforms."
+		},
+		"de": {
+			"description": "Ein KI-Chatbot und Agent für Telegram, Discord, Slack, QQ, WeChat und mehr, mit Plugins und einem Web-Dashboard",
+			"notes": "Melde dich im Dashboard als astrbot mit dem angegebenen Admin-Passwort an: Es braucht einen Großbuchstaben, einen Kleinbuchstaben und eine Ziffer. Bei der ersten Anmeldung fragt AstrBot nach einem neuen Passwort. Trag dann den Key eines Modellanbieters ein und verbinde unter Platforms eine Messaging-Plattform."
+		},
+		"es": {
+			"description": "Un chatbot y agente de IA para Telegram, Discord, Slack, QQ, WeChat y más, con plugins y un panel web",
+			"notes": "Entra en el panel como astrbot con la contraseña de administrador que indicaste: necesita una mayúscula, una minúscula y un dígito. En el primer inicio de sesión AstrBot pide una contraseña nueva. Después añade la clave de un proveedor de modelos y conecta una plataforma de mensajería en Platforms."
+		},
+		"fr": {
+			"description": "Un chatbot et agent IA pour Telegram, Discord, Slack, QQ, WeChat et d’autres, avec des plugins et un tableau de bord web",
+			"notes": "Connectez-vous au tableau de bord en tant qu’astrbot avec le mot de passe administrateur indiqué : il lui faut une majuscule, une minuscule et un chiffre. À la première connexion, AstrBot demande un nouveau mot de passe. Ajoutez ensuite la clé d’un fournisseur de modèles et reliez une messagerie dans Platforms."
+		},
+		"pl": {
+			"description": "Chatbot i agent AI dla Telegrama, Discorda, Slacka, QQ, WeChata i innych, z wtyczkami i panelem w przeglądarce",
+			"notes": "Zaloguj się do panelu jako astrbot hasłem administratora, które podano: musi mieć wielką literę, małą literę i cyfrę. Przy pierwszym logowaniu AstrBot poprosi o nowe hasło. Potem dodaj klucz dostawcy modeli i podłącz komunikator w Platforms."
+		},
+		"pt": {
+			"description": "Um chatbot e agente de IA para Telegram, Discord, Slack, QQ, WeChat e outros, com plugins e um painel web",
+			"notes": "Entre no painel como astrbot com a senha de administrador que você informou: ela precisa de uma letra maiúscula, uma minúscula e um dígito. No primeiro acesso o AstrBot pede uma senha nova. Depois adicione a chave de um provedor de modelos e conecte uma plataforma de mensagens em Platforms."
+		},
+		"ru": {
+			"description": "ИИ-чат-бот и агент для Telegram, Discord, Slack, QQ, WeChat и других, с плагинами и веб-панелью",
+			"notes": "Войдите в панель как astrbot с паролем администратора, который вы указали: в нём нужны заглавная буква, строчная буква и цифра. При первом входе AstrBot попросит новый пароль. Затем добавьте ключ провайдера моделей и подключите мессенджер в Platforms."
+		},
+		"uk": {
+			"description": "ШІ-чат-бот і агент для Telegram, Discord, Slack, QQ, WeChat та інших, із плагінами й вебпанеллю",
+			"notes": "Увійдіть у панель як astrbot із паролем адміністратора, який ви вказали: у ньому потрібні велика літера, мала літера й цифра. Під час першого входу AstrBot попросить новий пароль. Потім додайте ключ провайдера моделей і підключіть месенджер у Platforms."
+		}
+	}
+}
