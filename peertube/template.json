@@ -1,0 +1,64 @@
+{
+	"name": "PeerTube",
+	"emoji": "📺",
+	"route": {
+		"service": "peertube",
+		"port": 9000
+	},
+	"variables": [
+		{
+			"name": "HOST",
+			"from": "host"
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "PEERTUBE_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 24
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Your own video platform in the fediverse: upload, stream and share videos",
+			"notes": "Sign in as root with the admin password you gave; PeerTube reads it only at the first start. Sign-ups are closed until you enable them in the admin’s configuration, under General. PeerTube sends no email until SMTP_HOSTNAME, SMTP_USERNAME, SMTP_PASSWORD and SMTP_FROM are in the project’s .env and the project restarts. Videos are tied to this address for good, so give the project its final address before you upload. Transcoding takes the machine’s CPU while it runs. Videos and the config are kept in /data and /config."
+		},
+		"de": {
+			"description": "Deine eigene Videoplattform im Fediverse: Videos hochladen, streamen und teilen",
+			"notes": "Melde dich als root mit dem angegebenen Admin-Passwort an; PeerTube liest es nur beim ersten Start. Registrierungen sind geschlossen, bis du sie in der Konfiguration der Administration unter Allgemein aktivierst. PeerTube verschickt keine E-Mails, bis SMTP_HOSTNAME, SMTP_USERNAME, SMTP_PASSWORD und SMTP_FROM in der .env des Projekts stehen und das Projekt neu startet. Videos sind für immer an diese Adresse gebunden, also gib dem Projekt seine endgültige Adresse, bevor du hochlädst. Das Transkodieren belegt, solange es läuft, die CPU der Maschine. Videos und Konfiguration bleiben in /data und /config erhalten."
+		},
+		"es": {
+			"description": "Tu propia plataforma de vídeo en el fediverso: sube, transmite y comparte vídeos",
+			"notes": "Entra como root con la contraseña de administrador que indicaste; PeerTube solo la lee en el primer arranque. Los registros están cerrados hasta que los actives en la configuración de administración, en General. PeerTube no envía correos hasta que SMTP_HOSTNAME, SMTP_USERNAME, SMTP_PASSWORD y SMTP_FROM estén en el .env del proyecto y el proyecto se reinicie. Los vídeos quedan ligados a esta dirección para siempre, así que da al proyecto su dirección definitiva antes de subir nada. La transcodificación ocupa la CPU de la máquina mientras dura. Los vídeos y la configuración se conservan en /data y /config."
+		},
+		"fr": {
+			"description": "Votre propre plateforme vidéo dans le fédivers : publiez, diffusez et partagez des vidéos",
+			"notes": "Connectez-vous en tant que root avec le mot de passe administrateur indiqué ; PeerTube ne le lit qu’au premier démarrage. Les inscriptions sont fermées tant que vous ne les activez pas dans la configuration de l’administration, sous Général. PeerTube n’envoie aucun e-mail tant que SMTP_HOSTNAME, SMTP_USERNAME, SMTP_PASSWORD et SMTP_FROM ne sont pas dans le .env du projet et que le projet n’a pas redémarré. Les vidéos restent liées à cette adresse pour de bon : donnez au projet son adresse définitive avant d’en publier. Le transcodage occupe le CPU de la machine pendant qu’il tourne. Les vidéos et la configuration sont conservées dans /data et /config."
+		},
+		"pl": {
+			"description": "Twoja własna platforma wideo w fediwersum: wgrywaj, streamuj i udostępniaj filmy",
+			"notes": "Zaloguj się jako root hasłem administratora, które podano; PeerTube czyta je tylko przy pierwszym starcie. Rejestracja jest zamknięta, dopóki nie włączysz jej w konfiguracji administracji, w sekcji Ogólne. PeerTube nie wysyła e-maili, dopóki SMTP_HOSTNAME, SMTP_USERNAME, SMTP_PASSWORD i SMTP_FROM nie trafią do pliku .env projektu, a projekt się nie zrestartuje. Filmy są na zawsze związane z tym adresem, więc nadaj projektowi docelowy adres, zanim cokolwiek wgrasz. Transkodowanie zajmuje CPU maszyny, dopóki trwa. Filmy i konfiguracja zostają w /data i /config."
+		},
+		"pt": {
+			"description": "Sua própria plataforma de vídeo no fediverso: envie, transmita e compartilhe vídeos",
+			"notes": "Entre como root com a senha de administrador que você informou; o PeerTube só a lê na primeira inicialização. Os cadastros ficam fechados até você ativá-los na configuração da administração, em Geral. O PeerTube não envia e-mails até que SMTP_HOSTNAME, SMTP_USERNAME, SMTP_PASSWORD e SMTP_FROM estejam no .env do projeto e o projeto reinicie. Os vídeos ficam ligados a este endereço para sempre, então dê ao projeto o endereço definitivo antes de enviar qualquer um. A transcodificação ocupa a CPU da máquina enquanto roda. Os vídeos e a configuração ficam guardados em /data e /config."
+		},
+		"ru": {
+			"description": "Своя видеоплатформа в федиверсе: загружайте, транслируйте и делитесь видео",
+			"notes": "Войдите как root с паролем администратора, который вы указали; PeerTube читает его только при первом запуске. Регистрация закрыта, пока вы не включите её в конфигурации администрирования, в разделе «Общие». PeerTube не отправляет писем, пока SMTP_HOSTNAME, SMTP_USERNAME, SMTP_PASSWORD и SMTP_FROM не появятся в .env проекта и проект не перезапустится. Видео навсегда привязаны к этому адресу, так что дайте проекту окончательный адрес до первых загрузок. Перекодирование занимает CPU машины, пока идёт. Видео и конфигурация хранятся в /data и /config."
+		},
+		"uk": {
+			"description": "Своя відеоплатформа у федиверсі: завантажуйте, транслюйте й діліться відео",
+			"notes": "Увійдіть як root із паролем адміністратора, який ви вказали; PeerTube читає його лише під час першого запуску. Реєстрацію закрито, доки ви не ввімкнете її в конфігурації адміністрування, у розділі «Загальні». PeerTube не надсилає листів, доки SMTP_HOSTNAME, SMTP_USERNAME, SMTP_PASSWORD і SMTP_FROM не з’являться в .env проєкту і проєкт не перезапуститься. Відео назавжди прив’язані до цієї адреси, тож дайте проєкту остаточну адресу до перших завантажень. Перекодування займає CPU машини, поки триває. Відео та конфігурація зберігаються в /data і /config."
+		}
+	}
+}

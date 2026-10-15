@@ -1,0 +1,64 @@
+# PeerTube's production docker-compose.yml without its nginx, certbot and postfix: the machine's
+# proxy gives the address and HTTPS, and PeerTube serves its files itself.
+services:
+  peertube:
+    image: chocobozzz/peertube:v8.3.1-trixie
+    restart: unless-stopped
+    environment:
+      PEERTUBE_WEBSERVER_HOSTNAME: ${HOST}
+      PEERTUBE_SECRET: ${PEERTUBE_SECRET}
+      PEERTUBE_DB_HOSTNAME: postgres
+      PEERTUBE_DB_USERNAME: peertube
+      PEERTUBE_DB_PASSWORD: ${DB_PASSWORD}
+      PEERTUBE_REDIS_HOSTNAME: redis
+      PEERTUBE_ADMIN_EMAIL: ${ADMIN_EMAIL}
+      # Read once, when the first start makes the user root.
+      PT_INITIAL_ROOT_PASSWORD: ${ADMIN_PASSWORD}
+      # Empty until SMTP_HOSTNAME and the rest are put into .env: then PeerTube sends mail.
+      PEERTUBE_SMTP_HOSTNAME: ${SMTP_HOSTNAME:-}
+      PEERTUBE_SMTP_PORT: ${SMTP_PORT:-587}
+      PEERTUBE_SMTP_USERNAME: ${SMTP_USERNAME:-}
+      PEERTUBE_SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      PEERTUBE_SMTP_FROM: ${SMTP_FROM:-}
+      PEERTUBE_SMTP_TLS: ${SMTP_TLS:-false}
+      PEERTUBE_SMTP_DISABLE_STARTTLS: "false"
+    volumes:
+      - data:/data
+      - config:/config
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: peertube
+      POSTGRES_DB: peertube
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "peertube"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7.4
+    restart: unless-stopped
+    volumes:
+      - redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  data:
+  config:
+  db:
+  redis:
