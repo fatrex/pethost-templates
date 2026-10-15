@@ -1,0 +1,56 @@
+{
+	"name": "LibreDB Studio",
+	"emoji": "🗄️",
+	"route": {
+		"service": "libredb-studio",
+		"port": 3000
+	},
+	"variables": [
+		{
+			"name": "JWT_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "A SQL IDE in the browser for PostgreSQL, MySQL, SQLite, MongoDB, Redis and more",
+			"notes": "Sign in with the email and the admin password you gave. Saved connections and queries are kept in the project’s volume; the databases it connects to must be reachable from the machine."
+		},
+		"de": {
+			"description": "Eine SQL-IDE im Browser für PostgreSQL, MySQL, SQLite, MongoDB, Redis und mehr",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Admin-Passwort an. Gespeicherte Verbindungen und Abfragen liegen im Volume des Projekts; die Datenbanken, mit denen es sich verbindet, müssen von der Maschine aus erreichbar sein."
+		},
+		"es": {
+			"description": "Un IDE de SQL en el navegador para PostgreSQL, MySQL, SQLite, MongoDB, Redis y más",
+			"notes": "Inicia sesión con el correo y la contraseña de administrador que diste. Las conexiones y consultas guardadas quedan en el volumen del proyecto; las bases de datos a las que se conecta tienen que ser accesibles desde la máquina."
+		},
+		"fr": {
+			"description": "Un IDE SQL dans le navigateur pour PostgreSQL, MySQL, SQLite, MongoDB, Redis et plus",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe administrateur indiqués. Les connexions et requêtes enregistrées restent dans le volume du projet ; les bases auxquelles il se connecte doivent être accessibles depuis la machine."
+		},
+		"pl": {
+			"description": "IDE SQL w przeglądarce dla PostgreSQL, MySQL, SQLite, MongoDB, Redisa i innych",
+			"notes": "Zaloguj się podanym e-mailem i hasłem administratora. Zapisane połączenia i zapytania są w wolumenie projektu; bazy, z którymi się łączy, muszą być osiągalne z maszyny."
+		},
+		"pt": {
+			"description": "Uma IDE de SQL no navegador para PostgreSQL, MySQL, SQLite, MongoDB, Redis e mais",
+			"notes": "Entre com o e-mail e a senha de administrador que você informou. As conexões e consultas salvas ficam no volume do projeto; os bancos aos quais ele se conecta precisam ser acessíveis a partir da máquina."
+		},
+		"ru": {
+			"description": "SQL-IDE в браузере для PostgreSQL, MySQL, SQLite, MongoDB, Redis и других",
+			"notes": "Войдите с указанной почтой и паролем администратора. Сохранённые подключения и запросы хранятся в томе проекта; базы, к которым он подключается, должны быть доступны с машины."
+		},
+		"uk": {
+			"description": "SQL-IDE у браузері для PostgreSQL, MySQL, SQLite, MongoDB, Redis та інших",
+			"notes": "Увійдіть із вказаною поштою та паролем адміністратора. Збережені підключення й запити зберігаються в томі проєкту; бази, до яких він підключається, мають бути доступні з машини."
+		}
+	}
+}

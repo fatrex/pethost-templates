@@ -1,0 +1,17 @@
+services:
+  libredb-studio:
+    image: libredb/libredb-studio:0.18.3
+    restart: unless-stopped
+    environment:
+      # Signs the sessions and seals the saved connections' passwords.
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      # Connections, saved queries and the accounts in a SQLite file, not in the browser.
+      STORAGE_PROVIDER: sqlite
+      TRUSTED_PROXY_HOPS: 1
+    volumes:
+      - data:/app/data
+
+volumes:
+  data:
