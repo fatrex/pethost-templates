@@ -1,0 +1,15 @@
+services:
+  openlist:
+    image: openlistteam/openlist:v4.2.6
+    restart: unless-stopped
+    # A volume comes up owned by root, and the image's own user could not write to it (OpenList's
+    # docs, "Docker": run it with --user).
+    user: "0:0"
+    environment:
+      # Without it the first visitor would set up the admin account; with it, admin is created at
+      # the first start with this password.
+      OPENLIST_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    volumes:
+      - data:/opt/openlist/data
+volumes:
+  data:

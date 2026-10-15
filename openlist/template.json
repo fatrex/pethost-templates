@@ -1,0 +1,48 @@
+{
+	"name": "OpenList",
+	"emoji": "🗂️",
+	"route": {
+		"service": "openlist",
+		"port": 5244
+	},
+	"variables": [
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "One file list over many storages: cloud drives, S3, WebDAV and more, browsed, previewed and shared in the browser",
+			"notes": "Sign in as admin with the admin password you gave, then add a storage under Storages at https://{host}/@manage. Its files are also served over WebDAV at https://{host}/dav."
+		},
+		"de": {
+			"description": "Eine Dateiliste über viele Speicher: Cloud-Laufwerke, S3, WebDAV und mehr, im Browser durchsucht, angezeigt und geteilt",
+			"notes": "Melde dich als admin mit dem angegebenen Admin-Passwort an und füge dann unter Storages auf https://{host}/@manage einen Speicher hinzu. Seine Dateien gibt es auch per WebDAV unter https://{host}/dav."
+		},
+		"es": {
+			"description": "Una sola lista de archivos sobre muchos almacenamientos: nubes, S3, WebDAV y más, para explorar, previsualizar y compartir en el navegador",
+			"notes": "Entra como admin con la contraseña de administrador que indicaste y añade un almacenamiento en Storages, en https://{host}/@manage. Sus archivos también se sirven por WebDAV en https://{host}/dav."
+		},
+		"fr": {
+			"description": "Une seule liste de fichiers sur de nombreux stockages : clouds, S3, WebDAV et plus, à parcourir, prévisualiser et partager dans le navigateur",
+			"notes": "Connectez-vous en tant qu’admin avec le mot de passe administrateur indiqué, puis ajoutez un stockage dans Storages, à https://{host}/@manage. Ses fichiers sont aussi servis en WebDAV à https://{host}/dav."
+		},
+		"pl": {
+			"description": "Jedna lista plików z wielu magazynów: dyski w chmurze, S3, WebDAV i inne, przeglądane, podglądane i udostępniane w przeglądarce",
+			"notes": "Zaloguj się jako admin hasłem administratora, które podano, a potem dodaj magazyn w Storages pod https://{host}/@manage. Jego pliki są też dostępne przez WebDAV pod https://{host}/dav."
+		},
+		"pt": {
+			"description": "Uma única lista de arquivos sobre vários armazenamentos: nuvens, S3, WebDAV e mais, para navegar, pré-visualizar e compartilhar no navegador",
+			"notes": "Entre como admin com a senha de administrador que você informou e adicione um armazenamento em Storages, em https://{host}/@manage. Os arquivos dele também são servidos por WebDAV em https://{host}/dav."
+		},
+		"ru": {
+			"description": "Один список файлов поверх многих хранилищ: облачные диски, S3, WebDAV и другие — просмотр, предпросмотр и общий доступ в браузере",
+			"notes": "Войдите как admin с паролем администратора, который вы указали, и добавьте хранилище в разделе Storages на https://{host}/@manage. Его файлы доступны и по WebDAV по адресу https://{host}/dav."
+		},
+		"uk": {
+			"description": "Один список файлів поверх багатьох сховищ: хмарні диски, S3, WebDAV та інші — перегляд, попередній перегляд і спільний доступ у браузері",
+			"notes": "Увійдіть як admin із паролем адміністратора, який ви вказали, і додайте сховище в розділі Storages на https://{host}/@manage. Його файли доступні й через WebDAV за адресою https://{host}/dav."
+		}
+	}
+}
