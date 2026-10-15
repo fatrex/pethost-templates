@@ -1,0 +1,36 @@
+services:
+  graphql-engine:
+    image: hasura/graphql-engine:v2.50.3
+    restart: unless-stopped
+    environment:
+      # Hasura keeps its metadata in this database and serves it as the data source "default".
+      HASURA_GRAPHQL_DATABASE_URL: postgres://hasura:${POSTGRES_PASSWORD}@postgres:5432/hasura
+      # The console and the API take the admin secret; without it they would be open to anyone.
+      HASURA_GRAPHQL_ADMIN_SECRET: ${ADMIN_SECRET}
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      HASURA_GRAPHQL_CONSOLE_ASSETS_DIR: /srv/console-assets
+      HASURA_GRAPHQL_DEV_MODE: "false"
+      HASURA_GRAPHQL_ENABLE_TELEMETRY: "false"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hasura
+      POSTGRES_USER: hasura
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U hasura -d hasura"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  db:

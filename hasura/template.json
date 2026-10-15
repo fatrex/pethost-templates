@@ -1,0 +1,52 @@
+{
+	"name": "Hasura",
+	"emoji": "🔺",
+	"route": {
+		"service": "graphql-engine",
+		"port": 8080
+	},
+	"variables": [
+		{
+			"name": "POSTGRES_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "ADMIN_SECRET",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Instant GraphQL and REST APIs over a Postgres database, with permissions, events and a web console",
+			"notes": "Open https://{host}/console and enter the admin password you gave as the admin secret; API calls send it in the x-hasura-admin-secret header. The project’s own Postgres is connected as the data source default: create tables in the console’s Data tab."
+		},
+		"de": {
+			"description": "Sofortige GraphQL- und REST-APIs über einer Postgres-Datenbank, mit Berechtigungen, Events und einer Web-Konsole",
+			"notes": "Öffne https://{host}/console und gib das angegebene Admin-Passwort als Admin Secret ein; API-Aufrufe senden es im Header x-hasura-admin-secret. Das Postgres des Projekts ist als Datenquelle default verbunden: Lege Tabellen im Tab Data der Konsole an."
+		},
+		"es": {
+			"description": "APIs GraphQL y REST al instante sobre una base de datos Postgres, con permisos, eventos y una consola web",
+			"notes": "Abre https://{host}/console y escribe como admin secret la contraseña de administrador que indicaste; las llamadas a la API la envían en la cabecera x-hasura-admin-secret. El Postgres del propio proyecto está conectado como la fuente de datos default: crea tablas en la pestaña Data de la consola."
+		},
+		"fr": {
+			"description": "Des API GraphQL et REST instantanées sur une base Postgres, avec des permissions, des événements et une console web",
+			"notes": "Ouvrez https://{host}/console et saisissez comme admin secret le mot de passe administrateur indiqué ; les appels à l’API l’envoient dans l’en-tête x-hasura-admin-secret. Le Postgres du projet est relié comme la source de données default : créez des tables dans l’onglet Data de la console."
+		},
+		"pl": {
+			"description": "Natychmiastowe API GraphQL i REST nad bazą Postgres, z uprawnieniami, zdarzeniami i konsolą w przeglądarce",
+			"notes": "Otwórz https://{host}/console i wpisz jako admin secret hasło administratora, które podano; wywołania API wysyłają je w nagłówku x-hasura-admin-secret. Postgres projektu jest podłączony jako źródło danych default: tabele utworzysz w zakładce Data konsoli."
+		},
+		"pt": {
+			"description": "APIs GraphQL e REST instantâneas sobre um banco Postgres, com permissões, eventos e um console web",
+			"notes": "Abra https://{host}/console e digite como admin secret a senha de administrador que você informou; as chamadas à API a enviam no cabeçalho x-hasura-admin-secret. O Postgres do próprio projeto está conectado como a fonte de dados default: crie tabelas na aba Data do console."
+		},
+		"ru": {
+			"description": "Готовые GraphQL- и REST-API поверх базы Postgres, с правами доступа, событиями и веб-консолью",
+			"notes": "Откройте https://{host}/console и введите как admin secret пароль администратора, который вы указали; запросы к API передают его в заголовке x-hasura-admin-secret. Postgres самого проекта подключён как источник данных default: таблицы создаются во вкладке Data консоли."
+		},
+		"uk": {
+			"description": "Готові GraphQL- і REST-API поверх бази Postgres, із правами доступу, подіями й вебконсоллю",
+			"notes": "Відкрийте https://{host}/console і введіть як admin secret пароль адміністратора, який ви вказали; запити до API передають його в заголовку x-hasura-admin-secret. Postgres самого проєкту підключено як джерело даних default: таблиці створюються у вкладці Data консолі."
+		}
+	}
+}
