@@ -1,0 +1,68 @@
+{
+	"name": "Parse Server",
+	"emoji": "🧩",
+	"route": {
+		"service": "proxy",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "APP_ID",
+			"secret": 12
+		},
+		{
+			"name": "MASTER_KEY",
+			"secret": 32
+		},
+		{
+			"name": "MONGO_PASSWORD",
+			"secret": 24
+		},
+		{
+			"name": "SESSION_SECRET",
+			"secret": 32
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "An open-source backend for apps: a database API, users, files, cloud code and push, with Parse Dashboard",
+			"notes": "The dashboard is at https://{host}: sign in as admin with the admin password you gave. Apps use https://{host}/parse as the server URL, with the APP_ID from the project’s .env; the MASTER_KEY there is for servers only. MongoDB is part of the project."
+		},
+		"de": {
+			"description": "Ein Open-Source-Backend für Apps: Datenbank-API, Benutzer, Dateien, Cloud Code und Push, mit dem Parse Dashboard",
+			"notes": "Das Dashboard liegt unter https://{host}: Melde dich als admin mit dem angegebenen Admin-Passwort an. Apps nutzen https://{host}/parse als Server-URL, mit der APP_ID aus der .env des Projekts; der MASTER_KEY dort ist nur für Server. MongoDB gehört zum Projekt."
+		},
+		"es": {
+			"description": "Un backend de código abierto para apps: API de base de datos, usuarios, archivos, cloud code y push, con Parse Dashboard",
+			"notes": "El panel está en https://{host}: entra como admin con la contraseña de administrador que indicaste. Las apps usan https://{host}/parse como URL del servidor, con el APP_ID del .env del proyecto; el MASTER_KEY de ahí es solo para servidores. MongoDB forma parte del proyecto."
+		},
+		"fr": {
+			"description": "Un backend open source pour les apps : une API de base de données, des utilisateurs, des fichiers, du cloud code et des notifications push, avec Parse Dashboard",
+			"notes": "Le tableau de bord est à https://{host} : connectez-vous en tant qu’admin avec le mot de passe administrateur indiqué. Les apps utilisent https://{host}/parse comme URL du serveur, avec l’APP_ID du .env du projet ; le MASTER_KEY qui s’y trouve est réservé aux serveurs. MongoDB fait partie du projet."
+		},
+		"pl": {
+			"description": "Backend open source dla aplikacji: API bazy danych, użytkownicy, pliki, cloud code i push, z Parse Dashboard",
+			"notes": "Panel jest pod https://{host}: zaloguj się jako admin hasłem administratora, które podano. Aplikacje używają https://{host}/parse jako adresu serwera, z APP_ID z pliku .env projektu; MASTER_KEY stamtąd jest tylko dla serwerów. MongoDB jest częścią projektu."
+		},
+		"pt": {
+			"description": "Um backend open source para apps: API de banco de dados, usuários, arquivos, cloud code e push, com o Parse Dashboard",
+			"notes": "O painel fica em https://{host}: entre como admin com a senha de administrador que você informou. Os apps usam https://{host}/parse como URL do servidor, com o APP_ID do .env do projeto; o MASTER_KEY de lá é só para servidores. O MongoDB faz parte do projeto."
+		},
+		"ru": {
+			"description": "Бэкенд с открытым кодом для приложений: API базы данных, пользователи, файлы, cloud code и push, с Parse Dashboard",
+			"notes": "Панель открывается по адресу https://{host}: войдите как admin с паролем администратора, который вы указали. Приложения используют https://{host}/parse как адрес сервера, с APP_ID из .env проекта; MASTER_KEY оттуда — только для серверов. MongoDB входит в проект."
+		},
+		"uk": {
+			"description": "Бекенд із відкритим кодом для застосунків: API бази даних, користувачі, файли, cloud code і push, з Parse Dashboard",
+			"notes": "Панель відкривається за адресою https://{host}: увійдіть як admin із паролем адміністратора, який ви вказали. Застосунки використовують https://{host}/parse як адресу сервера, з APP_ID із .env проєкту; MASTER_KEY звідти — лише для серверів. MongoDB входить у проєкт."
+		}
+	}
+}

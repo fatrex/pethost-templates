@@ -1,0 +1,91 @@
+services:
+  # One address for both: the API under /parse, the dashboard at the root, as the dashboard calls
+  # the API from the browser.
+  proxy:
+    image: nginx:1-alpine
+    restart: unless-stopped
+    configs:
+      - source: nginx
+        target: /etc/nginx/nginx.conf
+
+  parse-server:
+    image: parseplatform/parse-server:9.10.4
+    restart: unless-stopped
+    environment:
+      PARSE_SERVER_APPLICATION_ID: ${APP_ID}
+      PARSE_SERVER_MASTER_KEY: ${MASTER_KEY}
+      PARSE_SERVER_DATABASE_URI: mongodb://parse:${MONGO_PASSWORD}@mongo:27017/parse?authSource=admin
+      PARSE_SERVER_MOUNT_PATH: /parse
+      PARSE_SERVER_URL: http://localhost:1337/parse
+      PARSE_PUBLIC_SERVER_URL: ${URL}/parse
+      # The dashboard sends the master key from the person's browser, so it is let in from any
+      # address; it is shown only after the dashboard's sign-in.
+      PARSE_SERVER_MASTER_KEY_IPS: 0.0.0.0/0,::0
+    # The image's own volumes: Cloud Code (cloud/main.js) and the configuration.
+    volumes:
+      - cloud:/parse-server/cloud
+      - config:/parse-server/config
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  dashboard:
+    image: parseplatform/parse-dashboard:9.2.0
+    restart: unless-stopped
+    environment:
+      PARSE_DASHBOARD_SERVER_URL: ${URL}/parse
+      PARSE_DASHBOARD_APP_ID: ${APP_ID}
+      PARSE_DASHBOARD_MASTER_KEY: ${MASTER_KEY}
+      PARSE_DASHBOARD_APP_NAME: Parse
+      PARSE_DASHBOARD_USER_ID: admin
+      PARSE_DASHBOARD_USER_PASSWORD: ${ADMIN_PASSWORD}
+      PARSE_DASHBOARD_COOKIE_SESSION_SECRET: ${SESSION_SECRET}
+      # HTTPS ends at the machine's proxy; the dashboard signs in only over it.
+      PARSE_DASHBOARD_TRUST_PROXY: "1"
+
+  mongo:
+    image: mongo:8.0
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: parse
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    volumes:
+      - db:/data/db
+      - configdb:/data/configdb
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+configs:
+  nginx:
+    content: |
+      events {}
+      http {
+        client_max_body_size 50m;
+        proxy_http_version 1.1;
+        proxy_set_header Host $$host;
+        proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $$http_x_forwarded_proto;
+        # Names are looked up per request, so the proxy starts before the other two answer.
+        resolver 127.0.0.11 valid=5s;
+        server {
+          listen 80;
+          set $$api parse-server:1337;
+          set $$dashboard dashboard:4040;
+          location /parse {
+            proxy_pass http://$$api;
+          }
+          location / {
+            proxy_pass http://$$dashboard;
+          }
+        }
+      }
+
+volumes:
+  cloud:
+  config:
+  db:
+  configdb:
