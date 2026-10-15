@@ -13,6 +13,10 @@
 		{
 			"name": "KEY",
 			"secret": 16
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 16
 		}
 	],
 	"texts": {

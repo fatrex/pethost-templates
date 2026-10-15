@@ -3,26 +3,51 @@ services:
     image: lycheeorg/lychee:v7
     restart: unless-stopped
     # Lychee's start takes a key only as base64 of 32 bytes: the 32 characters of KEY are those
-    # bytes.
+    # bytes. Compose writes KEY into the command, so the container's environment has APP_KEY alone.
     entrypoint:
       - sh
       - -c
-      - export APP_KEY="base64:$$(printf %s "$$KEY" | base64)"; exec /usr/local/bin/entrypoint.sh "$$@"
+      - export APP_KEY="base64:$$(printf %s ${KEY} | base64)"; exec /usr/local/bin/entrypoint.sh "$$@"
       - lychee
     command: [php, artisan, octane:start, --server=frankenphp, --host=0.0.0.0, --port=8000]
     environment:
-      KEY: ${KEY}
       APP_URL: ${URL}
       # TLS ends at the machine's proxy, which says so in X-Forwarded-Proto.
       TRUSTED_PROXIES: "*"
-      DB_CONNECTION: sqlite
-      DB_DATABASE: /data/lychee.sqlite
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_DATABASE: lychee
+      DB_USERNAME: lychee
+      DB_PASSWORD: ${DB_PASSWORD}
       # No worker: a job runs as it is made.
       QUEUE_CONNECTION: sync
+    depends_on:
+      db:
+        condition: service_healthy
     volumes:
-      - data:/data
       - uploads:/app/public/uploads
+      - logs:/app/storage/logs
+      - tmp:/app/storage/tmp
+
+  db:
+    image: mariadb:11.8
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: lychee
+      MARIADB_USER: lychee
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
 
 volumes:
-  data:
   uploads:
+  logs:
+  tmp:
+  db:
