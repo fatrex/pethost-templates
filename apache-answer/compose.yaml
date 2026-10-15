@@ -1,0 +1,33 @@
+services:
+  answer:
+    image: apache/answer:2.0.3
+    restart: unless-stopped
+    # Installed from these on the first start, with SQLite in /data: the admin is made from the
+    # fields, so the install page is never open to a visitor. A password Answer would refuse stops
+    # the start instead, since a refused one leaves that page open.
+    entrypoint:
+      - bash
+      - -c
+      - |
+        if [ $${#ADMIN_PASSWORD} -lt 8 ] || [ $${#ADMIN_PASSWORD} -gt 32 ]; then
+          echo "The admin password must be 8 to 32 characters." >&2
+          exit 1
+        fi
+        exec /entrypoint.sh
+    environment:
+      AUTO_INSTALL: "true"
+      DB_TYPE: sqlite3
+      DB_FILE: /data/answer.db
+      LANGUAGE: en-US
+      SITE_NAME: Apache Answer
+      SITE_URL: ${URL}
+      CONTACT_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_NAME: admin
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      EXTERNAL_CONTENT_DISPLAY: ask_before_display
+    volumes:
+      - data:/data
+
+volumes:
+  data:

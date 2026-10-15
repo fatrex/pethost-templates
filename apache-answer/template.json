@@ -1,0 +1,56 @@
+{
+	"name": "Apache Answer",
+	"emoji": "💬",
+	"route": {
+		"service": "answer",
+		"port": 80
+	},
+	"variables": [
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "ADMIN_EMAIL",
+			"ask": "email"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Questions and answers for a community, a help center or a team, a Stack Overflow of your own",
+			"notes": "Sign in with the email and the admin password you gave (8 to 32 characters); the admin’s user name is admin. Sign-ups are confirmed by email, so add an SMTP server under Admin → Settings → SMTP before you invite people."
+		},
+		"de": {
+			"description": "Fragen und Antworten für eine Community, ein Help Center oder ein Team, ein eigenes Stack Overflow",
+			"notes": "Melde dich mit der angegebenen E-Mail und dem Admin-Passwort an (8 bis 32 Zeichen); der Benutzername des Admins ist admin. Registrierungen werden per E-Mail bestätigt: Trag unter Admin → Settings → SMTP einen SMTP-Server ein, bevor du Leute einlädst."
+		},
+		"es": {
+			"description": "Preguntas y respuestas para una comunidad, un centro de ayuda o un equipo, tu propio Stack Overflow",
+			"notes": "Entra con el correo y la contraseña de administrador que indicaste (de 8 a 32 caracteres); el usuario del administrador es admin. Los registros se confirman por correo, así que añade un servidor SMTP en Admin → Settings → SMTP antes de invitar a nadie."
+		},
+		"fr": {
+			"description": "Des questions et des réponses pour une communauté, un centre d’aide ou une équipe, votre propre Stack Overflow",
+			"notes": "Connectez-vous avec l’e-mail et le mot de passe administrateur indiqués (8 à 32 caractères) ; le nom d’utilisateur de l’administrateur est admin. Les inscriptions sont confirmées par e-mail : ajoutez un serveur SMTP dans Admin → Settings → SMTP avant d’inviter du monde."
+		},
+		"pl": {
+			"description": "Pytania i odpowiedzi dla społeczności, centrum pomocy albo zespołu, własny Stack Overflow",
+			"notes": "Zaloguj się adresem e-mail i hasłem administratora, które podano (od 8 do 32 znaków); nazwa użytkownika administratora to admin. Rejestracje są potwierdzane e-mailem, więc zanim zaprosisz ludzi, dodaj serwer SMTP w Admin → Settings → SMTP."
+		},
+		"pt": {
+			"description": "Perguntas e respostas para uma comunidade, uma central de ajuda ou uma equipe, o seu próprio Stack Overflow",
+			"notes": "Entre com o e-mail e a senha de administrador que você informou (de 8 a 32 caracteres); o usuário do administrador é admin. Os cadastros são confirmados por e-mail, então adicione um servidor SMTP em Admin → Settings → SMTP antes de convidar alguém."
+		},
+		"ru": {
+			"description": "Вопросы и ответы для сообщества, справочного центра или команды, свой Stack Overflow",
+			"notes": "Войдите с почтой и паролем администратора, которые вы указали (от 8 до 32 символов); имя пользователя администратора — admin. Регистрации подтверждаются письмом, поэтому, прежде чем звать людей, добавьте SMTP-сервер в Admin → Settings → SMTP."
+		},
+		"uk": {
+			"description": "Питання й відповіді для спільноти, довідкового центру чи команди, свій Stack Overflow",
+			"notes": "Увійдіть із поштою й паролем адміністратора, які ви вказали (від 8 до 32 символів); ім’я користувача адміністратора — admin. Реєстрації підтверджуються листом, тож перш ніж кликати людей, додайте SMTP-сервер в Admin → Settings → SMTP."
+		}
+	}
+}
