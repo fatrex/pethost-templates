@@ -1,0 +1,130 @@
+# Synapse, the Matrix homeserver, with PostgreSQL. Its server name is the project's address, and
+# other servers find it there on port 443 through /.well-known/matrix/server, which Synapse serves.
+services:
+  synapse:
+    image: matrixdotorg/synapse:v1.163.0
+    restart: unless-stopped
+    environment:
+      SYNAPSE_SERVER_NAME: ${HOST}
+      SYNAPSE_REPORT_STATS: "no"
+      PUBLIC_URL: ${URL}
+      DB_PASSWORD: ${DB_PASSWORD}
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      REGISTRATION_TOKEN: ${REGISTRATION_TOKEN}
+    # The first start generates homeserver.yaml and the signing key; every start writes
+    # pethost.yaml, read after it, with what this project decides. The admin and the
+    # registration token are made once from .env, by the setup below, once Synapse answers.
+    entrypoint:
+      - sh
+      - -c
+      - |
+        set -e
+        [ -f /data/homeserver.yaml ] || /start.py generate
+        cat > /data/pethost.yaml <<EOF
+        public_baseurl: $$PUBLIC_URL/
+        serve_server_wellknown: true
+        serve_client_wellknown: true
+        listeners:
+          - port: 8008
+            type: http
+            tls: false
+            bind_addresses: ["0.0.0.0"]
+            x_forwarded: true
+            resources:
+              - names: [client, federation]
+                compress: false
+        database:
+          name: psycopg2
+          args:
+            user: synapse
+            password: $$DB_PASSWORD
+            dbname: synapse
+            host: db
+            cp_min: 5
+            cp_max: 10
+        enable_registration: true
+        registration_requires_token: true
+        suppress_key_server_warning: true
+        EOF
+        [ -f /data/.pethost-setup ] || python3 - <<'PY' &
+        import hashlib, hmac, json, os, signal, time, urllib.error, urllib.request
+        import yaml
+
+        BASE = "http://127.0.0.1:8008"
+
+        def call(method, path, body=None, token=None):
+            request = urllib.request.Request(BASE + path, method=method, data=json.dumps(body).encode() if body is not None else None)
+            request.add_header("Content-Type", "application/json")
+            if token:
+                request.add_header("Authorization", "Bearer " + token)
+            try:
+                with urllib.request.urlopen(request, timeout=30) as answer:
+                    return answer.status, json.load(answer)
+            except urllib.error.HTTPError as error:
+                return error.code, json.load(error)
+
+        def setup():
+            for _ in range(600):
+                try:
+                    urllib.request.urlopen(BASE + "/health", timeout=5)
+                    break
+                except Exception:
+                    time.sleep(1)
+            user = os.environ["ADMIN_USERNAME"].strip().lower()
+            password = os.environ["ADMIN_PASSWORD"]
+            secret = yaml.safe_load(open("/data/homeserver.yaml"))["registration_shared_secret"]
+
+            # The admin, by the shared secret, as register_new_matrix_user makes one.
+            nonce = call("GET", "/_synapse/admin/v1/register")[1]["nonce"]
+            mac = hmac.new(secret.encode(), digestmod=hashlib.sha1)
+            mac.update(b"\x00".join([nonce.encode(), user.encode(), password.encode(), b"admin"]))
+            status, made = call("POST", "/_synapse/admin/v1/register", {"nonce": nonce, "username": user, "password": password, "admin": True, "mac": mac.hexdigest()})
+            if status != 200 and made.get("errcode") == "M_USER_IN_USE":
+                status, made = call("POST", "/_matrix/client/v3/login", {"type": "m.login.password", "identifier": {"type": "m.id.user", "user": user}, "password": password})
+            if status != 200:
+                raise RuntimeError("the admin @%s could not be made: %s" % (user, made.get("error", made)))
+            token = made["access_token"]
+
+            # The token people register with, with no expiry and no limit of uses.
+            status, answer = call("POST", "/_synapse/admin/v1/registration_tokens/new", {"token": os.environ["REGISTRATION_TOKEN"]}, token)
+            if status != 200 and answer.get("errcode") != "M_INVALID_PARAM":
+                raise RuntimeError("the registration token could not be made: %s" % answer.get("error", answer))
+            call("POST", "/_matrix/client/v3/logout", {}, token)
+            open("/data/.pethost-setup", "w").close()
+            print("pethost: the admin @%s and the registration token are made" % user, flush=True)
+
+        # A setup that fails stops Synapse, so the deploy fails with the reason in its log.
+        try:
+            setup()
+        except Exception as error:
+            print("pethost: %s" % error, flush=True)
+            os.kill(1, signal.SIGTERM)
+        PY
+        exec /start.py run --config-path /data/homeserver.yaml --config-path /data/pethost.yaml
+    volumes:
+      - data:/data
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: synapse
+      POSTGRES_DB: synapse
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      # Synapse refuses a database whose collation is not C.
+      POSTGRES_INITDB_ARGS: --encoding=UTF8 --locale=C
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "synapse"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  data:
+  db:

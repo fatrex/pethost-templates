@@ -1,0 +1,68 @@
+{
+	"name": "Synapse",
+	"emoji": "💬",
+	"route": {
+		"service": "synapse",
+		"port": 8008
+	},
+	"variables": [
+		{
+			"name": "HOST",
+			"from": "host"
+		},
+		{
+			"name": "URL",
+			"from": "url"
+		},
+		{
+			"name": "ADMIN_USERNAME",
+			"ask": "username"
+		},
+		{
+			"name": "ADMIN_PASSWORD",
+			"ask": "adminPassword"
+		},
+		{
+			"name": "REGISTRATION_TOKEN",
+			"secret": 16
+		},
+		{
+			"name": "DB_PASSWORD",
+			"secret": 16
+		}
+	],
+	"texts": {
+		"en": {
+			"description": "Your own Matrix server: chat with anyone on Matrix, from Element or any other app",
+			"notes": "In Element (app.element.io) or any Matrix app, sign in on the server {host} with the username and password you gave: that account is the admin. Usernames are lowercase. Other people create their accounts on {host} with the registration token, REGISTRATION_TOKEN in the project’s .env. The password in .env is read only at the first start; change it in Element. The server name is this address for good, so give the project its final address before anyone joins. Other Matrix servers reach it at {host}, on port 443."
+		},
+		"de": {
+			"description": "Dein eigener Matrix-Server: chatte mit allen im Matrix-Netz, aus Element oder jeder anderen App",
+			"notes": "Melde dich in Element (app.element.io) oder einer anderen Matrix-App auf dem Server {host} mit dem Benutzernamen und dem Passwort an, die du festgelegt hast: Dieses Konto ist der Admin. Benutzernamen werden kleingeschrieben. Andere legen ihre Konten auf {host} mit dem Registrierungs-Token an, REGISTRATION_TOKEN in der .env des Projekts. Das Passwort aus der .env wird nur beim ersten Start gelesen; ändere es in Element. Der Servername ist für immer diese Adresse, also gib dem Projekt seine endgültige Adresse, bevor jemand beitritt. Andere Matrix-Server erreichen ihn unter {host}, Port 443."
+		},
+		"es": {
+			"description": "Tu propio servidor de Matrix: chatea con cualquiera en Matrix, desde Element o cualquier otra app",
+			"notes": "En Element (app.element.io) o cualquier app de Matrix, inicia sesión en el servidor {host} con el nombre de usuario y la contraseña que indicaste: esa cuenta es la del administrador. Los nombres de usuario van en minúsculas. Las demás personas crean sus cuentas en {host} con el token de registro, REGISTRATION_TOKEN en el .env del proyecto. La contraseña de .env solo se lee en el primer arranque; cámbiala en Element. El nombre del servidor queda ligado a esta dirección para siempre, así que dale al proyecto su dirección definitiva antes de que entre nadie. Los demás servidores de Matrix lo encuentran en {host}, puerto 443."
+		},
+		"fr": {
+			"description": "Votre propre serveur Matrix : discutez avec tout le monde sur Matrix, depuis Element ou n’importe quelle autre app",
+			"notes": "Dans Element (app.element.io) ou n’importe quelle app Matrix, connectez-vous au serveur {host} avec le nom d’utilisateur et le mot de passe que vous avez choisis : ce compte est l’administrateur. Les noms d’utilisateur sont en minuscules. Les autres créent leur compte sur {host} avec le jeton d’inscription, REGISTRATION_TOKEN dans le .env du projet. Le mot de passe du .env n’est lu qu’au premier démarrage ; changez-le dans Element. Le nom du serveur reste cette adresse pour toujours : donnez au projet son adresse définitive avant que quiconque le rejoigne. Les autres serveurs Matrix le joignent à l’adresse {host}, port 443."
+		},
+		"pl": {
+			"description": "Twój własny serwer Matrix: rozmawiaj z każdym w Matrix, z Elementu lub dowolnej innej aplikacji",
+			"notes": "W Elemencie (app.element.io) lub dowolnej aplikacji Matrix zaloguj się na serwerze {host} nazwą użytkownika i hasłem podanymi przy tworzeniu projektu: to konto jest administratorem. Nazwy użytkowników są pisane małymi literami. Pozostali zakładają konta na {host} z tokenem rejestracji, REGISTRATION_TOKEN w pliku .env projektu. Hasło z .env jest odczytywane tylko przy pierwszym starcie; zmienisz je w Elemencie. Nazwa serwera to na zawsze ten adres, więc nadaj projektowi docelowy adres, zanim ktokolwiek dołączy. Inne serwery Matrix łączą się z nim pod {host}, port 443."
+		},
+		"pt": {
+			"description": "Seu próprio servidor Matrix: converse com qualquer pessoa no Matrix, pelo Element ou qualquer outro app",
+			"notes": "No Element (app.element.io) ou em qualquer app do Matrix, entre no servidor {host} com o usuário e a senha que você definiu: essa conta é a do administrador. Os nomes de usuário ficam em minúsculas. As outras pessoas criam a conta em {host} com o token de cadastro, REGISTRATION_TOKEN no .env do projeto. A senha do .env só é lida na primeira inicialização; troque-a no Element. O nome do servidor fica preso a este endereço para sempre, então dê ao projeto o endereço definitivo antes que alguém entre. Os outros servidores Matrix o encontram em {host}, porta 443."
+		},
+		"ru": {
+			"description": "Свой сервер Matrix: переписывайтесь с кем угодно в Matrix из Element или любого другого приложения",
+			"notes": "В Element (app.element.io) или любом приложении Matrix войдите на сервер {host} с именем пользователя и паролем, которые вы задали: этот аккаунт администратора. Имена пользователей пишутся строчными буквами. Остальные заводят аккаунты на {host} с токеном регистрации, REGISTRATION_TOKEN в .env проекта. Пароль из .env читается только при первом запуске; меняется он в Element. Имя сервера навсегда остаётся этим адресом, так что дайте проекту окончательный адрес до того, как кто-то зарегистрируется. Другие серверы Matrix находят его по адресу {host}, порт 443."
+		},
+		"uk": {
+			"description": "Власний сервер Matrix: листуйтеся з ким завгодно в Matrix з Element чи будь-якого іншого застосунку",
+			"notes": "В Element (app.element.io) чи будь-якому застосунку Matrix увійдіть на сервер {host} з іменем користувача й паролем, які ви вказали: цей акаунт адміністратора. Імена користувачів пишуться малими літерами. Інші створюють акаунти на {host} з токеном реєстрації, REGISTRATION_TOKEN у .env проєкту. Пароль із .env читається лише під час першого запуску; змінюють його в Element. Ім’я сервера назавжди лишається цією адресою, тож дайте проєкту остаточну адресу, перш ніж хтось зареєструється. Інші сервери Matrix знаходять його за адресою {host}, порт 443."
+		}
+	}
+}
